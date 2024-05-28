@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
+using namespace std;
 class Clase{
-    private:
+    protected:
          double vida;
          double stamina;
          double ataque;
@@ -11,11 +12,12 @@ class Clase{
     public:
         Clase(double hp, double sta, double atk, double mag, double def, double agil): vida(hp), stamina(sta), ataque(atk), magia(mag), defenza(def), agilidad(agil){}; 
         void viewStats(){
-            cout<<"Vida ->      "<<getVida<<" HP"<<endl;
-            cout<<"Ataque ->    "<<getATaque<<" ATK"<<endl;
-            cout<<"Magia ->     "<<getMagia<<" MG"<<endl;
-            cout<<"Defenza ->   "<<getDefenza<<" DEF"<<endl;
-            cout<<"Agilidad ->  "<<getAguilidad<<" AGIL"<<endl;
+            cout<<"Vida ->      "<<getVida()<<" HP"<<endl;
+            cout<<"Stamina ->   "<<getStamina()<<" Sta"<<endl;
+            cout<<"Ataque ->    "<<getAtaque()<<" ATK"<<endl;
+            cout<<"Magia ->     "<<getMagia()<<" MG"<<endl;
+            cout<<"Defenza ->   "<<getDefenza()<<" DEF"<<endl;
+            cout<<"Agilidad ->  "<<getAguilidad()<<" AGIL"<<endl;
         }
         //gettesr and setters
         double getVida(){
@@ -58,12 +60,13 @@ class Clase{
 
 class Guerrero : public Clase{
     public:
-
+    	Guerrero(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
 class Magico : public Clase{
     public:
-
+		Magico(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
 class Sigilo : public Clase{
     public:
+    	Sigilo(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
