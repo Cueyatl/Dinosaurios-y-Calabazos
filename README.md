@@ -4,7 +4,7 @@
 Proyecto de tercer parcial, segundo semestre de clase de programación orientada a objetos.
 
 ## **Índice**   
-1.- [Convenciones de nombramiento](#Convenciones-de-nombramiento)
+1.- [Convenciones de nombramiento](#Convenciones-de-nombramiento)  
 2.- [Comandos de Git](#Comandos-de-Git)  
 3.- [¿Qué es un RPG?](#Qué-es-un-RPG)  
 4.- [Recursos para dibujos ASCII](#Recursos-para-dibujos-ASCII)  
