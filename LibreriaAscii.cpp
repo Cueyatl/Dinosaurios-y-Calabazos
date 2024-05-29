@@ -4,7 +4,7 @@
 /* descripción: 
 * Libreria que contiene funciones y string[] para el manejo de dibujos ASCII.
 */
-// ejercicio #
+
 
 #include <iostream>
 #include <vector>
@@ -26,10 +26,18 @@ public:
   }
 };
 
-
+  void static metodoParaCrearArrayDeStringsPorqueJossMeLosEnviaComoVariablesEnLineaPorLinea(){
+    for (size_t i = 1; i < 20; i++)
+    {
+      cout << "cout<<\"\\\"\"<<" <<"line"<<i<< "<<\"\\\",\"<<endl;" <<endl;
+    }
+    
+  }
 
 int main(int argc, char const *argv[])
 {
+  //sin esta linea, no se ven los dinosaurios. (●__●)
+  setlocale(LC_ALL, "en_US.UTF-8");
   //Codificacion en la terminal para que sean visibles los caracteres.
   // setlocale(LC_ALL, "en_US.UTF-8"); 
     //dino1.
@@ -64,30 +72,26 @@ const string dinosaurio1[]={
 " ██░░██████░░░░░░██░░░░████░░░░░░░░▒▒▒▒▒▒████           ██░░██  ",
 " ████ ██░░░░░░░░██░░██░░░░░░░░░░░░▒▒▒▒▒▒▒▒▓▓▓▓         ▓▓░░░░██  ",};
 
-//dino2.
- // Define character arrays for each line of the ASCII art
-  const char* line1 = "██████████████";
-  const char* line2 = "████░░████████████";
-  const char* line3 = "██████████████████";
-  const char* line4 = "██████████████████";
-  const char* line5 = "██████████████████";
-  const char* line6 = "████████      ";
-  const char* line7 = "██████████████░░  ";
-  const char* line8 = "██████       ";
-  const char* line9 = " ██       ██████████       ";
-  const char* line10 = " ██▒▒    ▒▒▒▒██████████▒▒▒▒     ";
-  const char* line11 = " ████▓▓   ██████████████ ▒▒     ";
-  const char* line12 = " ██████▒▒▒▒████████████████       ";
-  const char* line13 = " ██████████████████████████       ";
-  const char* line14 = "  ██████████████████████        ";
-  const char* line15 = "    ██████████████████        ";
-  const char* line16 = "    ▒▒██████████████         ";
-  const char* line17 = "     ▒▒██████▒▒██▓▓         ";
-  const char* line18 = "      ████   ▓▓         ";
-  const char* line19 = "      ██▒▒   ▓▓         ";
-  const char* line20 = "      ██    ██         ";
+const string dinosaurio2[]={
+  "██████████████",
+"████░░████████████",
+"██████████████████",
+"██████████████████",
+"██████████████████",
+"████████      ",
+"██████████████░░  ",
+"██████       ",
+" ██       ██████████       ",
+" ██▒▒    ▒▒▒▒██████████▒▒▒▒     ",
+" ████▓▓   ██████████████ ▒▒     ",
+" ██████▒▒▒▒████████████████       ",
+" ██████████████████████████       ",
+"  ██████████████████████        ",
+"    ██████████████████        ",
+"    ▒▒██████████████         ",
+"     ▒▒██████▒▒██▓▓         ",
+"      ████   ▓▓         ",
+"      ██▒▒   ▓▓         ",};
 
-  
-  
   return 0;
 }

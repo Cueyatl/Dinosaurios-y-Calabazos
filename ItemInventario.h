@@ -18,10 +18,10 @@ using namespace std;
 
 class ItemInventario {
 private:
-  //Nombres para las propiedades del objeto.
-    const string m_CATEGORIA_OBJETO[3]={ "Nombre", "Peso"};
-public:
+//Nombres para las propiedades del objeto
+    const string m_CATEGORIA_OBJETO[2] = { "Nombre", "Peso" };
     map<string, string> propiedades;
+public:
     // Constructor por defecto
     ItemInventario() {}
 
@@ -30,13 +30,12 @@ public:
         : propiedades(props) {}
 
     // Método para agregar una propiedad al objeto de inventario.
-    void agregarPropiedad( const string& nombre, const int& peso) {
-      propiedades[m_CATEGORIA_OBJETO[0]] = nombre;
-      propiedades[m_CATEGORIA_OBJETO[1]] = to_string(peso);
-      
+    void agregarPropiedad(const string& nombre, const int& peso) {
+        propiedades[m_CATEGORIA_OBJETO[0]] = nombre;
+        propiedades[m_CATEGORIA_OBJETO[1]] = to_string(peso);
     }
-    
-    //mapa conformado por clave:valor.
+
+    //Metodo confomado por mapa con "clave:valor" para buscar nombre como clave.
     string buscarPorNombre(const string& clave) const {
         auto item = propiedades.find(clave);
         if (item != propiedades.end()) {
@@ -47,12 +46,11 @@ public:
     }
 
     // Método para mostrar las propiedades
-void mostrarPropiedades() const {
-    for (const auto& [clave, valor] : propiedades) {
-       
-        cout << clave << ": " << valor << endl;
+    void mostrarPropiedades() const {
+        for (const auto& [clave, valor] : propiedades) {
+            cout << clave << ": " << valor << endl;
+        }
     }
-}
 };
 
 
