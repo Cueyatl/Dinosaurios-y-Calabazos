@@ -16,6 +16,10 @@ class Libreria
 {
 protected:
 public:
+Libreria(){
+  //sin esta linea, no se ven los dinosaurios. (●__●)
+  setlocale(LC_ALL, "en_US.UTF-8");
+};
   void static imprimirASCII(const string DIBUJO_ASCII[])
   {
     // Imprimir Ascii linea por linea.

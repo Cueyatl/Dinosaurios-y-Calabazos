@@ -1,7 +1,8 @@
 #archivos exclusivos para pruebas locales.
-TestSite2.cpp
-TestSite2.exe
-ExecuteTest.cpp
-launch.json
-settings.json
-tasks.json
+TestSite.cpp,
+testSite.exe,
+TestSite2.cpp,
+TestSite2.exe,
+launch.json,
+settings.json,
+tasks.json,
