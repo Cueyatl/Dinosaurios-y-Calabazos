@@ -1,5 +1,5 @@
-#ifndef PERSONAJE_H
-#define PERSONAJE_H
+#ifndef PROTOTIPOPERSONAJE_H
+#define PROTOTIPOPERSONAJE_H
 
 #include "ItemInventario.h"
 #include <iostream>
@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-class Personaje {
+class PrototipoPersonaje {
 private:
     const string m_NOMBRE;
     int m_nivel;
@@ -16,7 +16,7 @@ private:
     vector<ItemInventario> m_ObjetosEnInventario;
 
 public:
-    Personaje(const string& nombre, int nivel, int vida, int ataque)
+    PrototipoPersonaje(const string& nombre, int nivel, int vida, int ataque)
         : m_NOMBRE(nombre), m_nivel(nivel), m_vida(vida), m_ataque(ataque) {}
 
     string getNombre() const {
