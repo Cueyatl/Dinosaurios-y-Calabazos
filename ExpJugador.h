@@ -1,6 +1,5 @@
 #ifndef EXPJUGADOR_H
 #define EXPJUGADOR_H
-#include "LibreriaAscii.h"
 #include <iostream>
 #include <string>
 using namespace std;

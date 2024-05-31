@@ -1,6 +1,6 @@
-#include "Personaje.h"
+#include "PrototipoPersonaje.h"
 #include "ExpJugador.h"
-#include  "jugador.h"
+
 #include <iostream>
 #include <vector>
 #include <string> 
