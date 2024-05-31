@@ -1,54 +1,61 @@
+// archivo:  TestSite2.cpp
+// autor: Daniel Emiliano Lopez Aguilar
+//  fecha: 5/30/2024
+/* descripción:
+Este archivo funciona como zona de pruebas para snippets de codigo
+ y dudas sobre la POB en C++ con la intencion de no alterar el
+ funcionanmiento de los archivos.
+*/
 #include <iostream>
-#include <string>
-using namespace std;
-int main() {
-  //Experiencia requerida para subir al siguiente nivel. (del 2 al 20.)
-  int nivelExperiencia[20] = {
-    8,16, 39, 105, 231, 441, 759, 1209,1815, 2601, 3591,
-  4809, 6279, 8025, 10071, 12441, 15159, 18249, 21735,25641};
+#include <vector>
+#include <string> 
 
-  //Experiencia actual.
-  int m_exp = 0;
-  //nivel del jugador.
-  int m_nivel = 1;
+class MiClase {
+protected:
+  // Variable string[] protegida, initialized in constructor
+  static const std::string* mensajes;
+  static  size_t tamanoMensajes;
 
-  //Loop hasta que jugador no sea nivel 20.
-  //ALTERNATIVO:
-  if (m_nivel<20)
-  {
-    int expGanada;
-    m_exp += expGanada;
-
+public:
+  MiClase() {
+    // Initialize mensajes in the constructor
+    mensajes = new const std::string[tamanoMensajes]{
+      "Mensaje 1",
+      "Mensaje 2",
+      "Mensaje 3"
+    };
   }
-  
-  if (m_exp<=nivelExperiencia[20])
-  {
-    m_exp=nivelExperiencia[20];
-    
+
+  ~MiClase() {
+    // Deallocate memory for mensajes in destructor (if dynamically allocated)
+    delete[] mensajes;
   }
-  
-  // m_exp >= nivelExperiencia[m_nivel - 1]
-  while (m_nivel < 20) {
-    //define la exp ganada y sumala al jugador.
-    int expGanada;
-    //Return resultado de combate si fue victoria.
 
-    
+  static void imprimirStringArray() {
+    imprimirStringArray(mensajes, tamanoMensajes);
+  }
 
-    // Update player experience
-    m_exp += expGanada;
-
-    // Check if level up is required
-    while (m_exp >= nivelExperiencia[m_nivel - 1]) {
-      m_nivel++;
-      std::cout << "Congratulations! You are now level " << m_nivel << std::endl;
-
-      // Optionally, reset experience for the new level
-      // m_exp -= nivelExperiencia[m_nivel - 1];
+  static void imprimirStringArray(const std::string* array, size_t tamano) {
+    for (size_t i = 0; i < tamano; ++i) {
+      std::cout << array[i] << std::endl;
     }
   }
 
+private:
+  // Define tamanoMensajes outside the class (not constant)
+  static  size_t tamanoMensajes;
+};
 
+// Initialize tamanoMensajes outside the class (constant)
+const size_t MiClase::tamanoMensajes = sizeof(MiClase::mensajes) / sizeof(MiClase::mensajes[0]);
+
+// Initialize mensajes pointer in a separate source file (if needed)
+const std::string* MiClase::mensajes = nullptr;
+
+int main() {
+  // Create an instance of MiClase to initialize mensajes
+  MiClase miClase;
+  miClase.imprimirStringArray();
 
   return 0;
 }
