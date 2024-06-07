@@ -1,96 +1,103 @@
+// Clase para definir personaje que selecciona jugador.
+
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 #include "ItemInventario.h"
+#include "ExpJugador.h"
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
-class Personaje : public ItemInventario
+class Personaje : public PrototipoPersonaje
 {
 private:
+//si algo no funciona es por aqui:
+
   const string m_NOMBRE;
+  int m_experiencia;
   int m_nivel;
-  int m_vida;
-  int m_ataque;
-  
+  int m_vida=PrototipoPersonaje::m_vida;
+  int m_ataque=PrototipoPersonaje::m_ataque;
 public:
   vector<ItemInventario> m_ObjetosEnInventario;
-  Personaje(const string NOMBRE, int nivel, int vida, int ataque, vector<ItemInventario> ObjetosInventario)
-    :m_NOMBRE(NOMBRE), m_nivel(nivel), m_vida(vida), m_ataque(ataque), m_ObjetosEnInventario(ObjetosInventario){};
+   Personaje() : m_NOMBRE("Ingresa tu nombre"), m_nivel(1), m_vida(10), m_ataque(10), m_experiencia(0) {}
 
-  string getNombre()const {
-    cout<<"nombre -> "<<m_NOMBRE<<endl;
-    return m_NOMBRE;}
+  Personaje(const string NOMBRE, int nivel, int vida, int ataque, vector<ItemInventario> ObjetosInventario, int experiencia)
+    :m_NOMBRE(NOMBRE), m_nivel(nivel), m_vida(vida), m_ataque(ataque), m_ObjetosEnInventario(ObjetosInventario),m_experiencia(experiencia){};
 
-   void mostrarInventario() const {
-        for (const auto& item : m_ObjetosEnInventario) {
-            item.mostrarPropiedades();
-            cout << "----------" << endl;
-        }
-    }
-    void agregarAlInventario(string nombre, int peso){
-        ItemInventario item;
-        item.agregarPropiedad(nombre,peso);
-        m_ObjetosEnInventario.push_back(item);
-        
-    }
+  // string getNombre()const {oy
+  //   cout<<"nombre -> "<<m_NOMBRE<<endl;
+  //   return m_NOMBRE;}
+
+  //  void mostrarInventario() const {
+  //       for (const auto& item : m_ObjetosEnInventario) {
+  //           item.mostrarPropiedades();
+  //           cout << "----------" << endl;
+  //       }
+  //   }
+  //   void agregarAlInventario(string nombre, int peso){
+  //       ItemInventario item;
+  //       item.agregarPropiedad(nombre,peso);
+  //       m_ObjetosEnInventario.push_back(item);
+  //   }
+
 };
 
 class Clase : public Personaje{
     protected:
-        double experiencia;
-        double vida;
-        double stamina;
-        double ataque;
-        double magia;
-        double defenza;
-        double agilidad;
+        double m_vida;
+        double m_stamina;
+        double m_ataque;
+        double m_magia;
+        double m_defenza;
+        double m_agilidad;
     public:
-        Clase(double hp, double sta, double atk, double mag, double def, double agil): vida(hp), stamina(sta), ataque(atk), magia(mag), defenza(def), agilidad(agil){}; 
-        void viewStats(){
+        Clase(double hp, double sta, double atk, double mag, double def, double agil)
+        : m_vida(hp), m_stamina(sta), m_ataque(atk), m_magia(mag), m_defenza(def), m_agilidad(agil){}; 
+        void mostrarEstadisticas(){
             cout<<"Vida ->      "<<getVida()<<" HP"<<endl;
             cout<<"Stamina ->   "<<getStamina()<<" Sta"<<endl;
             cout<<"Ataque ->    "<<getAtaque()<<" ATK"<<endl;
             cout<<"Magia ->     "<<getMagia()<<" MG"<<endl;
             cout<<"Defenza ->   "<<getDefenza()<<" DEF"<<endl;
-            cout<<"Agilidad ->  "<<getAguilidad()<<" AGIL"<<endl;
+            cout<<"Agilidad ->  "<<getAgilidad()<<" AGIL"<<endl;
         }
         double getVida(){
-            return vida;
+            return m_vida;
         }
         double getStamina(){
-            return stamina;
+            return m_stamina;
         }
         double getAtaque(){
-            return ataque;
+            return m_ataque;
         }
         double getMagia(){
-            return magia;
+            return m_magia;
         }
         double getDefenza(){
-            return defenza;
+            return m_defenza;
         }
-        double getAguilidad(){
-            return agilidad;
+        double getAgilidad(){
+            return m_agilidad;
         }
         void setVida(double hp){
-            vida = hp;
+            m_vida = hp;
         }
         void setStamina(double sta){
-            stamina = sta;
+            m_stamina = sta;
         }
         void setAtaque(double atk){
-            ataque = atk;
+            m_ataque = atk;
         }
         void setMagia(double mag){
-            magia = mag;
+            m_magia = mag;
         }
         void setDefenza(double def){
-            defenza = def;
+            m_defenza = def;
         }
         void setAgilidad(double agil){
-            agilidad = agil;
+            m_agilidad = agil;
         }
 };
 
@@ -109,14 +116,16 @@ class Sigilo : public Clase{
     	Sigilo(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
 
+//clase modificada para fines de pruebas
 class Espadachin : public Guerrero{
     public:
     	Espadachin() : Guerrero(100,100,10,0,6,5){};
-        double golpeCola(){
+        double ataqueGolpeCola(){
             double dano = (getAtaque()*0.9) + (getDefenza()*0.5);
+            cout<<"Ataque golpe Cola!"<<endl;
             return dano;
         }
-        double dinoEstoque(){
+        double ataqueDinoEstoque(){
             double dano = (getAtaque()*1.5);
             return dano;
         }
@@ -124,7 +133,7 @@ class Espadachin : public Guerrero{
             double dano = (getAtaque()*1.3) + (getDefenza()*0.8);
             return dano;
         } 
-        double mordidaFinal(){
+        double ataqueMordidaFinal(){
             double dano = (getAtaque()*2.8);
             return dano;
         }
@@ -133,19 +142,19 @@ class Espadachin : public Guerrero{
 class Berserker : public Guerrero{
     public:
     	Berserker() : Guerrero(125,80,15,0,8,3){};
-        double giroRex(){
+        double ataqueGiroRex(){
             double dano = (getAtaque()*1.35);
             return dano;
         }
-        double rugidoX2(){
-            double dano = (giroRex()*2);
+        double ataqueRugidoX2(){
+            double dano = (ataqueGiroRex()*2);
             return dano;
         }
-        double furiaJurasica(){
+        double ataqueFuriaJurasica(){
             double dano = (getAtaque()*1.15) + (getDefenza()*1.2);
             return dano;
         }
-        double sismoVolcanico(){
+        double ataqueSismoVolcanico(){
             double dano = (getAtaque()*2.2) + (getDefenza()*1.5);
             return dano;
         }
@@ -154,19 +163,19 @@ class Berserker : public Guerrero{
 class Mago : public Magico{
     public:
     	Mago() : Magico(80,115,0,15,3,2){};
-        double rayoFuego(){
+        double ataqueRayoFuego(){
             double dano = (getMagia()*1.3);
             return dano;
         }
-        double bolaOscura(){
+        double ataqueBolaOscura(){
             double dano = (getMagia()*1.7);
             return dano;
         }
-        double rugidoMagico(){
+        double ataqueRugidoMagico(){
             double dano = (getMagia()*2);
             return dano;
         }
-        double meteoroCataclismico(){
+        double ataqueMeteoroCataclismico(){
             double dano = (getMagia()*3.2);
             return dano;
         }
@@ -197,19 +206,19 @@ class Ladron : public Sigilo{
     public:
     	Ladron() : Sigilo(90,125,6,0,4,10){};
         double corte(){
-            double dano = (getAtaque()*0.7) + (getAguilidad()*0.6);
+            double dano = (getAtaque()*0.7) + (getAgilidad()*0.6);
             return dano;
         }
         double corteX(){
-            double dano = (getAtaque()*0.9) + (getAguilidad()*0.9);
+            double dano = (getAtaque()*0.9) + (getAgilidad()*0.9);
             return dano;
         }
         double garraSigilo(){
-            double dano = (getAtaque()*1) + (getAguilidad()*0.9);
+            double dano = (getAtaque()*1) + (getAgilidad()*0.9);
             return dano;
         }
         double trampaJoshi(){
-            double dano = (getAtaque()*1.2) + (getAguilidad()*1.3);
+            double dano = (getAtaque()*1.2) + (getAgilidad()*1.3);
             return dano;
         }
 };
@@ -218,19 +227,19 @@ class Arquero : public Sigilo{
     public:
     	Arquero() : Sigilo(100,100,12,0,2,6){};
         double disparo(){
-            double dano = (getAtaque()*0.9) + (getAguilidad()*0.2);
+            double dano = (getAtaque()*0.9) + (getAgilidad()*0.2);
             return dano;
         }
         double flechaRapida(){
-            double dano = (getAtaque()*0.5) + (getAguilidad()*1.5);
+            double dano = (getAtaque()*0.5) + (getAgilidad()*1.5);
             return dano;
         }
         double dinoFlecha(){
-            double dano = (getAtaque()*1.1) + (getAguilidad()*0.5);
+            double dano = (getAtaque()*1.1) + (getAgilidad()*0.5);
             return dano;
         }
         double flechaExtincion(){
-            double dano = (getAtaque()*1.7) + (getAguilidad()*1.3);
+            double dano = (getAtaque()*1.7) + (getAgilidad()*1.3);
             return dano;
         }
 };

@@ -21,7 +21,7 @@ private:
 //Nombres para las propiedades del objeto
     const string m_CATEGORIA_OBJETO[2] = { "Nombre", "Peso" };
     map<string, string> propiedades;
-public:
+protected:
     // Constructor por defecto
     ItemInventario() {}
 
@@ -31,8 +31,9 @@ public:
 
     // Método para agregar una propiedad al objeto de inventario.
     void agregarPropiedad(const string& nombre, const int& peso) {
+        //mapa propiedades. cada renglon es un objeto del inventario.
         propiedades[m_CATEGORIA_OBJETO[0]] = nombre;
-        propiedades[m_CATEGORIA_OBJETO[1]] = to_string(peso);
+        propiedades[m_CATEGORIA_OBJETO[1]] = to_string(peso);        
     }
 
     //Metodo confomado por mapa con "clave:valor" para buscar nombre como clave.
@@ -41,7 +42,7 @@ public:
         if (item != propiedades.end()) {
             return item->second;
         } else {
-            return "No encontrado"; // O lanza una excepción si prefieres
+            return "objeto del inventario no encontrado"; // O lanza una excepción si prefieres
         }
     }
 
@@ -51,7 +52,11 @@ public:
             cout << clave << ": " << valor << endl;
         }
     }
+    
+    /*Esta linea permite utilizar los metodos de esta clase en  protected
+    para que se puedan utilizar en la clase heredada(Personaje)*/
+    friend class Personaje;
+    friend class PrototipoPersonaje;
 };
-
 
 #endif //ITEMINVENTARIO_H
