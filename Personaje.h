@@ -42,7 +42,7 @@ class Clase : public Personaje{
         double experiencia;
         double vida;
         double stamina;
-        double ataque;
+        double ataque;+
         double magia;
         double defenza;
         double agilidad;
