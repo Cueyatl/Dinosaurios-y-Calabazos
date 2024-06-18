@@ -27,6 +27,7 @@ public:
     setlocale(LC_ALL, "en_US.UTF-8");
   };
 
+/*Charmap, variable global  leer archivo binario*/
 
   string mensajeNuevoNivel[6] = {
   " _   _                               _           _         _                              _       ",
@@ -668,7 +669,6 @@ const string dinosaurio1[29] = {
         "    / / ",
         "   /_/  ",
     };
-
     vector<string> imprimirListasdeNumeros(const string &numeros)
     {
         vector<string> resultado(6, "");
@@ -745,7 +745,6 @@ const string dinosaurio1[29] = {
         cout << LINEA << endl;
     }
   }
- 
 };
 // int main(int argc, char const *argv[])
 // {

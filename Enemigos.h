@@ -4,20 +4,20 @@ class Enemigo : public Clase{
         Enemigo(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
 
-class Salvaje : public Enemigo(){
+class Salvaje : public Enemigo{
     public:
         Salvaje(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
-class NoMuerto : public Enemigo(){
+};
+class NoMuerto : public Enemigo{
     public:
         NoMuerto(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
-class Elemental : public Enemigo(){
+};
+class Elemental : public Enemigo{
     public:
         Elemental(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
+};
 
-class Jabali : public Salvaje(){
+class Jabali : public Salvaje{
     public:
         Jabali() : Salvaje(75,75,5,0,3,3){};
         double patada(){
@@ -28,7 +28,7 @@ class Jabali : public Salvaje(){
             double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
             return dano;
         }
-}
+};
 class Lobo : public Salvaje(){
     public:
         Lobo() : Salvaje(125,85,7,0,5,6){};

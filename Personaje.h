@@ -101,6 +101,7 @@ class Clase : public Personaje{
         }
 };
 
+
 class Guerrero : public Clase{
     public:
     	Guerrero(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};

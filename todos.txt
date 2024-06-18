@@ -54,3 +54,13 @@ yo sistema de combate (return expGanada, karma);
 
 imprimir digitos
 
+
+6/8/2024
+puedo notar que la clase Clase y Personaje son iguales, voy a mover 
+las funciones de Clase a Personaje antes conocido como protoPersonaje
+
+asi las clases de enemigo y de jugador, se derivan de las clases Enemigo y Jugador en vez de
+clase. 
+
+Creo que es irrelevante las clases guerrero, magico sigilo, esto ya no es un piedra, papel y tijeras.
+
