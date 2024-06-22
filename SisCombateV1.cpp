@@ -47,7 +47,6 @@ public:
   /*agregar al inventario, si existe la llave(numero de identificacion) error: llave ya existente,
   *Si no, agregarla. incluye un catch por si existe un error inesperado al agregar.
   *
-  *esto estaba en los parametros: const string &NOMBRE, const string &DESCRIPCION, int PESO, int DANO
   */
   void agregarItem(const int &llave, const string &NOMBRE, const string &DESCRIPCION, int PESO, int DANO)
   {
