@@ -25,15 +25,15 @@ datosItem objetosInventario[]={
   {"Espada flameante Encantada", "Acero afilado, ssmbolo de poder y valor.",12, 0.1,0.15, 0, 0.05, 0, true},
   { "Arco y Flecha", "Perfectos para ataques a distancia.",7, 0.5, 0, 0.1, 0.1, 0, true},
   { "Hacha Vikinga", "Ideal para cortar madera o enfrentarte a enemigos.",13, 0.1, 0, 0.1, 0.1,0, true},
-  { "Baston Magico", "Pueden lanzar hechizos o potenciar tus habilidades..",11, 0.05, 0.2, 0, 0.05, 0, true},
+  { "Baston Magico", "Canaliza poder arcano!!",11, 0.05, 0.2, 0, 0.05, 0, true},
   {"Dinamita", "Sustancia explosiva a base de nitroglicerina.",11, 0.2, 0, 0.05, 0.05, true},
   { "Glock 22", "Artefacto de una epoca menos civilizada..",6, 0.15, 0, 0, 0.15, 0, true},
 
-  {"Pocion de Fuerza", "Artefacto de una epoca menos civilizada..",16, 0.2, 0,0.05, 0.05, 0.1 , false},
-  {"Pocion de Vida", "Artefacto de una epoca menos civilizada..",3, 0,0,0,0.4, false},
-  { "Pocion de Resistencia", "Artefacto de una epoca menos civilizada..",12, 0,0.1,0.2,0.1,0, false},
-  {"Amuleto Ojo Turco de Agua", "Proporciona puntos de agilidad y magia", 9, 0,0.1,0.2,0.1,0, false},
-  {"Amuleto Ojo Turco de Fuego", "Proporciona puntos de vida y ataque", 9, 0.3,0,0,0,0.1, false},
+  {"Pocion de Fuerza", "Aumenta tu fuerza permanentemente.",16, 0.2, 0,0.05, 0.05, 0.1 , false},
+  {"Pocion de Vida", "Restaura tu salud al instante.",3, 0,0,0,0.4, false},
+  { "Pocion de Resistencia", "Brebaje magico que mejora tu defensa y otros aspectos.",12, 0,0.1,0.2,0.1,0, false},
+  {"Amuleto Ojo Turco de Agua", "Magia oscura que proporciona puntos de AGILIDAD y MAGIA", 9, 0,0.1,0.2,0.1,0, false},
+  {"Amuleto Ojo Turco de Fuego", "Magia oscura proporciona puntos de VIDA y ATAQUE", 9, 0.3,0,0,0,0.1, false},
 };
 class SisInventario
 {
