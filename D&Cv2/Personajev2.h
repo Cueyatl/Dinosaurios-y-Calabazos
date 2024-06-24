@@ -3,11 +3,11 @@
 #include "SisInventario.h"
 #include <iostream>
 #include <string>
+#include <memory> 
 using namespace std;
 
 class PersonajeV2 : public SisInventario{
 protected:
-  SisInventario inventario;
 private:
   string m_NOMBRE;
   double m_ataque;
@@ -17,6 +17,7 @@ private:
   double m_stamina;
   double m_vida; 
   
+  SisInventario inventario;
 
 public:
   PersonajeV2(){}
@@ -32,7 +33,7 @@ public:
   string getNombre(){return m_NOMBRE;};
   double getAtaque(){return m_ataque;};
   double getAgilidad(){return m_agilidad;};
-  double getDefenza(){return m_defenza;}
+  double getDefensa(){return m_defenza;}
   double getMagia(){return m_magia;}
   double getStamina(){return m_stamina;}
   double getVida(){return m_vida;};
@@ -41,7 +42,7 @@ public:
   void setAgilidad(double agilidad) {m_agilidad = agilidad;};
   void setMagia(double magia){m_magia = magia;}
   void setStamina(double stamina){m_stamina = stamina;}
-  void setDefenza(double defensa){m_defenza = defensa;}
+  void setDefensa(double defensa){m_defenza = defensa;}
   void setVida(double vida) {m_vida = vida;};
 
   void mostrarEstadisticas(){
@@ -49,10 +50,9 @@ public:
     cout<<"Stamina ->   "<<getStamina()<<" STA"<<endl;
     cout<<"Ataque ->    "<<getAtaque()<<" ATK"<<endl;
     cout<<"Magia ->     "<<getMagia()<<" MG"<<endl;
-    cout<<"Defenza ->   "<<getDefenza()<<" DEF"<<endl;
+    cout<<"Defenza ->   "<<getDefensa()<<" DEF"<<endl;
     cout<<"Agilidad ->  "<<getAgilidad()<<" AGIL"<<endl;
   }
 };
-
 
 #endif //PERSONAJE_H

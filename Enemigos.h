@@ -25,7 +25,7 @@ class Jabali : public Salvaje{
             return dano;
         }
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
 };
@@ -33,7 +33,7 @@ class Lobo : public Salvaje(){
     public:
         Lobo() : Salvaje(125,85,7,0,5,6){};
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double mordida(){
@@ -49,7 +49,7 @@ class Oso : public Salvaje(){
     public:
         Oso() : Salvaje(200,100,20,0,15,7){};
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double ataqueGarra(){
@@ -69,7 +69,7 @@ class Dinosaurio : public Salvaje(){
     public:
         Dinosaurio() : Salvaje(300,150,35,0,20,25){};
         double golpeCola(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double ataqueGarra(){
@@ -139,15 +139,15 @@ class Grifo : public Elemental(){
     public:
         Grifo() : Elemental(200,120,15,12,20,7){};
         double golpeFuerte(){
-            double dano = (getFuerza()*1.3) + (getMagia()*0.7) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.3) + (getMagia()*0.7) + (getDefensa()*0.5);
             return dano;
         }
         double embestidaCelestial(){
-            double dano = (getFuerza()*1.5) + (getMagia()*0.8) + (getDefenza()*0.2);
+            double dano = (getFuerza()*1.5) + (getMagia()*0.8) + (getDefensa()*0.2);
             return dano;
         }
         double vueloDelAlba(){
-            double dano = (getFuerza()*1.7) + (getMagia()*1.2) + (getDefenza()*0.7);
+            double dano = (getFuerza()*1.7) + (getMagia()*1.2) + (getDefensa()*0.7);
             return dano;
         }
 };

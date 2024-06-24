@@ -11,8 +11,6 @@ using namespace std;
 
 class SisCombateV2
 {
-private:
-  /* data */
 public:
   SisCombateV2();
   JugadorV2 jugadorId;
@@ -65,7 +63,6 @@ public:
     {
      jugador->mostrarInventario();
      cout<<"usando Inventario.cpp";
-    
     }
     
   }

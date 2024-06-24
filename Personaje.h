@@ -60,7 +60,7 @@ class Clase : public Personaje{
             cout<<"Stamina ->   "<<getStamina()<<" Sta"<<endl;
             cout<<"Ataque ->    "<<getAtaque()<<" ATK"<<endl;
             cout<<"Magia ->     "<<getMagia()<<" MG"<<endl;
-            cout<<"Defenza ->   "<<getDefenza()<<" DEF"<<endl;
+            cout<<"Defenza ->   "<<getDefensa()<<" DEF"<<endl;
             cout<<"Agilidad ->  "<<getAgilidad()<<" AGIL"<<endl;
         }
         double getVida(){
@@ -75,7 +75,7 @@ class Clase : public Personaje{
         double getMagia(){
             return m_magia;
         }
-        double getDefenza(){
+        double getDefensa(){
             return m_defenza;
         }
         double getAgilidad(){
@@ -93,7 +93,7 @@ class Clase : public Personaje{
         void setMagia(double mag){
             m_magia = mag;
         }
-        void setDefenza(double def){
+        void setDefensa(double def){
             m_defenza = def;
         }
         void setAgilidad(double agil){
@@ -122,7 +122,7 @@ class Espadachin : public Guerrero{
     public:
     	Espadachin() : Guerrero(100,100,10,0,6,5){};
         double ataqueGolpeCola(){
-            double dano = (getAtaque()*0.9) + (getDefenza()*0.5);
+            double dano = (getAtaque()*0.9) + (getDefensa()*0.5);
             cout<<"Ataque golpe Cola!"<<endl;
             return dano;
         }
@@ -131,7 +131,7 @@ class Espadachin : public Guerrero{
             return dano;
         }
         double garraJurasica(){
-            double dano = (getAtaque()*1.3) + (getDefenza()*0.8);
+            double dano = (getAtaque()*1.3) + (getDefensa()*0.8);
             return dano;
         } 
         double ataqueMordidaFinal(){
@@ -152,11 +152,11 @@ class Berserker : public Guerrero{
             return dano;
         }
         double ataqueFuriaJurasica(){
-            double dano = (getAtaque()*1.15) + (getDefenza()*1.2);
+            double dano = (getAtaque()*1.15) + (getDefensa()*1.2);
             return dano;
         }
         double ataqueSismoVolcanico(){
-            double dano = (getAtaque()*2.2) + (getDefenza()*1.5);
+            double dano = (getAtaque()*2.2) + (getDefensa()*1.5);
             return dano;
         }
 };

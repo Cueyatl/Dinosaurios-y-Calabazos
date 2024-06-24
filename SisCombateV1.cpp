@@ -127,7 +127,7 @@ public:
   string getNombre(){return m_NOMBRE;};
   long int getAtaque(){return m_ataque;};
   long int getAgilidad(){return m_agilidad;};
-  long int getDefenza(){return m_defenza;}
+  long int getDefensa(){return m_defenza;}
   long int getMagia(){return m_magia;}
   long int getStamina(){return m_stamina;}
   long int getVida(){return m_vida;};
@@ -136,7 +136,7 @@ public:
   void setAgilidad(double agilidad) {m_agilidad = agilidad;};
   void setMagia(double magia){m_magia = magia;}
   void setStamina(double stamina){m_stamina = stamina;}
-  void setDefenza(double defensa){m_defenza = defensa;}
+  void setDefensa(double defensa){m_defenza = defensa;}
   void setVida(double vida) {m_vida = vida;};
 
   void mostrarEstadisticas(){
@@ -144,7 +144,7 @@ public:
     cout<<"Stamina ->   "<<getStamina()<<" Sta"<<endl;
     cout<<"Ataque ->    "<<getAtaque()<<" ATK"<<endl;
     cout<<"Magia ->     "<<getMagia()<<" MG"<<endl;
-    cout<<"Defenza ->   "<<getDefenza()<<" DEF"<<endl;
+    cout<<"Defenza ->   "<<getDefensa()<<" DEF"<<endl;
     cout<<"Agilidad ->  "<<getAgilidad()<<" AGIL"<<endl;
   }
 
@@ -166,7 +166,7 @@ class Oso : public Enemigo{
     public:
         Oso() : Enemigo(NOMBRE,200,100,20,0,15,7){};
         double embestida(){
-            double dano = (getAtaque()*1.25) + (getDefenza()*0.5);
+            double dano = (getAtaque()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double ataqueGarra(){
@@ -207,11 +207,11 @@ class Berserker : public Personaje{
             return dano;
         }
         double ataqueFuriaJurasica(){
-            double dano = (getAtaque()*1.15) + (getDefenza()*1.2);
+            double dano = (getAtaque()*1.15) + (getDefensa()*1.2);
             return dano;
         }
         double ataqueSismoVolcanico(){
-            double dano = (getAtaque()*2.2) + (getDefenza()*1.5);
+            double dano = (getAtaque()*2.2) + (getDefensa()*1.5);
             return dano;
         }
 };

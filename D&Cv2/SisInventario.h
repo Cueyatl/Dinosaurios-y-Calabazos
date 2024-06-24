@@ -13,9 +13,28 @@ struct datosItem
   string NOMBRE;
   string DESCRIPCION;
   int PESO;
-  int DANO;
+  double ATAQUE;
+  double MAGIA;
+  double DEFENSA;
+  double AGILIDAD;
+  double VIDA;
+  bool reutilizable;
 };
+datosItem objetosInventario[]={
+  { "Espada Romana","Acero afilado, simbolo de poder y valor.",10, 0.2, 0, 0.1,0,0 , true},
+  {"Espada flameante Encantada", "Acero afilado, ssmbolo de poder y valor.",12, 0.1,0.15, 0, 0.05, 0, true},
+  { "Arco y Flecha", "Perfectos para ataques a distancia.",7, 0.5, 0, 0.1, 0.1, 0, true},
+  { "Hacha Vikinga", "Ideal para cortar madera o enfrentarte a enemigos.",13, 0.1, 0, 0.1, 0.1,0, true},
+  { "Baston Magico", "Pueden lanzar hechizos o potenciar tus habilidades..",11, 0.05, 0.2, 0, 0.05, 0, true},
+  {"Dinamita", "Sustancia explosiva a base de nitroglicerina.",11, 0.2, 0, 0.05, 0.05, true},
+  { "Glock 22", "Artefacto de una epoca menos civilizada..",6, 0.15, 0, 0, 0.15, 0, true},
 
+  {"Pocion de Fuerza", "Artefacto de una epoca menos civilizada..",16, 0.2, 0,0.05, 0.05, 0.1 , false},
+  {"Pocion de Vida", "Artefacto de una epoca menos civilizada..",3, 0,0,0,0.4, false},
+  { "Pocion de Resistencia", "Artefacto de una epoca menos civilizada..",12, 0,0.1,0.2,0.1,0, false},
+  {"Amuleto Ojo Turco de Agua", "Proporciona puntos de agilidad y magia", 9, 0,0.1,0.2,0.1,0, false},
+  {"Amuleto Ojo Turco de Fuego", "Proporciona puntos de vida y ataque", 9, 0.3,0,0,0,0.1, false},
+};
 class SisInventario
 {
 private:
@@ -23,21 +42,26 @@ private:
 
 public:
   /*agregar al inventario, si existe la llave(numero de identificacion) error: llave ya existente,
-   *Si no, agregarla. incluye un catch por si existe un error inesperado al agregar.
-   *
+   *Si no, agregarla. Utilizando un catch por si existe un error inesperado al agregar.
    */
-  void agregarItem(const int &llave, const string &NOMBRE, const string &DESCRIPCION, int PESO, int DANO)
+  void agregarItem(const int &llave)
   {
-
     try
     {
       // si buscando llave en items(objetos de inventario) es encontrada, ya existe
-      if (items.find(llave) != items.end())
-      {
-        throw runtime_error("Llave " + to_string(llave) + " ya existente.");
-      }
+      string NOMBRE = objetosInventario[llave].NOMBRE;
+      string DESCRIPCION = objetosInventario[llave].DESCRIPCION;
+      int PESO = objetosInventario[llave].PESO;
+      double ATAQUE = objetosInventario[llave].ATAQUE;
+      double MAGIA = objetosInventario[llave].MAGIA;
+      double DEFENSA = objetosInventario[llave].DEFENSA;
+      double AGILIDAD = objetosInventario[llave].AGILIDAD;
+      double VIDA = objetosInventario[llave].VIDA;
+      bool reutilizable = objetosInventario[llave].reutilizable;
 
-      items[llave] = datosItem{NOMBRE, DESCRIPCION, PESO, DANO};
+      if (items.find(llave) != items.end())
+        {throw runtime_error("Llave " + to_string(llave) + " ya existente.");}
+      items[llave] = datosItem{NOMBRE, DESCRIPCION, PESO, ATAQUE, MAGIA, DEFENSA, AGILIDAD, VIDA, reutilizable};
     }
     catch (const exception &e)
     {
@@ -50,7 +74,8 @@ public:
     try
     {
       auto item = items.find(llave);
-      // caso exito me da los parametros de la struct "datosItem".
+      /* Caso exito me da los parametros de la struct "datosItem",
+         como es un map(), se encuentran en item->second*/
       return item != items.end() ? &item->second : nullptr;
     }
     /*Se agrego un catch, si existe un error es muy probable que sea aqui,
@@ -63,11 +88,35 @@ public:
     }
   }
 
+
+  /*Imprimir atributos de objeto. No mostrar elementos si estan en 0.*/
+  void printItem(const int &llave)const{
+    try
+    {
+      cout << getItem(llave)->NOMBRE<<endl;
+      cout << getItem(llave)->DESCRIPCION<<endl;
+      getItem(llave)->PESO != 0 ? cout << "Peso: " << getItem(llave)->PESO<< endl : cout << "";
+      getItem(llave)->ATAQUE != 0 ? cout << "Ataque: " << getItem(llave)->ATAQUE*100<<"%" << endl : cout << "";
+      getItem(llave)->AGILIDAD != 0 ? cout << "Agilidad: " << getItem(llave)->AGILIDAD*100<<"%" << endl : cout << "";
+      getItem(llave)->DEFENSA != 0 ? cout << "Defensa: " << getItem(llave)->DEFENSA*100<<"%" << endl : cout << "";
+      getItem(llave)->MAGIA != 0 ? cout << "Magia: " << getItem(llave)->MAGIA*100<<"%" << endl : cout << "";
+      getItem(llave)->VIDA != 0 ? cout << "Vida: " << getItem(llave)->VIDA*100<<"%" << endl : cout << "";
+      cout << "----------" << endl;
+    }
+    catch(const std::exception& e)
+    {
+      cerr << "Error fatal en printItem() " << e.what() << endl;
+    }
+    
+  }
+
   void mostrarInventario() const
-  {
+  { 
+    //Por cada objeto en items, mostrar en pantalla su nombre.
     for (const auto &item : items)
     {
       cout << getItem(item.first)->NOMBRE << endl;
+      cout<<"Peso: "<<getItem(item.first)->PESO<<endl;
     }
     cout << "----------" << endl;
   }
@@ -88,68 +137,7 @@ public:
     }
   };
 
-  void intercambiarItem(SisInventario &otroInventario, const int &llave)
-  {
-    try
-    {
-      const datosItem *item = getItem(llave);
-      if (item == nullptr)
-      {
-        throw runtime_error("Item con llave " + to_string(llave) + " no encontrado en el inventario actual.");
-      }
-
-      // Agregar el item al otro inventario
-      otroInventario.agregarItem(llave, item->NOMBRE, item->DESCRIPCION, item->PESO, item->DANO);
-
-      // Eliminar el item del inventario actual
-      SisInventario::elminarItem(llave);
-    }
-    catch (const exception &error)
-    {
-      cerr << "Error: en intercambiarItem(), no se pudo intercambiar el item. " << error.what() << '\n';
-    }
-  };
-};
-
-
-class InventarioGeneral
-{
-public:
-  void main(){
-    SisInventario Inventario;
-    datosItem objetosInventario[]={
-      { "Espada Romana","Espadas: Acero afilado, símbolo de poder y valor.",10, 10},
-      {"Espada flameante Encantada", "Espadas: Acero afilado, símbolo de poder y valor.",10, 10},
-      { "Arco y Flecha", "Perfectos para ataques a distancia.",10, 10},
-      { "Hacha Vikinga", "Ideal para cortar madera o enfrentarte a enemigos.",10, 10},
-      { "Baston Magico", "Pueden lanzar hechizos o potenciar tus habilidades..",10, 10},
-      {"Dinamita", "Sustancia explosiva a base de nitroglicerina.",10, 10},
-      { "Glock 22", "Artefacto de una epoca menos civilizada..",10, 10},
-      {"Pocion de Fuerza", "Artefacto de una epoca menos civilizada..",10, 10},
-      {"Pocion de Vida", "Artefacto de una epoca menos civilizada..",10, 10},
-      { "Pocion de Resistencia", "Artefacto de una epoca menos civilizada..",10, 10},
-      {"Amuleto Ojo Turco de Agua", "Proporciona puntos de agilidad y magia", 10, 10},
-      {"Amuleto Ojo Turco de Fuego", "Proporciona puntos de vida y ataque", 10, 10},
-    };
-    
-    // //agregarItem(id, "nombre", "descripcion", "peso","dano" ) incluir: stats modificadoras.
-    // Inventario.agregarItem(0, "Espada Romana", "Espadas: Acero afilado, símbolo de poder y valor.",10, 10);
-    // Inventario.agregarItem(1, "Espada flameante Encantada", "Espadas: Acero afilado, símbolo de poder y valor.",10, 10);
-    // Inventario.agregarItem(2, "Arco y Flecha", "Perfectos para ataques a distancia.",10, 10);
-    // Inventario.agregarItem(3, "Hacha Vikinga", "Ideal para cortar madera o enfrentarte a enemigos.",10, 10);
-    // Inventario.agregarItem(4, "Baston Magico", "Pueden lanzar hechizos o potenciar tus habilidades..",10, 10);
-    // Inventario.agregarItem(5, "Dinamita", "Sustancia explosiva a base de nitroglicerina.",10, 10);
-    // Inventario.agregarItem(6, "Glock 22", "Artefacto de una epoca menos civilizada..",10, 10);
-
-    // //Modificadores.
-    // Inventario.agregarItem(7, "Pocion de Fuerza", "Artefacto de una epoca menos civilizada..",10, 10);
-    // Inventario.agregarItem(8, "Pocion de Vida", "Artefacto de una epoca menos civilizada..",10, 10);
-    // Inventario.agregarItem(9, "Pocion de Resistencia", "Artefacto de una epoca menos civilizada..",10, 10);
-    // Inventario.agregarItem(10,"Amuleto Ojo Turco de Agua", "Proporciona puntos de agilidad y magia", 10, 10);
-    // Inventario.agregarItem(10,"Amuleto Ojo Turco de Fuego", "Proporciona puntos de vida y ataque", 10, 10);
-   
-  }
-  ~InventarioGeneral();
+  
 };
 
 

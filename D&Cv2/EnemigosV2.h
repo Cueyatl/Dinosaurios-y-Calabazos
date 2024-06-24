@@ -13,7 +13,7 @@ double ataque_1() override {
 
 double ataque_2() override {
     cout << "Ataque Embestida" << endl;
-    return (getAtaque() * 1.25) + (getDefenza() * 0.5);
+    return (getAtaque() * 1.25) + (getDefensa() * 0.5);
 }
 
 double ataque_3() override {
@@ -35,7 +35,7 @@ public:
 
  double ataque_1() override {
     cout << "Ataque Embestida" << endl;
-    return (getAtaque() * 1.25) + (getDefenza() * 0.5);
+    return (getAtaque() * 1.25) + (getDefensa() * 0.5);
 }
 
 double ataque_2() override {
@@ -61,7 +61,7 @@ public:
 
  double ataque_1() override {
     cout << "Ataque Embestida" << endl;
-    return (getAtaque() * 1.25) + (getDefenza() * 0.5);
+    return (getAtaque() * 1.25) + (getDefensa() * 0.5);
 }
 
 double ataque_2() override {
@@ -88,7 +88,7 @@ public:
 
  double ataque_1() override {
     cout << "Ataque Golpe Cola" << endl;
-    return (getAtaque() * 1.25) + (getDefenza() * 0.5);
+    return (getAtaque() * 1.25) + (getDefensa() * 0.5);
 }
 
 double ataque_2() override {
@@ -223,22 +223,22 @@ public:
 
   double ataque_1() override {
     cout << "Ataque Golpe Fuerte" << endl;
-    return (getAtaque() * 1.3) + (getMagia() * 0.7) + (getDefenza() * 0.5);
+    return (getAtaque() * 1.3) + (getMagia() * 0.7) + (getDefensa() * 0.5);
 }
 
 double ataque_2() override {
     cout << "Ataque Embestida Celestial" << endl;
-    return (getAtaque() * 1.5) + (getMagia() * 0.8) + (getDefenza() * 0.2);
+    return (getAtaque() * 1.5) + (getMagia() * 0.8) + (getDefensa() * 0.2);
 }
 
 double ataque_3() override {
     cout << "Ataque Vuelo del Alba" << endl;
-    return (getAtaque() * 1.7) + (getMagia() * 1.2) + (getDefenza() * 0.7);
+    return (getAtaque() * 1.7) + (getMagia() * 1.2) + (getDefensa() * 0.7);
 }
 
 double ataque_4() override {
     cout << "Ataque Garra Fatal" << endl;
-    return (getAtaque() * 1.7) + (getMagia() * 1.2) + (getDefenza() * 0.7);
+    return (getAtaque() * 1.7) + (getMagia() * 1.2) + (getDefensa() * 0.7);
 }
 };
 

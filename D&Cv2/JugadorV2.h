@@ -26,11 +26,11 @@ public:
   
   double ataque_3() override{
     cout<<"Ataque Garra Jurasica"<<endl;
-    return (getAtaque() * 1.3) + (getDefenza() * 0.8);}
+    return (getAtaque() * 1.3) + (getDefensa() * 0.8);}
   
    double ataque_4() override{
     cout<<"Ataque Pisoteo Devastador"<<endl;
-    return (getAtaque() * 1.1) + (getDefenza() * 1.2);}
+    return (getAtaque() * 1.1) + (getDefensa() * 1.2);}
 };
 
 
@@ -51,11 +51,11 @@ public:
   
   double ataque_3() override{
     cout<<"Ataque Garra Jurasica"<<endl;
-    return (getAtaque() * 1.15) + (getDefenza() * 1.2);}
+    return (getAtaque() * 1.15) + (getDefensa() * 1.2);}
 
   double ataque_4() override{
     cout<<"Ataque Sismo Volcanico"<<endl;
-    return (getAtaque() * 2.2) + (getDefenza() * 1.5);}
+    return (getAtaque() * 2.2) + (getDefensa() * 1.5);}
 };
 
 class Mago : public PersonajeV2
