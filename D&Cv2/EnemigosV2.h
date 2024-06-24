@@ -4,7 +4,7 @@ class Jabali : public PersonajeV2
 {
 public:
   Jabali(string nombre)
-      : PersonajeV2(nombre, 75, 75, 5, 0, 3, 3) {}
+      : PersonajeV2(nombre, 75, 75, 15, 2, 9, 9) {}
 
 double ataque_1() override {
     cout << "Ataque Patada" << endl;
@@ -31,7 +31,7 @@ class Lobo : public PersonajeV2
 {
 public:
   Lobo(string nombre)
-      : PersonajeV2(nombre, 125, 85, 7, 0, 5, 6) {}
+      : PersonajeV2(nombre, 125, 85, 13, 2, 9,11) {}
 
  double ataque_1() override {
     cout << "Ataque Embestida" << endl;
@@ -57,7 +57,7 @@ class Oso : public PersonajeV2
 {
 public:
   Oso(string nombre)
-      : PersonajeV2(nombre, 200, 100, 20, 0, 15, 7) {}
+      : PersonajeV2(nombre, 140, 100, 18, 0, 12, 5) {}
 
  double ataque_1() override {
     cout << "Ataque Embestida" << endl;
@@ -84,7 +84,7 @@ class Dinosaurio : public PersonajeV2
 {
 public:
   Dinosaurio(string nombre)
-      : PersonajeV2(nombre, 300, 150, 35, 0, 20, 25) {}
+      : PersonajeV2(nombre, 150, 150, 20, 0, 10, 5) {}
 
  double ataque_1() override {
     cout << "Ataque Golpe Cola" << endl;
@@ -111,7 +111,7 @@ class Esqueleto : public PersonajeV2
 {
 public:
   Esqueleto(string nombre)
-      : PersonajeV2(nombre, 100, 75, 7, 0, 3, 4) {}
+      : PersonajeV2(nombre, 100, 75, 16, 0, 8,11) {}
 
   double ataque_1() override {
     cout << "Ataque Golpe Espada" << endl;
@@ -138,7 +138,7 @@ class Zombie : public PersonajeV2
 {
 public:
   Zombie(string nombre)
-      : PersonajeV2(nombre, 125, 100, 9, 0, 4, 5) {}
+      : PersonajeV2(nombre, 125, 100, 14, 8, 7, 6) {}
 
   double ataque_1() override {
     cout << "Ataque Agarre" << endl;
@@ -164,7 +164,7 @@ class Fantasma : public PersonajeV2
 {
 public:
   Fantasma(string nombre)
-      : PersonajeV2(nombre, 125, 100, 0, 12, 8, 8) {}
+      : PersonajeV2(nombre, 125, 100, 7, 12, 8, 8) {}
 
   double ataque_1() override {
     cout << "Ataque Tormento" << endl;
@@ -191,7 +191,7 @@ class Hada : public PersonajeV2
 {
 public:
   Hada(string nombre)
-      : PersonajeV2(nombre, 80, 100, 0, 8, 5, 4) {}
+      : PersonajeV2(nombre, 80, 100, 4, 13, 10, 8) {}
 
  double ataque_1() override {
     cout << "Ataque Bola Luminosa" << endl;
@@ -219,7 +219,7 @@ class Grifo : public PersonajeV2
 {
 public:
   Grifo(string nombre)
-      : PersonajeV2(nombre, 200, 120, 15, 12, 20, 7) {}
+      : PersonajeV2(nombre, 150, 120, 14, 7, 10, 4) {}
 
   double ataque_1() override {
     cout << "Ataque Golpe Fuerte" << endl;

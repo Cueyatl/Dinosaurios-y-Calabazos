@@ -13,7 +13,7 @@ class Espadachin : public PersonajeV2
 {
 public:
   Espadachin(string nombre)
-      : PersonajeV2(nombre, 100, 100, 10, 0, 6, 5)   {}
+      : PersonajeV2(nombre, 100, 100, 12, 8, 7, 8)   {}
 
   double ataque_1()  override {
     cout<<"Ataque Golpe cola"<<endl;
@@ -38,7 +38,7 @@ class Berserker : public PersonajeV2
 {
 public:
   Berserker(string nombre)
-    : PersonajeV2(nombre, 125, 80, 15, 0, 8, 3) {}
+    : PersonajeV2(nombre, 125, 80, 8, 18, 8, 1) {}
 
   double ataque_1()  override {
     cout<<"Ataque Giro Rex"<<endl;
@@ -62,7 +62,7 @@ class Mago : public PersonajeV2
 {
 public:
   Mago(string nombre)
-      : PersonajeV2(nombre, 80, 115, 0, 15, 3, 2) {}
+      : PersonajeV2(nombre, 80, 115, 8, 18, 8, 1) {}
 
     double ataque_1() override { // Renombrado de ataqueRayoFuego
         cout << "Ataque Rayo de Fuego" << endl;
@@ -86,7 +86,7 @@ class Sacerdote : public PersonajeV2
 {
 public:
   Sacerdote(string nombre)
-      : PersonajeV2(nombre, 100, 125, 0, 8, 2, 1) {}
+      : PersonajeV2(nombre, 100, 125,11, 15, 4, 5) {}
 
     double ataque_1() override { // Renombrado de rayoSanto
         cout << "Ataque Rayo Santo" << endl;
@@ -114,7 +114,7 @@ class Ladron : public PersonajeV2
 {
 public:
   Ladron(string nombre)
-      : PersonajeV2(nombre, 90, 125, 6, 0, 4, 10) {}
+      : PersonajeV2(nombre, 90, 125, 12, 4, 5, 4) {}
 
   double ataque_1() override {
     cout << "Ataque Corte" << endl;
@@ -141,7 +141,7 @@ class Arquero : public PersonajeV2
 {
 public:
   Arquero(string nombre)
-      : PersonajeV2(nombre, 100, 100, 12, 0, 2, 6) {}
+      : PersonajeV2(nombre, 100, 100, 11, 3, 3, 18) {}
       
  double ataque_1() override {
     cout << "Ataque Disparo" << endl;
