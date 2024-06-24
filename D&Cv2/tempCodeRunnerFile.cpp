@@ -1,0 +1,2 @@
+
+  SisInventario inv1;

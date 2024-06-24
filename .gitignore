@@ -1,0 +1,11 @@
+#archivos exclusivos para pruebas locales.
+TestSite.cpp
+testSite.exe
+Testsite2.cpp
+Testsite2.exe
+.vscode/
+.D&Cv2/TestSite.cpp
+.D&Cv2/TestSite.exe
+.D&Cv2/Testsite2.cpp
+.D&Cv2/Testsite2.exe
+

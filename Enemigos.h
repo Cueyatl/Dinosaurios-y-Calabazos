@@ -4,20 +4,20 @@ class Enemigo : public Clase{
         Enemigo(double hp, double sta, double atk, double mag, double def, double agil) : Clase(hp, sta, atk, mag, def, agil){};
 };
 
-class Salvaje : public Enemigo(){
+class Salvaje : public Enemigo{
     public:
         Salvaje(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
-class NoMuerto : public Enemigo(){
+};
+class NoMuerto : public Enemigo{
     public:
         NoMuerto(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
-class Elemental : public Enemigo(){
+};
+class Elemental : public Enemigo{
     public:
         Elemental(double hp, double sta, double atk, double mag, double def, double agil) : Enemigo(hp, sta, atk, mag, def, agil){};
-}
+};
 
-class Jabali : public Salvaje(){
+class Jabali : public Salvaje{
     public:
         Jabali() : Salvaje(75,75,5,0,3,3){};
         double patada(){
@@ -25,15 +25,15 @@ class Jabali : public Salvaje(){
             return dano;
         }
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
-}
+};
 class Lobo : public Salvaje(){
     public:
         Lobo() : Salvaje(125,85,7,0,5,6){};
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double mordida(){
@@ -49,7 +49,7 @@ class Oso : public Salvaje(){
     public:
         Oso() : Salvaje(200,100,20,0,15,7){};
         double embestida(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double ataqueGarra(){
@@ -69,7 +69,7 @@ class Dinosaurio : public Salvaje(){
     public:
         Dinosaurio() : Salvaje(300,150,35,0,20,25){};
         double golpeCola(){
-            double dano = (getFuerza()*1.25) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.25) + (getDefensa()*0.5);
             return dano;
         }
         double ataqueGarra(){
@@ -135,19 +135,19 @@ class Hada : public Elemental(){
             return dano;
         }
 }
-class Golem : public Elemental(){
+class Grifo : public Elemental(){
     public:
-        Hada() : Elemental(200,120,15,12,20,7){};
+        Grifo() : Elemental(200,120,15,12,20,7){};
         double golpeFuerte(){
-            double dano = (getFuerza()*1.3) + (getMagia()*0.7) + (getDefenza()*0.5);
+            double dano = (getFuerza()*1.3) + (getMagia()*0.7) + (getDefensa()*0.5);
             return dano;
         }
-        double saltoRocoso(){
-            double dano = (getFuerza()*1.5) + (getMagia()*0.8) + (getDefenza()*0.2);
+        double embestidaCelestial(){
+            double dano = (getFuerza()*1.5) + (getMagia()*0.8) + (getDefensa()*0.2);
             return dano;
         }
-        double tormentaRocosa(){
-            double dano = (getFuerza()*1.7) + (getMagia()*1.2) + (getDefenza()*0.7);
+        double vueloDelAlba(){
+            double dano = (getFuerza()*1.7) + (getMagia()*1.2) + (getDefensa()*0.7);
             return dano;
         }
-}
+};
