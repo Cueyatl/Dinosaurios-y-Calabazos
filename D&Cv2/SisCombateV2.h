@@ -7,6 +7,8 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <random>
+#include <ctime>
 using namespace std;
 
 class SisCombateV2
@@ -16,20 +18,38 @@ public:
   JugadorV2 jugadorId;
   EnemigosV2 enemigosId;
   /*Calcula la posible estamina usada por cada ataque.*/
+    static int acumuladorAleatorio(double probabilidades[])
+  {
+    default_random_engine generator(time(nullptr));
+    uniform_real_distribution<double> distribution(0.0, 1.0);
+
+    double random_number = distribution(generator);
+
+    double probAcumulativa = 0;
+    for (int i = 0; i < 4; ++i)
+    {
+      probAcumulativa += probabilidades[i];
+      if (random_number < probAcumulativa)
+      {
+        return i + 1; // Numbers start from 1
+      }
+    }
+    return 1; // Default return value if no condition is met
+  }
   double calcularEstamina(int ataque){
     switch (ataque)
     {
     case 1:
-      return rand() % 25 + 15;
+      return Auxiliares::numeroAleatorio(15,25);
       break;
     case 2:
-      return rand() % 23 + 18;
+      return Auxiliares::numeroAleatorio(18,23);
       break;
     case 3:
-      return rand() % 21 + 17;
+      return Auxiliares::numeroAleatorio(17,21);
       break;
     case 4:
-      return rand() % 19 + 11;
+      return Auxiliares::numeroAleatorio(11,19);
       break;
     default:
       return -1;
@@ -37,6 +57,7 @@ public:
     }
   }
   void turnoJugador(unique_ptr<PersonajeV2> &jugador,unique_ptr<PersonajeV2> &enemigo,int &tipoJugador, int &tipoEnemigo) {
+
     
     char opciones; 
     /*opciones:
@@ -53,20 +74,21 @@ public:
    cout<<"atacar: a"<<endl;
    cout<<"usarInventario: b"<<endl;
    //FIN DE ESTO ES TEMPORAL
-
-    if (opciones='a') 
+    cin>>opciones;
+    if (opciones=='a') 
     {
       int tipoAtaque;
       
    //ESTO ES TEMPORAL
       cout << "Elige un ataque:"<<endl;
-      cout<<"selecciona 1, 2, 3 04"<<endl;
+      cout<<"selecciona 1, 2, 3, 4"<<endl;
       cin>>tipoAtaque;
    //FIN DE ESTO ES TEMPORAL
 
       try
       {
-        while (tipoAtaque >=1 && tipoAtaque <=4) {  
+        bool salirWhile=false;
+         while (tipoAtaque >= 1 && tipoAtaque <= 4 && salirWhile) {
           //Calcula la estamina usada por cada ataque.
           /*
           ATAQUE -- ESTAMINA USADA
@@ -92,6 +114,7 @@ public:
               cout<<"no no";
               break;
           }
+          salirWhile=true;
         }
       }
       catch(const exception& e)
@@ -105,7 +128,7 @@ public:
        int idObjetoInventario;
        cout << "ingresa id del objeto del inventario" << endl;
        cin >> idObjetoInventario;
-       utilizarInventario(true, jugador, idObjetoInventario);
+       Auxiliares::utilizarInventario(true, jugador, idObjetoInventario);
       }
       catch(const exception& e)
       {
@@ -116,42 +139,66 @@ public:
     }
     
   }
-  void combate(unique_ptr<PersonajeV2> jugador,unique_ptr<PersonajeV2> enemigo,int tipoJugador, int tipoEnemigo) {
+ 
+  void combate(unique_ptr<PersonajeV2> &jugador,unique_ptr<PersonajeV2>& enemigo,int tipoJugador, int tipoEnemigo) {
+    // retornar bases de jugador si gana. instancias de jugador y enemigo.
     jugador = jugadorId.seleccionarTipoClase(tipoJugador, jugador->getNombre());
     enemigo = enemigosId.seleccionarTipoClase(tipoEnemigo, enemigo->getNombre());
 
+    //Estadisticas inicales de enemigo
+    enemigo->setTempVida(enemigo->getVida());
+    double vidaInit=enemigo->getTempVida();
+    enemigo->setTempStamina(enemigo->getStamina());
+    double stamInit =enemigo->getTempStamina();
+    //Fin de estadisticas inicales de enemigo
+    
     string mensaje_encuentro=enemigo->getNombre()+ " quiere pelear!!";
-    double enemigoVidaInicial= enemigo->getVida();
-    while (jugador->getVida() > 0 && enemigo->getVida() > 0) {
+    while (jugador->getVida() >= 0 && enemigo->getVida() >= 0) {
         // TurnoJugador del Jugador
         turnoJugador(jugador, enemigo, tipoJugador, tipoEnemigo);
         //turno maquina.
+
+        // Estadisticas de enemigo
+        double vidaActual = enemigo->getVida();
+        double stamActual = enemigo->getStamina();
+        // Estadisticas de enemigo
+        
         /*si vida menor a 0.5 del original && incluye objeto de pocion de vida? usar vida en turno en vez de atacar.
         si estamina mayor al 80%? probabilidad de ataque_1 al 70%.
         si estamina mayor al 50% y 80%? probabilidad de ataque_2 al 70%.
         si estamina mayor al 25% y 50%? probabilidad de ataque_3 al 70%.
         si estamina mayor al 0% y 25%? probabilidad de ataque_4 al 70%.
         */
-        double opcionAtaque_1[] = {0.7, 0.1, 0.1, 0.1}; // 
-        double opcionAtaque_2[] = {0.1, 0.7, 0.1, 0.1}; // 
+        //probabilidades para el ataque del enemigo por turno
+        //Esto aumenta la probabilidad de obtener algun ataque dependiendo de otros valores del enemigo.
+        double prob_AtaqueUno[] = {0.5, 0.16, 0.16, 0.16};    // Numbers 1, 2, 3, 4 probabilities
+        double prob_AtaqueDos[] = {0.5, 0.16, 0.16, 0.16};    // Numbers 1, 2, 3, 4 probabilities
+        double prob_AtaqueTres[] = {0.5, 0.16, 0.16, 0.16};   // Numbers 1, 2, 3, 4 probabilities
+        double prob_AtaqueCuatro[] = {0.5, 0.16, 0.16, 0.16}; // Numbers 1, 2, 3, 4 probabilities
+      
+        int tipoAtaque;
+        //Calcula la probabilidad de tipo de ataque dependiendo de la vida y stamina.
+        if(stamActual>=stamInit*0.8 && vidaActual>= vidaInit*0.8)
+        {
+          //mayor probabilidad de usar ataque 1.
+        tipoAtaque=SisCombateV2::acumuladorAleatorio(prob_AtaqueUno);
+        }
+        else if(stamActual>=stamInit*0.6 && vidaActual>= vidaInit*0.6)
+        {
+        tipoAtaque=SisCombateV2::acumuladorAleatorio(prob_AtaqueDos);
+        }
+        else if(stamActual>=stamInit*0.5 && vidaActual>= vidaInit*0.5)
+        {
+        tipoAtaque=SisCombateV2::acumuladorAleatorio(prob_AtaqueTres);
+        }
+        else if(stamActual>=stamInit*0.4 && vidaActual>= vidaInit*0.4)
+        {
+        tipoAtaque=SisCombateV2::acumuladorAleatorio(prob_AtaqueTres);
+        }
+        else{
+          tipoAtaque=4;
+        }
 
-        double stam=enemigo->getStamina();
-        enemigo->setTempStamina(stam);
-        double ogStam=enemigo->getTempStamina();
-        if(stam>=ogStam*0.8)
-        {
-          
-        }
-        else if(/* condition */)
-        {
-          /* code */
-        }
-        else
-        {
-          /* code */
-        }
-        
-        int tipoAtaque=rand()%4+1;
           enemigo->setStamina(calcularEstamina(tipoAtaque));
           switch (tipoAtaque) {  
             case 1:
@@ -173,22 +220,66 @@ public:
             default:
               cout<<"no no";
               break;
-            if (enemigo->getVida()<=enemigoVidaInicial * 0.4)
+            if (enemigo->getVida()<=vidaInit * 0.4)
             {
+
               enemigo->mostrarInventario();
+              
+              
               enemigo->getVida();
             }
     }
-
     if (jugador->getVida() > 0) {
         cout << "El jugador " << jugador->getNombre() << " ha ganado!" << endl;
+        /*SISTEMA DE EVEES, por temas de simplicidad, elije un atributo al azar
+        (agilidad, ataque, defensa, magia) y le agrega el 10% del atributo seleccionado
+        del enemigo. formula: a=a0+aE*0.1; 
+        donde a= atributo del jugador,
+              a0=atributo del jugador actual
+              aE=atributo del enemigo.
+        */
+       try
+       {
+        
+       
+       
+        switch (Auxiliares::numeroAleatorio(1,4))
+        {
+        case 1:
+          jugador->setAgilidad(jugador->getAgilidad()+enemigo->getAgilidad()*0.1);
+          cout<<jugador->getNombre()<< " ha aumentado su Agilidad!";
+          break;
+        case 2:
+          jugador->setAtaque(jugador->getAtaque()+enemigo->getAtaque()*0.1);
+          cout<<jugador->getNombre()<< " ha aumentado su Ataque!";
+          break;
+        case 3:
+          jugador->setDefensa(jugador->getDefensa()+enemigo->getDefensa()*0.1);
+          cout<<jugador->getNombre()<< " ha aumentado su Defensa!";
+          break;
+        case 4:
+          jugador->setMagia(jugador->getMagia()+enemigo->getMagia()*0.1);
+          cout<<jugador->getNombre()<< " ha aumentado su Magia!";
+        default:
+          break;
+        }
+          jugador->mostrarEstadisticas();
+
+        }
+       catch(const std::exception& e)
+       {
+        std::cerr<<"Error en SISTEMA DE EVEES." << e.what() << '\n';
+       }
     } else {
         cout << "El enemigo " << enemigo->getNombre() << " ha ganado!" << endl;
     }
 }
   }
-  ~SisCombateV2();
+  
 };
 
+SisCombateV2::SisCombateV2() {
+  // Constructor implementation (if any initialization is needed)
+}
 
 #endif //SISCOMBATE_H
