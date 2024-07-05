@@ -63,6 +63,7 @@ Magia: n
 #include <chrono>
 #include <conio.h>
 #include <thread>
+#include <map> 
 using namespace std;
 using namespace this_thread;
 
@@ -94,27 +95,28 @@ public:
     }
   }
   
-  void mostrarMenu(int seleccionado, vector<string> comandos)
+  static void print_Menu(int seleccionado,map<int, string>  comandos)
   {
-    int tamano = comandos.size();
+    
     comandos[seleccionado].erase(0, 2);
     comandos[seleccionado] = "->" + comandos[seleccionado];
-    for (size_t i = 0; i < tamano; i++)
+    for (auto i = comandos.begin(); i != comandos.end(); i++)
     {
-      cout << comandos[i] << endl;
+      cout << i->second<<endl;
     }
   }
 
-  void ejecutarOpciones(vector<string> comandos)
+  static void init_menu(map<int, string> comandos)
   {
     char tecla;
     cout << "Presiona las teclas de flecha arriba o abajo (Esc para salir):" << endl;
     string apuntado = "->";
     // enter es 13.
+
+      int opcion=1;
     while (true)
     {
-      int opcion;
-      mostrarMenu(opcion, comandos);
+      print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
       if (tecla == 27)
       { // 27 es el código ASCII para Esc
@@ -147,10 +149,10 @@ public:
         switch (tecla)
         {
         case 72: // Flecha arriba
-          opcion <= 0 ? opcion = 3 : opcion -= 1;
+          opcion <= 1 ? opcion = comandos.size() : opcion -= 1;
           break;
         case 80: // Flecha abajo
-          opcion >= 3 ? opcion = 0 : opcion += 1;
+          opcion >= comandos.size() ? opcion = 1 : opcion += 1;
           break;
         default:
 
@@ -165,17 +167,7 @@ public:
       system("cls");
     }
   }
-  void ejecutarMenu(unique_ptr<PersonajeV2> enemigo){
-    vector <string> nivel1{
-      "  Interactuar",
-      "  Combatir",
-      "  Inventario", 
-    };
-    vector <string> interactuar{
-      
-    }
-
-  }
+  
   // Interfaz(/* args */);
   // ~Interfaz();
 };
