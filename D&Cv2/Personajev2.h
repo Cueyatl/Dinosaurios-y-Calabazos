@@ -9,6 +9,8 @@ using namespace std;
 class PersonajeV2 : public SisInventario{
 protected:
 private:
+public:
+
   string m_NOMBRE;
   double m_ataque;
   double m_agilidad;
@@ -25,7 +27,6 @@ private:
   double m_tempStamina;
   SisInventario inventario;
 
-public:
   PersonajeV2(){}
   PersonajeV2(string nombre,double vida, double stamina, double ataque, double magia, double defensa, double agilidad)
         :m_NOMBRE(nombre), m_vida(vida), m_stamina(stamina), m_ataque(ataque), m_magia(magia), m_defenza(defensa), m_agilidad(agilidad){}; 
@@ -44,6 +45,7 @@ public:
   double getStamina(){return m_stamina;}
   double getVida(){return m_vida;};
   //Setters.
+  void setNombre(string nombre){m_NOMBRE=nombre;};
   void setAtaque(double ataque) {m_ataque = ataque;};
   void setAgilidad(double agilidad) {m_agilidad = agilidad;};
   void setMagia(double magia){m_magia = magia;}

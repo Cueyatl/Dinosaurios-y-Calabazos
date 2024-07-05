@@ -12,6 +12,7 @@ public:
       : PersonajeV2(nombre, 75, 75, 15, 2, 9, 9) {}
 
 double ataque_1() override {
+  string mensaje="j";
     cout << "Ataque Patada" << endl;
     return (getAtaque() * 1.1);
 }

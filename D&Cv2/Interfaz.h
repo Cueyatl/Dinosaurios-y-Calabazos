@@ -172,7 +172,7 @@ public:
       "  Inventario", 
     };
     vector <string> interactuar{
-      z
+      
     }
 
   }

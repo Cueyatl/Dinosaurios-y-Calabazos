@@ -19,17 +19,13 @@ class Auxiliares
 private:
  
 public:
-static int numeroAleatorio(int x, int y) {
-  // Ensure x <= y to avoid errors
-  if (x > y) {
-    swap(x, y);
+static int numeroAleatorio(int inferior, int superior) {
+  // var inferior <= superior siempre.
+  if (inferior > superior) {
+    swap(inferior, superior); 
   }
-
-  // Calculate the range of possible values (inclusive)
-  int range = y - x + 1;
-
-  // Generate a random number within the range and offset by x
-  return rand() % range + x;
+  // Genera numero aleatorio entre rango de inferior y superior.
+  return inferior + rand() % (superior - inferior + 1);
 }
  
 
