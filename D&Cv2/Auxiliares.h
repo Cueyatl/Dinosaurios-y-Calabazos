@@ -19,6 +19,7 @@ class Auxiliares
 private:
  
 public:
+//Genera numero aleatorio entre un rango.
 static int numeroAleatorio(int inferior, int superior) {
   // var inferior <= superior siempre.
   if (inferior > superior) {
@@ -29,13 +30,12 @@ static int numeroAleatorio(int inferior, int superior) {
 }
  
 
-  // Metodo para equipar y desequipar armas, utiliza potenciadores.
+  // Metodo para equipar y desequipar armas y utilizar potenciadores (pociones y amuletos).
   static void utilizarInventario(bool equipar, unique_ptr<PersonajeV2> &jugador, int llave)
   {
     // Encontrar los atributos del objeto en el inventario por medio de su llave (id).
     auto item = jugador->getItem(llave);
     // mensajes (esto es temporal creo)
-
     string msjPotenciador = jugador->getNombre() + " ha usado " + item->NOMBRE;
     string msjArma = jugador->getNombre() + " ha equipado " + item->NOMBRE;
     string msjNoArma = jugador->getNombre() + " ha desequipado " + item->NOMBRE;
@@ -106,7 +106,17 @@ static int numeroAleatorio(int inferior, int superior) {
 
     jugador->mostrarEstadisticas();
   };
-
+/*
+*Metodo para dar la posiblidad de agregar objetos al inventario del enemigo.
+*Agrega potenciadores(pociones y amuletos ) al inventario del enemigo de manera aleatorio antes de iniciar el combate.
+*Nota: Calculado por distribucion binomial para 3 ensayos, con la probabilidad del 50%. 
+*Se obtuvieron los siguientes resultados:
+Numero de exitos    Probabilidad
+  0                     12.5%
+  1                     37.5%
+  2                     37.5%
+  3                     12.5%
+*/
   static void agregarInventarioEnemigo(unique_ptr<PersonajeV2> &enemigo)
   {
     // tres oportunidades para agregar objetos al inventario.
