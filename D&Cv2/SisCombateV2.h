@@ -41,6 +41,8 @@ void init_Combate()
     enemigo->setTempStamina(enemigo->getStamina());
     double stamInit = enemigo->getTempStamina();
 
+    //Agrega inventario al enemigo.
+    Auxiliares::agregarInventarioEnemigo(enemigo);
     // Guarda los valores iniciales de jugador antes de combate. (sisEvees)
     jugador->setTempVida(jugador->getVida());
     jugador->setTempStamina(jugador->getStamina());
