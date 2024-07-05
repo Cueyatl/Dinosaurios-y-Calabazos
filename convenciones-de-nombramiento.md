@@ -29,6 +29,9 @@ Class Mago{
   //codigo
 }
 ```
+### Variables Especiales
+Si una variable o grupo de variables incluyen una caracteristica especial o funcionan en una dinamica exclusiva para un sistema se puede utilizar "_" para mostrar dicha caracteristica o atributo.
+Ejemplo: ataque_1,ataque_2, movimiento_izquierda, movimiento_derecha.
 
 #### Variables privadas de las clases 
 uso del prefijo "m_" para identificar que son una variable miembro de la clase.

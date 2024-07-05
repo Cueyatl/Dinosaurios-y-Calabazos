@@ -1,5 +1,10 @@
+#ifndef ENEMIGOSV2_H
+#define ENEMIGOSV2_H
 #include "PersonajeV2.h"
-// Todos los monstruos solo regresan el DANO de cada ataque.
+#include <iostream>
+#include <string>
+#include <memory> 
+using namespace std;
 class Jabali : public PersonajeV2
 {
 public:
@@ -7,6 +12,7 @@ public:
       : PersonajeV2(nombre, 75, 75, 15, 2, 9, 9) {}
 
 double ataque_1() override {
+  string mensaje="j";
     cout << "Ataque Patada" << endl;
     return (getAtaque() * 1.1);
 }
@@ -304,3 +310,4 @@ public:
   };
   
 };
+#endif //ENEMIGOSV2_H

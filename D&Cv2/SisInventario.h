@@ -59,13 +59,13 @@ public:
       double VIDA = objetosInventario[llave].VIDA;
       bool reutilizable = objetosInventario[llave].reutilizable;
 
-      if (items.find(llave) != items.end())
+      if (items.find(llave) != items.end() && !objetosInventario->reutilizable)
         {throw runtime_error("Llave " + to_string(llave) + " ya existente.");}
       items[llave] = datosItem{NOMBRE, DESCRIPCION, PESO, ATAQUE, MAGIA, DEFENSA, AGILIDAD, VIDA, reutilizable};
     }
     catch (const exception &e)
     {
-      cerr << "Error: llave de objeto de inventario no encontrada." << e.what();
+      cerr << "Error: llave de objeto de inventario "<< llave <<" no encontrada." << e.what()<<endl;
     }
   }
   // try encontrar llave con metodo .find de <map>
@@ -128,8 +128,9 @@ public:
     {
       auto item = items.find(llave); 
       item != items.end() ? 
-        items.erase(item) 
+        items.erase(item)
         : throw runtime_error("Elemento con llave " + to_string(llave) + " no encontrado");
+        
     }
     catch (const exception &e)
     {

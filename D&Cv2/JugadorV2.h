@@ -21,7 +21,6 @@ public:
 
   double ataque_2() override {
     cout<<"Ataque Mordida Final"<<endl;
-    cout<<getAtaque()*2.8<<endl;
     return (getAtaque() * 2.8);}
   
   double ataque_3() override{
@@ -46,7 +45,6 @@ public:
 
   double ataque_2() override {
     cout<<"Ataque Rugido X2"<<endl;
-    cout<<getAtaque()* 1.35 * 2<<endl;
     return (getAtaque() * 1.35 * 2);}
   
   double ataque_3() override{
