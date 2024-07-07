@@ -36,6 +36,10 @@ public:
   virtual double ataque_2()  = 0;
   virtual double ataque_3()  = 0;
   virtual double ataque_4()  = 0;
+  virtual string a_1_ataque()=0;
+  virtual string a_2_ataque()=0;
+  virtual string a_3_ataque()=0;
+  virtual string a_4_ataque()=0;
   //Getters.
   string getNombre(){return m_NOMBRE;};
   double getAtaque(){return m_ataque;};

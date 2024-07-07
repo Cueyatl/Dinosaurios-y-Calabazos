@@ -4,6 +4,7 @@
 #include "Auxiliares.h"
 #include "JugadorV2.h"
 #include "EnemigosV2.h"
+#include "Interfaz.h"
 #include <iostream>
 #include <string>
 #include <map>
@@ -13,7 +14,7 @@
 #include <memory>
 using namespace std;
 
-//NOTA: metodos ordenados de manera alfabetica, excepto init_Combate(), está al inicio e iniciliza el combate.
+// NOTA: metodos ordenados de manera alfabetica, excepto init_Combate(), está al inicio e iniciliza el combate.
 class SisCombateV2
 {
 public:
@@ -28,9 +29,10 @@ public:
                unique_ptr<PersonajeV2> &unique_enemigo) : jugador(unique_jugador), enemigo(unique_enemigo) {}
   // Fin de valores inicializadores.
   /*Calcula la posible estamina usada por cada ataque.*/
-//Ejecuta el combate en un while jugador y enemigo siguen vivos.
-void init_Combate()
+  // Ejecuta el combate en un while jugador y enemigo siguen vivos.
+  void init_Combate()
   {
+
     cout << "COMBATE!!" << endl;
     string mensaje_encuentro = enemigo->getNombre() + " quiere pelear!!";
     cout << mensaje_encuentro << endl;
@@ -41,9 +43,15 @@ void init_Combate()
     enemigo->setTempStamina(enemigo->getStamina());
     double stamInit = enemigo->getTempStamina();
 
-    //Agrega inventario al enemigo.
+    // Agrega inventario al enemigo.
     Auxiliares::agregarInventarioEnemigo(enemigo);
+
     // Guarda los valores iniciales de jugador antes de combate. (sisEvees)
+        jugador->setTempAtaque(jugador->getAtaque());
+        jugador->setTempAgilidad(jugador->getAgilidad());
+        jugador->setTempDefensa(jugador->getDefensa());
+        jugador->setTempMagia(jugador->getMagia());
+
     jugador->setTempVida(jugador->getVida());
     jugador->setTempStamina(jugador->getStamina());
 
@@ -56,9 +64,9 @@ void init_Combate()
         turnoJugador(jugador, enemigo);
         turnoEnemigo(vidaInit, stamInit);
       }
-      
+
       // Alguno de los dos está muerto, no tiene caso volver a atacar.
-      else if( jugador->getVida()<=0 || enemigo->getVida()<=0)
+      else if (jugador->getVida() <= 0 || enemigo->getVida() <= 0)
       {
         break;
       }
@@ -70,8 +78,71 @@ void init_Combate()
     sisEvees(jugador, enemigo);
   }
 
-/*Calculo de estadistica acumulada para cambiar las probabilidades del enemigo
- para utilizar un ataque dependiendo de su estamina actual*/
+  int init_menu(map<int, string> comandos)
+  {
+    int valorSeleccionado;
+    valorSeleccionado = 0;
+    char tecla;
+    cout << "Presiona las teclas de flecha arriba o abajo (Esc para salir):" << endl;
+    string apuntado = "->";
+    // Opcion es el valor elegido que es regresado.
+    int opcion = 1;
+    while (true)
+    {
+      system("cls");
+      print_vida();
+      Interfaz::print_Menu(opcion, comandos);
+      tecla = _getch(); // Obtener la primera parte del código de la tecla
+      if (tecla == 27)
+      { // 27 es el código ASCII para Esc
+        valorSeleccionado = -1;
+        break;
+      }
+      if (tecla == 13)
+      { // 13 es el código ASCII para Enter
+        // Activa la accion.
+        // Regresa el valor de la llave del mapa con i->first.
+        for (auto i = comandos.begin(); i != comandos.end(); ++i)
+        {
+          if (i->second == comandos.at(opcion))
+          {
+            valorSeleccionado = i->first;
+          }
+        }
+        break;
+      }
+
+      if (tecla == -32) // -32 indica una tecla especial
+      {
+        tecla = _getch(); // Obtener la segunda parte del código de la tecla
+        switch (tecla)
+        {
+        case 72: // Flecha arriba
+
+          opcion <= 1 ? opcion = comandos.size() : opcion -= 1;
+
+          break;
+        case 80: // Flecha abajo
+
+          opcion >= comandos.size() ? opcion = 1 : opcion += 1;
+
+          break;
+        default:
+
+          break;
+        }
+      }
+      else
+      {
+        // NO BORRAR HASTA QUE TERMINE EL DESARROLLO.
+        cout << "Otra tecla presionada: " << static_cast<int>(tecla) << endl;
+      }
+    }
+    return valorSeleccionado;
+  }
+
+  /*Calculo de estadistica acumulada para cambiar las probabilidades del enemigo
+   para utilizar un ataque dependiendo de su estamina actual*/
   static int acumuladorAleatorio(double probabilidades[])
   {
     default_random_engine generator(time(nullptr));
@@ -121,19 +192,14 @@ void init_Combate()
     }
   }
 
-//TODO: Quiero agregar mas mensajes en forma de mapa, en vez de metodos, porque creo que hay muchos mensajes dispersos.
+  // TODO: Quiero agregar mas mensajes en forma de mapa, en vez de metodos, porque creo que hay muchos mensajes dispersos.
   void mensaje_hasMuerto()
   {
     string mensaje_hasMuerto = jugador->getNombre() + " ha Muerto.\nFin del juego.";
     cout << mensaje_hasMuerto << endl;
   }
   // ESTO ES TEMPORAL Aqui debe de ejecutarse el menu de interfaz.h
-  void menu_atacarInventario()
-  {
-    // pasar esto a un menu, si no hay suficiente estamina cambiar menu
-    cout << "atacar: a" << endl;
-    cout << "usarInventario: b" << endl;
-  }
+
   void menu_Inventario()
   {
     cout << "Continuar" << endl;
@@ -141,7 +207,7 @@ void init_Combate()
   }
   // FIN DE ESTO ES TEMPORAL
 
-// Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
+  // Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
   void print_vida()
   {
     string mensaje_mostrarVida = "vida  -----  ";
@@ -160,7 +226,7 @@ void init_Combate()
     cout << jugador->getStamina() << endl;
   }
 
-//Selecciona ataque con un switch, funciona en turnoJugador y turnoEnemigo.
+  // Selecciona ataque con un switch, funciona en turnoJugador y turnoEnemigo.
   void selectAtaque(int tipoAtaque, bool turnoJugador)
   {
     string mensaje_Usado = " ha usado ";
@@ -181,6 +247,9 @@ void init_Combate()
         break;
       case 4:
         enemigo->setVida(enemigo->getVida() - jugador->ataque_4());
+        break;
+        case 0:
+        cout<<enemigo->getNombre()<< "no tiene estamina para atacar."; 
         break;
       default:
         cerr << "no no... en selectAtaque de enemigo (。_。)";
@@ -204,6 +273,9 @@ void init_Combate()
       case 4:
         jugador->setVida(jugador->getVida() - enemigo->ataque_4());
         break;
+        case 0:
+        cout<<enemigo->getNombre()<< "no tiene estamina para atacar."; 
+        break;
       default:
         cerr << "no no... pero en selectAtaque de enemigo (。_。)";
         break;
@@ -211,18 +283,18 @@ void init_Combate()
     }
   }
 
-/*SISTEMA DE EVEES, por temas de simplicidad, elije un atributo al azar
-  (agilidad, ataque, defensa, magia) y le agrega el 10% del atributo seleccionado
-  del enemigo. formula: a = a0 + (aE * 0.1)
-  donde:
-    a= atributo del jugador. 
-    a0 = atributo del jugador actual.
-    aE = atributo del enemigo.
-  */
+  /*SISTEMA DE EVEES, por temas de simplicidad, elije un atributo al azar
+    (agilidad, ataque, defensa, magia) y le agrega el 10% del atributo seleccionado
+    del enemigo. formula: a = a0 + (aE * 0.1)
+    donde:
+      a= atributo del jugador.
+      a0 = atributo del jugador actual.
+      aE = atributo del enemigo.
+    */
   void sisEvees(unique_ptr<PersonajeV2> &jugador, unique_ptr<PersonajeV2> &enemigo)
   {
     // Valor a curar despues de combate.
-    double factorDeRegeneracion=0.95;
+    double factorDeRegeneracion = 0.95;
     if (jugador->getVida() >= 0)
     {
       cout << "El jugador " << jugador->getNombre() << " ha ganado!" << endl;
@@ -256,7 +328,7 @@ void init_Combate()
         enemigo->setStamina(enemigo->getTempStamina());
 
         // restaurar vida y estamina de jugador.
-        jugador->setVida(jugador->getTempVida()*factorDeRegeneracion);
+        jugador->setVida(jugador->getTempVida() * factorDeRegeneracion);
         jugador->setStamina(jugador->getTempStamina());
         jugador->mostrarEstadisticas();
       }
@@ -272,7 +344,7 @@ void init_Combate()
     }
   }
 
-//Turno de lanzar ataque de enemigo.
+  // Turno de lanzar ataque de enemigo.
   void turnoEnemigo(double vidaInit, double stamInit)
   {
     // Estadisticas de enemigo
@@ -296,22 +368,25 @@ void init_Combate()
     int tipoAtaque = Auxiliares::numeroAleatorio(1, 4);
     cout << "ataque de enemigo seleccionado " << tipoAtaque << endl;
     // Calcula la probabilidad de tipo de ataque dependiendo de la vida y stamina.
-    if (stamActual >= stamInit * 0.8 && vidaActual >= vidaInit * 0.8)
+    if (stamActual >= stamInit * 0.8 && vidaActual >= 0)
     {
       // mayor probabilidad de usar ataque 1.
       tipoAtaque = SisCombateV2::acumuladorAleatorio(prob_AtaqueUno);
     }
-    else if (stamActual >= stamInit * 0.6 && vidaActual >= vidaInit * 0.6)
+    else if (stamActual >= stamInit * 0.6 && vidaActual >= 0)
     {
       tipoAtaque = SisCombateV2::acumuladorAleatorio(prob_AtaqueDos);
     }
-    else if (stamActual >= stamInit * 0.5 && vidaActual >= vidaInit * 0.5)
+    else if (stamActual >= stamInit * 0.5 && vidaActual >= 0)
     {
       tipoAtaque = SisCombateV2::acumuladorAleatorio(prob_AtaqueTres);
     }
-    else if (stamActual >= stamInit * 0.4 && vidaActual >= vidaInit * 0.4)
+    else if (stamActual >= stamInit * 0.4 && vidaActual >= 0)
     {
       tipoAtaque = SisCombateV2::acumuladorAleatorio(prob_AtaqueTres);
+    }
+    else if(stamActual<=0 && vidaActual>=0){
+      tipoAtaque=0;
     }
     else
     {
@@ -320,11 +395,11 @@ void init_Combate()
     selectAtaque(tipoAtaque, false);
     enemigo->setStamina(enemigo->getStamina() - calcularEstamina(tipoAtaque));
   }
-//Turno de lanzar ataque de Jugador.
+  // Turno de lanzar ataque de Jugador.
   void turnoJugador(unique_ptr<PersonajeV2> &jugador, unique_ptr<PersonajeV2> &enemigo)
   {
+    map<int, string> menuOpciones;
 
-    // char opciones;
     /*opciones:
       a = atacar
         1= ataque_1
@@ -332,10 +407,8 @@ void init_Combate()
         3=ataque_3
         4=ataque_4
       b = inventario
-        auto jugador.mostrarInventario()
-        usar de inventario por llave.
     */
-    // cin >> opciones;
+
     // SELECCIONAR ATAQUE
     // Jugador sigue vivo?
     if (jugador->getVida() >= 0)
@@ -344,21 +417,26 @@ void init_Combate()
       // Jugador tiene estamina para atacar?
       if (jugador->getStamina() >= 0)
       {
+        menuOpciones[1] = "  Atacar";
+        menuOpciones[2] = "  Usar inventario";
 
-        cout << "jugador tiene estamina" << endl;
-        menu_atacarInventario();
-        char opciones;
-        cin >> opciones;
+        // muestra menu de atacar o usar inventario.
+        int opciones;
 
-        if (opciones == 'a')
+        opciones = init_menu(menuOpciones);
+        if (opciones == 1)
 
         {
-
+          map<int, string> menuOpciones;
+          menuOpciones[1] ="  " + jugador->a_1_ataque();
+          menuOpciones[2] ="  " + jugador->a_2_ataque();
+          menuOpciones[3] ="  " + jugador->a_3_ataque();
+          menuOpciones[4] ="  " + jugador->a_4_ataque();
           int tipoAtaque;
           // Menú para seleccionar el ataque
           cout << "Elige un ataque:" << endl;
-          cout << "selecciona 1, 2, 3, 4" << endl;
-          cin >> tipoAtaque;
+          tipoAtaque=Interfaz::init_menu(menuOpciones);
+          
 
           // Comprobación de ataque válido
           if (tipoAtaque >= 1 && tipoAtaque <= 4)
@@ -382,33 +460,35 @@ void init_Combate()
             cerr << "Ataque INVALIDO. Selecciona un ataque valido (1-4)." << endl;
           }
         }
-        else if (opciones == 'b')
+        else if (opciones == 2)
         {
           usarInventarioEnCombate();
         }
         else
         {
-          cerr << "Opcion INVALIDA. Selecciona 'a' para atacar o 'b' para usar el inventario." << endl;
+          cerr << "Opcion INVALIDA. Selecciona 1 para atacar o 2 para usar el inventario." << endl;
         }
       }
       // Jugador NO tiene estamina,
       else
       {
-        char opciones;
-        cin >> opciones;
+        int opciones;
         cout << "Estamina insuficiente, No puedes atacar!";
-        menu_Inventario();
-        if (opciones == 'a')
+        menuOpciones[1] = "  Regresar";
+        menuOpciones[2] = "  Usar inventario";
+        opciones = init_menu(menuOpciones);
+
+        if (opciones == 1)
         {
           cout << jugador->getNombre() << " no hace nada" << endl;
         }
-        else if (opciones == 'b')
+        else if (opciones == 2)
         {
           usarInventarioEnCombate();
         }
         else
         {
-          cerr << "Opcion INVALIDA. Selecciona 'a' para atacar o 'b' para usar el inventario." << endl;
+          cerr << "Opcion INVALIDA. Selecciona 1 para atacar o 2 para usar el inventario." << endl;
         }
       }
     }
@@ -419,24 +499,27 @@ void init_Combate()
     }
   };
 
-//Permite usar el inventario dentro de combate. TODO: incluir interfaz.h al sistema de inventario.
+  // Permite usar el inventario dentro de combate. TODO: incluir interfaz.h al sistema de inventario.
   void usarInventarioEnCombate()
   {
     try
     {
       // Usar inventario
+      int llaveEnUso;
       jugador->mostrarInventario();
       int idObjetoInventario;
-      cout << "Ingresa ID del objeto del inventario" << endl;
-      cin >> idObjetoInventario;
-      Auxiliares::utilizarInventario(true, jugador, idObjetoInventario);
+      // mostrar inventario.
+      idObjetoInventario = Auxiliares::init_menuInventario(jugador);
+      // Compara si el objeto es un objeto reutilizable, es una medida de precaucionque espero que nunca deba usarse.
+      llaveEnUso = jugador->getItem(idObjetoInventario)->reutilizable ? idObjetoInventario : 0;
+
+      llaveEnUso == idObjetoInventario ? Auxiliares::utilizarInventario(false, jugador, idObjetoInventario) : Auxiliares::utilizarInventario(true, jugador, idObjetoInventario);
     }
     catch (const exception &e)
     {
       cerr << "Error inesperado al intentar usar utilizarInventario() en turnoJugador(): " << e.what() << '\n';
     }
   }
-  
 };
 
 #endif // SISCOMBATE_H

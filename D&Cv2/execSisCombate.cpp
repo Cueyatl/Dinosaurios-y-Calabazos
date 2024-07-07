@@ -1,4 +1,4 @@
-  #include "SisInventario.h"
+#include "SisInventario.h"
 #include "Auxiliares.h"
 #include "JugadorV2.h"
 #include "EnemigosV2.h"
@@ -31,8 +31,9 @@ int main() {
     unique_ptr<PersonajeV2> enemigo = objEnemigo.seleccionarTipoClase(tipoEnemigo, "GRIFO EL DESESPERADO DE LA SOLEDAD"); 
     
     //Ejemplo de agregar objetos a inventario.
-    jugador->agregarItem(2);
+    jugador->agregarItem(1);
     jugador->agregarItem(9);
+    jugador->agregarItem(3);
 
     
     //Ejecutando combate.

@@ -8,7 +8,7 @@ Nombre
 Vida: n
 Estamina: n
 
-Interactuar
+  Interactuar
   Combatir
   Inventario
   *demos
@@ -22,12 +22,12 @@ Interactuar
 "dialogo cuatro"
 
 ------------------
-    COMBATIR
+DONE    COMBATIR
 ------------------
 Atacar
 Usar inventario
 ------------------
-      ATACAR
+DONE      ATACAR
 ------------------
 ataque 1
 ataque 2
@@ -35,7 +35,7 @@ ataque 3
 ataque 4
 
 ------------------
-    INVENTARIO
+ DONE   INVENTARIO
 ------------------
 objeto 1
 objeto 2
@@ -63,16 +63,14 @@ Magia: n
 #include <chrono>
 #include <conio.h>
 #include <thread>
-#include <map> 
+#include <map>
 using namespace std;
 using namespace this_thread;
 
 class Interfaz
 {
 private:
-  /* data */
 public:
-
 //TRABAJAR EN ESTO DESPUES.
   void efecto_intermitente(vector<string> opciones, int opcion, float tiempoParpadeo, string mensaje)
   {
@@ -106,40 +104,38 @@ public:
     }
   }
 
-  static void init_menu(map<int, string> comandos)
+  static int init_menu( map<int, string> comandos)
   {
+    
+
+    int valorSeleccionado;
+    valorSeleccionado=0;
     char tecla;
     cout << "Presiona las teclas de flecha arriba o abajo (Esc para salir):" << endl;
     string apuntado = "->";
-    // enter es 13.
-
-      int opcion=1;
+    //Opcion es el valor elegido que es regresado.
+    int opcion=1;
     while (true)
     {
+      
+
       print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
       if (tecla == 27)
       { // 27 es el código ASCII para Esc
-
+        valorSeleccionado=-1;
         break;
       }
       if (tecla == 13)
-      { // 27 es el código ASCII para Esc
-        for (size_t i = 0; i < 5; i++)
-        {
-          cout << "---------------------------------";
-          cout << comandos[opcion] << "seleccionado  ";
-          cout << "---------------------------------";
-          sleep_for(.2s);
-          system("cls");
-          for (size_t i = 0; i < 20; i++)
-          {
-            cout << endl;
-          }
-
-          sleep_for(.2s);
-          system("cls");
-        }
+      { // 13 es el código ASCII para Enter
+      //Activa la accion.
+      //Regresa el valor de la llave del mapa con i->first.
+      for (auto i =comandos.begin(); i !=comandos.end(); ++i) {
+      if (i->second==comandos.at( opcion))
+      {
+        valorSeleccionado=i->first;
+      }
+    }
         break;
       }
 
@@ -164,8 +160,10 @@ public:
         // NO BORRAR HASTA QUE TERMINE EL DESARROLLO.
         cout << "Otra tecla presionada: " << static_cast<int>(tecla) << endl;
       }
-      system("cls");
+    system("cls");
+      
     }
+    return valorSeleccionado;
   }
   
   // Interfaz(/* args */);
