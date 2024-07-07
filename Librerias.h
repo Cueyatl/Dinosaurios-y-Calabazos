@@ -1,0 +1,8 @@
+#include "DialogosV2/Dialogos.h"
+#include "ASCIIV2/Imprimir_ASCII.h"
+#include "D&Cv2/Personajev2.h"
+#include "D&Cv2/JugadorV2.h"
+#include "D&Cv2/EnemigosV2.h"
+#include "D&Cv2/SisCombateV2.h"
+#include "D&Cv2/SisInventario.h"
+#include "D&Cv2/Auxiliares.h"
