@@ -30,19 +30,16 @@ int main(){
     dialogo->Narrativa_2();
     ascii->transicion(6);
 
-    if(int a){
-        //Peppa y Dino
-        dialogo->Peppa_1_1();
-        ascii->transicion(5);
-        dialogo->Jugador_1_1();
-        ascii->transicion(5);
-        dialogo->Peppa_1_2();
-        ascii->transicion(5);
-        dialogo->Jugador_1_2();
-        ascii->transicion(5);
-    }else if(int b){
-        combate->init_Combate();
-    }
+    //Peppa y Dino
+    dialogo->Peppa_1_1();
+    ascii->transicion(5);
+    dialogo->Jugador_1_1();
+    ascii->transicion(5);
+    dialogo->Peppa_1_2();
+    ascii->transicion(5);
+    dialogo->Jugador_1_2();
+    ascii->transicion(5);
+
 
     //Narrativa parte 2
     dialogo->Narrativa_3();
@@ -72,6 +69,34 @@ int main(){
         ascii->transicion(7);    
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_oso_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_oso_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_oso_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_oso_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_oso_espada_2();
+                break;
+            }
+        }
     }
 
     //Narrativa parte 3
@@ -96,6 +121,34 @@ int main(){
         ascii->transicion(4);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_grifo_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_grifo_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_grifo_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_grifo_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_grifo_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 4
@@ -122,6 +175,34 @@ int main(){
         ascii->transicion(6);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_dinosaurio_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_dinosaurio_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_dinosaurio_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_dinosaurio_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_dinosaurio_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 5
@@ -142,6 +223,34 @@ int main(){
         ascii->transicion(9);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_hada_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_hada_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_hada_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_hada_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_hada_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 6
@@ -166,6 +275,34 @@ int main(){
         ascii->transicion(3);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_zombie_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_zombie_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_zombie_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_zombie_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_zombie_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 7
@@ -186,6 +323,34 @@ int main(){
         ascii->transicion(4);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_lobo_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_lobo_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_lobo_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_lobo_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_lobo_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 8
@@ -208,6 +373,34 @@ int main(){
         ascii->transicion(4);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_esqueleto_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_esqueleto_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_esqueleto_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_esqueleto_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_esqueleto_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 9
@@ -228,6 +421,34 @@ int main(){
         ascii->transicion(12);
     }else if(int b){
         combate->init_Combate();
+
+        switch(int tipo_arma){
+            case 1:{
+                //Arco
+                ascii->imprimir_fantasma_arco();
+                break;
+            }
+            case 2:{
+                //Baston
+                ascii->imprimir_fantasma_baston();
+                break;
+            }
+            case 3:{
+                //Hacha
+                ascii->imprimir_fantasma_hacha();
+                break;
+            }
+            case 4:{
+                //Espada_1
+                ascii->imprimir_fantasma_espada_1();
+                break;
+            }
+            case: 5{
+                //Espada_2
+                ascii->imprimir_fantasma_espada_2();
+                break;
+            }
+        }
     }
     
     //Narrativa parte 10
@@ -244,6 +465,34 @@ int main(){
 
     //Inicia Combate con Peppa
     combate->init_Combate();
+
+    switch(int tipo_arma){
+        case 1:{
+            //Arco
+            ascii->imprimir_grifo_arco();
+            break;
+        }
+        case 2:{
+            //Baston
+            ascii->imprimir_grifo_baston();
+            break;
+        }
+        case 3:{
+            //Hacha
+            ascii->imprimir_grifo_hacha();
+            break;
+        }
+        case 4:{
+            //Espada_1
+            ascii->imprimir_grifo_espada_1();
+            break;
+        }
+        case: 5{
+            //Espada_2
+            ascii->imprimir_grifo_espada_2();
+            break;
+        }
+    }
 
     //Narrativa parte final
     dialogo->Narrativa_19();
