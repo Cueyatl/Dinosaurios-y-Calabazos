@@ -1,4 +1,4 @@
-#include "Personaje.h"
+#include "../DinosauriosYCalabozos/Combate/Personaje.h"
 #include <iostream>
 using namespace std;
 class SistemaKarma{
