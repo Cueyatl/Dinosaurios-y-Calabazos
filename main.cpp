@@ -9,6 +9,7 @@ int main(){
     SisCombateV2* combate = new SisCombateV2();
     SisInventario* inventario = new SisInventario();
     //Inicializacion de enemigos
+
     Jabali* jabali = new Jabali();
     Lobo* lobo = new Lobo();
     Oso* oso = new Oso();
@@ -70,13 +71,14 @@ int main(){
 
 
     //Narrativa parte 2
+    //
     dialogo->Narrativa_3();
     ascii->transicion(7);
     dialogo->Narrativa_4();
     ascii->transicion(7);
     dialogo->Narrativa_5();
     ascii->transicion(5);
-
+//opcion de interfas 
     if(int a){
         //Oso y Dino
         dialogo->Jugador_2_1();
@@ -97,8 +99,8 @@ int main(){
         ascii->transicion(7);    
     }else if(int b){
         combate->init_Combate();
-
-        switch(int tipo_arma){
+        //modificar agregar tipo arama
+        switch(int 1){
             case 1:{
                 //Arco
                 ascii->imprimir_oso_arco();
