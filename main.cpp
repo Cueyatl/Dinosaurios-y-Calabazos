@@ -40,6 +40,34 @@ int main(){
     dialogo->Jugador_1_2();
     ascii->transicion(5);
 
+    //Seleccion de clases
+    switch(dialogo->Escoger_clase()){
+        case 1:{
+            Espadachin* espadachin = new Espadachin();            
+            break;
+        }
+        case 2:{
+            Berserker* berserker = new Berserker();
+            break;
+        }
+        case 3:{
+            Mago* mago = new Mago();
+            break;
+        }
+        case 4:{
+            Sacerdote* sacerdote = new Sacerdote();
+            break;
+        }
+        case 5:{
+            Ladron* ladron = new Ladron(); 
+            break;
+        }
+        case 6:{
+            Arquero* arquero = new Arquero();
+            break;
+        }
+    }
+
 
     //Narrativa parte 2
     dialogo->Narrativa_3();

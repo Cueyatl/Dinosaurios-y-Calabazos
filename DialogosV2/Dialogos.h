@@ -2,6 +2,19 @@
 using namespace std;
 class DialogosEnemigos{
 	public:
+		//Escoger clase
+		int Escoger_clase(){
+			cout<<"Escoje una clase: "<<endl;
+    		cout<<"1-. Espadachin."<<endl;
+    		cout<<"2-. Berserker."<<endl;
+    		cout<<"3-. Mago."<<endl;
+    		cout<<"4-. Sacerdote."<<endl;
+    		cout<<"5-. Ladron."<<endl;
+    		cout<<"6-. Arquero."<<endl;
+    		int clase;
+    		cin<<clase;
+			return clase;
+		}
 		//Primera Narrativa
 		void Narrativa_1(){
 			cout<<"Habia una vez un pequeno dinosaurio llamado Dino, quien vivia en un videojuego el cual era"<<endl;
