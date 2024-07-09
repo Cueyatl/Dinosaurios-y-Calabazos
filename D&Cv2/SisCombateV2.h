@@ -38,22 +38,15 @@ public:
     cout << mensaje_encuentro << endl;
 
     // Guarda los valores  inicales de enemigo. (sisEvees)
-    enemigo->setTempVida(enemigo->getVida());
+
     double vidaInit = enemigo->getTempVida();
-    enemigo->setTempStamina(enemigo->getStamina());
+
     double stamInit = enemigo->getTempStamina();
 
     // Agrega inventario al enemigo.
     Auxiliares::agregarInventarioEnemigo(enemigo);
 
     // Guarda los valores iniciales de jugador antes de combate. (sisEvees)
-        jugador->setTempAtaque(jugador->getAtaque());
-        jugador->setTempAgilidad(jugador->getAgilidad());
-        jugador->setTempDefensa(jugador->getDefensa());
-        jugador->setTempMagia(jugador->getMagia());
-
-    jugador->setTempVida(jugador->getVida());
-    jugador->setTempStamina(jugador->getStamina());
 
     // Iniciar el combate.
     while (jugador->getVida() >= 0 || enemigo->getVida() >= 0)
@@ -61,7 +54,9 @@ public:
       // Ambos siguen vivos.
       if (jugador->getVida() >= 0 && enemigo->getVida() >= 0)
       {
+        cout<<"\n"<<endl;
         turnoJugador(jugador, enemigo);
+        cout<<"\n"<<endl;
         turnoEnemigo(vidaInit, stamInit);
       }
 
@@ -72,7 +67,8 @@ public:
       }
 
       // Imprime tu vida y estamina despues de cada golpe.
-      print_vida();
+      mostrar_vida();
+      cout<<"----------------------"<<endl;
     }
     // Sistema de recompensa de evees, restaura valores.
     sisEvees(jugador, enemigo);
@@ -80,6 +76,8 @@ public:
 
   int init_menu(map<int, string> comandos)
   {
+    //Prueba esto, tal vez lo quites.
+    system("cls");
     int valorSeleccionado;
     valorSeleccionado = 0;
     char tecla;
@@ -90,7 +88,9 @@ public:
     while (true)
     {
       system("cls");
-      print_vida();
+      mostrar_vida();
+      cout<<"----------------------"<<endl;
+
       Interfaz::print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
       if (tecla == 27)
@@ -142,7 +142,7 @@ public:
   }
 
   /*Calculo de estadistica acumulada para cambiar las probabilidades del enemigo
-   para utilizar un ataque dependiendo de su estamina actual*/
+  para utilizar un ataque dependiendo de su estamina actual*/
   static int acumuladorAleatorio(double probabilidades[])
   {
     default_random_engine generator(time(nullptr));
@@ -159,7 +159,7 @@ public:
         return i + 1; // Numbers start from 1
       }
     }
-    return 1; // Default return value if no condition is met
+    return 1; // Default return llave if no condition is met
   }
 
   // Calcula la estamina usada por cada ataque. Usado para jugador y enemigo.
@@ -198,17 +198,9 @@ public:
     string mensaje_hasMuerto = jugador->getNombre() + " ha Muerto.\nFin del juego.";
     cout << mensaje_hasMuerto << endl;
   }
-  // ESTO ES TEMPORAL Aqui debe de ejecutarse el menu de interfaz.h
-
-  void menu_Inventario()
-  {
-    cout << "Continuar" << endl;
-    cout << "usarInventario: b" << endl;
-  }
-  // FIN DE ESTO ES TEMPORAL
 
   // Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
-  void print_vida()
+  void mostrar_vida()
   {
     string mensaje_mostrarVida = "vida  -----  ";
     string mensaje_mostrarEstamina = "Estamina ----- ";
@@ -218,7 +210,7 @@ public:
     cout << enemigo->getVida() << endl;
     cout << mensaje_mostrarEstamina;
     cout << enemigo->getStamina() << endl;
-
+    cout<<"\n"<<endl;
     cout << jugador->getNombre() << endl;
     cout << mensaje_mostrarVida;
     cout << jugador->getVida() << endl;
@@ -232,8 +224,9 @@ public:
     string mensaje_Usado = " ha usado ";
     if (turnoJugador)
     {
-
+      //Mensaje de has usado
       cout << jugador->getNombre() << mensaje_Usado;
+       
       switch (tipoAtaque)
       {
       case 1:
@@ -248,17 +241,20 @@ public:
       case 4:
         enemigo->setVida(enemigo->getVida() - jugador->ataque_4());
         break;
-        case 0:
-        cout<<enemigo->getNombre()<< "no tiene estamina para atacar."; 
+      case 0:
+        cout << enemigo->getNombre() << "no tiene estamina para atacar.";
         break;
       default:
         cerr << "no no... en selectAtaque de enemigo (。_。)";
         break;
       }
+      
     }
     else
     {
+      //Mensja de enemigo al usar ataque.
       cout << enemigo->getNombre() << mensaje_Usado;
+
       switch (tipoAtaque)
       {
       case 1:
@@ -273,14 +269,17 @@ public:
       case 4:
         jugador->setVida(jugador->getVida() - enemigo->ataque_4());
         break;
-        case 0:
-        cout<<enemigo->getNombre()<< "no tiene estamina para atacar."; 
+      case 0:
+        cout << enemigo->getNombre() << "no tiene estamina para atacar.";
         break;
       default:
         cerr << "no no... pero en selectAtaque de enemigo (。_。)";
         break;
       }
+       // pausa para leer el pinshe mensaje
+      sleep_for(chrono::seconds(5));
     }
+    
   }
 
   /*SISTEMA DE EVEES, por temas de simplicidad, elije un atributo al azar
@@ -366,7 +365,6 @@ public:
     double prob_AtaqueCuatro[] = {0.5, 0.16, 0.16, 0.16}; // Numbers 1, 2, 3, 4 probabilities
 
     int tipoAtaque = Auxiliares::numeroAleatorio(1, 4);
-    cout << "ataque de enemigo seleccionado " << tipoAtaque << endl;
     // Calcula la probabilidad de tipo de ataque dependiendo de la vida y stamina.
     if (stamActual >= stamInit * 0.8 && vidaActual >= 0)
     {
@@ -385,8 +383,9 @@ public:
     {
       tipoAtaque = SisCombateV2::acumuladorAleatorio(prob_AtaqueTres);
     }
-    else if(stamActual<=0 && vidaActual>=0){
-      tipoAtaque=0;
+    else if (stamActual <= 0 && vidaActual >= 0)
+    {
+      tipoAtaque = 0;
     }
     else
     {
@@ -400,73 +399,39 @@ public:
   {
     map<int, string> menuOpciones;
 
-    /*opciones:
-      a = atacar
-        1= ataque_1
-        2= ataque_2
-        3=ataque_3
-        4=ataque_4
-      b = inventario
-    */
-
-    // SELECCIONAR ATAQUE
     // Jugador sigue vivo?
     if (jugador->getVida() >= 0)
     {
-
       // Jugador tiene estamina para atacar?
       if (jugador->getStamina() >= 0)
       {
         menuOpciones[1] = "  Atacar";
         menuOpciones[2] = "  Usar inventario";
-
         // muestra menu de atacar o usar inventario.
         int opciones;
-
         opciones = init_menu(menuOpciones);
         if (opciones == 1)
-
         {
+          // Crea menu de opciones.
           map<int, string> menuOpciones;
-          menuOpciones[1] ="  " + jugador->a_1_ataque();
-          menuOpciones[2] ="  " + jugador->a_2_ataque();
-          menuOpciones[3] ="  " + jugador->a_3_ataque();
-          menuOpciones[4] ="  " + jugador->a_4_ataque();
+          menuOpciones[1] = "  " + jugador->a_1_ataque();
+          menuOpciones[2] = "  " + jugador->a_2_ataque();
+          menuOpciones[3] = "  " + jugador->a_3_ataque();
+          menuOpciones[4] = "  " + jugador->a_4_ataque();
           int tipoAtaque;
           // Menú para seleccionar el ataque
-          cout << "Elige un ataque:" << endl;
-          tipoAtaque=Interfaz::init_menu(menuOpciones);
-          
-
-          // Comprobación de ataque válido
-          if (tipoAtaque >= 1 && tipoAtaque <= 4)
-          {
-            try
-            {
-              // Calcula la estamina usada por cada ataque
-              jugador->getStamina() >= 0 ? jugador->setStamina(jugador->getStamina() - calcularEstamina(tipoAtaque))
-                                         : jugador->setStamina(0);
-
-              // Seleccionar ataque
-              selectAtaque(tipoAtaque, true);
-            }
-            catch (const exception &e)
-            {
-              cerr << "Error en invocar tipo de ataque en SisCombate: " << e.what() << '\n';
-            }
-          }
-          else
-          {
-            cerr << "Ataque INVALIDO. Selecciona un ataque valido (1-4)." << endl;
-          }
-        }
-        else if (opciones == 2)
-        {
-          usarInventarioEnCombate();
+          string msj_eligeUnAtaque = "Elige un ataque: ";
+          tipoAtaque = Interfaz::init_menu(msj_eligeUnAtaque,menuOpciones);
+          // Calcula la estamina usada por cada ataque
+          jugador->getStamina() >= 0 ? jugador->setStamina(jugador->getStamina() - calcularEstamina(tipoAtaque))
+                                     : jugador->setStamina(0);
+          // Seleccionar ataque
+          cout<<"\n"<<endl;
+          selectAtaque(tipoAtaque, true);
         }
         else
         {
-          cerr << "Opcion INVALIDA. Selecciona 1 para atacar o 2 para usar el inventario." << endl;
+          usarInventarioEnCombate();
         }
       }
       // Jugador NO tiene estamina,
@@ -499,26 +464,23 @@ public:
     }
   };
 
-  // Permite usar el inventario dentro de combate. TODO: incluir interfaz.h al sistema de inventario.
+  // Permite usar el inventario dentro de combate.
   void usarInventarioEnCombate()
-  {
-    try
-    {
-      // Usar inventario
-      int llaveEnUso;
-      jugador->mostrarInventario();
-      int idObjetoInventario;
-      // mostrar inventario.
-      idObjetoInventario = Auxiliares::init_menuInventario(jugador);
-      // Compara si el objeto es un objeto reutilizable, es una medida de precaucionque espero que nunca deba usarse.
-      llaveEnUso = jugador->getItem(idObjetoInventario)->reutilizable ? idObjetoInventario : 0;
+  {   
+      //NOTA: no se guarda en vector<int> porque me arroja una referencia.
+      //Se resta 1 porque queremos la posicion del vector<string> 
+      int posicionLLave=Auxiliares::init_menuInventario(jugador)-1;
+      
+    
+      string llaveActual=jugador->IDsOpcionesMenuInventario.at(posicionLLave);
+      int llave=stoi(llaveActual);
+      Auxiliares::utilizarInventario(jugador,llave, posicionLLave); //4
 
-      llaveEnUso == idObjetoInventario ? Auxiliares::utilizarInventario(false, jugador, idObjetoInventario) : Auxiliares::utilizarInventario(true, jugador, idObjetoInventario);
-    }
-    catch (const exception &e)
-    {
-      cerr << "Error inesperado al intentar usar utilizarInventario() en turnoJugador(): " << e.what() << '\n';
-    }
+
+    // casos:es garra, equipar, es potenciador,
+    /*true true, true false,false false*/
+    
+    // si solo hay un objeto y es garra. Equipar garra.
   }
 };
 

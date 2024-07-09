@@ -6,9 +6,11 @@
 #include <map>
 #include <memory>
 #include <vector>
+#include <algorithm>
 using namespace std;
 struct datosItem
 {
+  
   string NOMBRE;
   string DESCRIPCION;
   int PESO;
@@ -30,14 +32,15 @@ map<int, datosItem> objetosInventario = {
     {4, {"Arco y Flecha", "Perfectos para ataques a distancia.", 7, 0.5, 0, 0.1, 0.1, 0, true, 0}},
     {5, {"Hacha Vikinga", "Ideal para cortar madera o enfrentarte a enemigos.", 13, 0.1, 0, 0.1, 0.1, 0, true, 0}},
     {6, {"Baston Magico", "Canaliza el poder antiguo!!", 11, 0.05, 0.2, 0, 0.05, 0, true, 0}},
-    {7, {"Dinamita", "Sustancia explosiva a base de nitroglicerina.", 11, 0.2, 0, 0.05, 0.05, true, 0}},
+    {7, {"Dinamita", "Sustancia explosiva a base de nitroglicerina.", 11, 0.2, 0, 0.05, 0.05, 0, true, 0}},
     {8, {"Glock 22", "Artefacto de una epoca menos civilizada.", 6, 0.15, 0, 0, 0.15, 0, true, 0}},
     {9, {"Pocion de Fuerza", "Aumenta tu fuerza permanentemente.", 16, 0.2, 0, 0.05, 0.05, 0.1, false, 0}},
-    {10, {"Pocion de Vida", "Restaura tu salud al instante.", 3, 0, 0, 0, 0.4, false, 0}},
+    {10, {"Pocion de Vida", "Restaura tu salud al instante.", 3, 0, 0, 0, 0, 0.4, false, 0}},
     {11, {"Pocion de Resistencia", "Brebaje magico que mejora tu defensa y otros aspectos.", 12, 0, 0.1, 0.2, 0.1, 0, false, 0}},
     {12, {"Amuleto Ojo Turco de Agua", "Magia oscura que proporciona puntos de AGILIDAD y MAGIA", 9, 0, 0.1, 0.2, 0.1, 0, false, 0}},
     {13, {"Amuleto Ojo Turco de Fuego", "Magia oscura que proporciona puntos de VIDA y ATAQUE", 9, 0.3, 0, 0, 0, 0.1, false, 0}},
 };
+
 
 class SisInventario
 {
@@ -47,7 +50,8 @@ private:
 
 public:
     //Permite guardar los nombres de los objetos en el inventario actual.  
-    vector<string> opcionesMenuInventario;
+    vector<string> opcionesMenuInventario; //espada, dinamita, glock
+    vector<string> IDsOpcionesMenuInventario;//"3,", "4", "6". 
     
 
   void agregarItem(const int &llave)
@@ -61,6 +65,7 @@ public:
       }
 
       // Obtener los datos del objeto
+      
       string NOMBRE = objetosInventario[llave].NOMBRE;
       string DESCRIPCION = objetosInventario[llave].DESCRIPCION;
       int PESO = objetosInventario[llave].PESO;
@@ -92,6 +97,7 @@ public:
       }
       //Agregados para la interfaz para seleccionar objetos del inventario.
       opcionesMenuInventario.push_back("  " + items[llave].NOMBRE);
+      IDsOpcionesMenuInventario.push_back(to_string(llave));
     }
     catch (const exception &e)
     {
@@ -119,7 +125,7 @@ public:
   }
 
   // Imprimir atributos de objeto. No mostrar elementos si están en 0.
-  void printItem(const int &llave) const
+  void mostrarItem(const int &llave) const
   {
     try
     {
@@ -145,10 +151,11 @@ public:
     }
     catch (const std::exception &e)
     {
-      cerr << "Error fatal en printItem() " << e.what() << endl;
+      cerr << "Error fatal en mostrarItem() " << e.what() << endl;
     }
   }
 
+  
   void mostrarInventario() const
   {
     // Por cada objeto en items, mostrar en pantalla su nombre.
@@ -156,12 +163,12 @@ public:
     { 
       
       cout << "----------" << endl;
-      printItem(item.first);  
+      mostrarItem(item.first);  
     }
     cout << "----------" << endl;
   }
 
-  void eliminarItem(const int &llave)
+  void eliminarItem(const int &llave, int posicionLLave)
   {
     // Throw error no se encontró, otro error desconocido catch{}
     try
@@ -170,6 +177,8 @@ public:
       if (item != items.end())
       {
         items.erase(item);
+      opcionesMenuInventario.erase(std::remove(opcionesMenuInventario.begin(), opcionesMenuInventario.end(), opcionesMenuInventario.at(posicionLLave)), opcionesMenuInventario.end());
+
       }
       else
       {

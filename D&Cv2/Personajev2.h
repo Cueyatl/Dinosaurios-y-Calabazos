@@ -10,7 +10,7 @@ class PersonajeV2 : public SisInventario{
 protected:
 private:
 public:
-
+  double m_setActualInventoryId;
   string m_NOMBRE;
   double m_ataque;
   double m_agilidad;
@@ -63,7 +63,7 @@ public:
   double getTempAtaque() { return m_tempAtaque; }
   void setTempAtaque(double tempAtaque) {m_tempAtaque = tempAtaque;}
   double getTempAgilidad() { return m_tempAgilidad; }
-  void setTempAgilidad(double tempAgilidad) { m_tempAgilidad = tempAgilidad; }
+  void setTempAgilidad(double tempDefensa) { m_tempAgilidad = tempDefensa; }
   double getTempDefensa() { return m_tempDefensa; }
   void setTempDefensa(double tempDefensa) { m_tempDefensa = tempDefensa; }
   double getTempMagia() { return m_tempMagia; }

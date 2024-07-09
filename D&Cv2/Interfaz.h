@@ -104,10 +104,10 @@ public:
     }
   }
 
-  static int init_menu( map<int, string> comandos)
+  static int init_menu(string mensaje, map<int, string> comandos)
   {
-    
-
+    // Prueba, tal vez lo quitas despues.
+    system("cls");
     int valorSeleccionado;
     valorSeleccionado=0;
     char tecla;
@@ -118,7 +118,7 @@ public:
     while (true)
     {
       
-
+      cout<<mensaje<<endl;
       print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
       if (tecla == 27)

@@ -17,25 +17,25 @@ public:
 
   double ataque_1() override
   {
-    cout << "Ataque Golpe cola" << endl;
+    cout << "Ataque Golpe cola!!" << endl;
     return (getAtaque()*1.3+getAgilidad()*1.4+getMagia()*0.6);
   }
 
   double ataque_2() override
   {
-    cout << "Ataque Mordida Final" << endl;
+    cout << "Ataque Mordida Final!!" << endl;
     return (getAtaque() * 2.4);
   }
 
   double ataque_3() override
   {
-    cout << "Ataque Garra Jurasica" << endl;
+    cout << "Ataque Garra Jurasica!!" << endl;
     return (getAtaque() * 1.3) + (getDefensa() * 0.8)+getAgilidad()*0.5;
   }
 
   double ataque_4() override
   {
-    cout << "Ataque Pisoteo Devastador" << endl;
+    cout << "Ataque Pisoteo Devastador!!" << endl;
     return (getAtaque() * 1.1) + (getDefensa()*0.5)+getMagia()*0.4;
   }
   // -----------------------------------
@@ -57,25 +57,25 @@ public:
 
   double ataque_1() override
   {
-    cout << "Ataque Giro Rex" << endl;
+    cout << "Ataque Giro Rex!!" << endl;
     return (getAtaque()*1.45+getAgilidad()*0.4+getMagia()*0.4+getDefensa()*0.4);
   }
 
   double ataque_2() override
   {
-    cout << "Ataque Rugido X2" << endl;
+    cout << "Ataque Rugido X2!!" << endl;
     return (getAtaque() * 1.2 + getDefensa() * 0.55);
   }
 
   double ataque_3() override
   {
-    cout << "Ataque Garra Jurasica" << endl;
+    cout << "Ataque Garra Jurasica!!" << endl;
     return (getAgilidad() * 1.2 + getMagia() * 1.2 + getDefensa() * 1.2 + getAtaque() * 0.24);
   }
 
   double ataque_4() override
   {
-    cout << "Ataque Sismo Volcanico" << endl;
+    cout << "Ataque Sismo Volcanico!!" << endl;
     return (getAtaque() * 0.6 + getDefensa() * 0.7);
   }
   // -----------------------------------
@@ -97,23 +97,23 @@ public:
 
   double ataque_1() override
   { // Renombrado de ataqueRayoFuego
-    cout << "Ataque Rayo de Fuego" << endl;
+    cout << "Ataque Rayo de Fuego!!" << endl;
     return getMagia() * 1.1 + getMagia() * 0.6 + getDefensa() * 0.4;
   }
 
   double ataque_2() override
   { // Renombrado de ataqueBolaOscura
-    cout << "Ataque Bola Oscura" << endl;
+    cout << "Ataque Bola Oscura!!" << endl;
     return getMagia() * 1 + getAgilidad() * 0.7 + getDefensa() * 1.3;
   }
   double ataque_3() override
   { // Renombrado de ataqueRugidoMagico
-    cout << "Ataque Rugido Mágico" << endl;
+    cout << "Ataque Rugido Mágico!!" << endl;
     return getMagia() * 1 + getAtaque() * 0.5 + getDefensa() * 0.3;
   }
   double ataque_4() override
   { // Renombrado de ataqueMeteoroCataclismico
-    cout << "Ataque Meteoro Cataclismico" << endl;
+    cout << "Ataque Meteoro Cataclismico!!" << endl;
     return getMagia() * 0.7 + getMagia() * 0.2 + getAtaque() * 0.5;
   }
 
@@ -136,25 +136,25 @@ public:
 
   double ataque_1() override
   { // Renombrado de rayoSanto
-    cout << "Ataque Rayo Santo" << endl;
+    cout << "Ataque Rayo Santo!!" << endl;
     return getMagia() * 0.8 + getMagia() * 1.2 + getAgilidad() * 0.3;
   }
 
   double ataque_2() override
   { // Renombrado de luzSagrada
-    cout << "Ataque Luz Sagrada" << endl;
+    cout << "Ataque Luz Sagrada!!" << endl;
     return getMagia() * 1 + getMagia() * 0.9;
   }
 
   double ataque_3() override
   { // Renombrado de furiaDivina
-    cout << "Ataque Furia Divina" << endl;
+    cout << "Ataque Furia Divina!!" << endl;
     return getMagia() * 0.6 + getAtaque() * 1.2 + getDefensa() * 0.5;
   }
 
   double ataque_4() override
   { // Renombrado de LlamaBendita
-    cout << "Ataque Llama Bendita" << endl;
+    cout << "Ataque Llama Bendita!!" << endl;
     return getMagia() * 1 + getDefensa() * 1.2;
   }
   // -----------------------------------
@@ -176,25 +176,25 @@ public:
 
   double ataque_1() override
   {
-    cout << "Ataque Corte" << endl;
+    cout << "Ataque Corte!!" << endl;
     return getAtaque() * 0.7 + getAgilidad() * 1.2 + getMagia() * 2;
   }
 
   double ataque_2() override
   {
-    cout << "Ataque Corte X" << endl;
+    cout << "Ataque Corte X!!" << endl;
     return getMagia() * 0.8 + getAtaque() * 1 + getAgilidad() * 1;
   }
 
   double ataque_3() override
   {
-    cout << "Ataque Garra Sigilo" << endl;
+    cout << "Ataque Garra Sigilo!!" << endl;
     return getMagia() * 0.8 + getDefensa() * 1.1 + getAgilidad() * 1.1;
   }
 
   double ataque_4() override
   {
-    cout << "Ataque Trampa Joshi" << endl;
+    cout << "Ataque Trampa Joshi!!" << endl;
     return getMagia() * 1.1 + getAtaque() * 1 + getMagia() * 1;
   }
   // -----------------------------------
@@ -216,25 +216,25 @@ public:
 
   double ataque_1() override
   {
-    cout << "Ataque Disparo" << endl;
+    cout << "Ataque Disparo!!" << endl;
     return getMagia() * 0.9 + getDefensa() * 2 + getAgilidad() * 1.4;
   }
 
   double ataque_2() override
   {
-    cout << "Ataque Flecha Rápida" << endl;
+    cout << "Ataque Flecha Rápida!!" << endl;
     return getMagia() * 2 + getAtaque() * 1.7 + getDefensa() * 1.5;
   }
 
   double ataque_3() override
   {
-    cout << "Ataque Dino Flecha" << endl;
+    cout << "Ataque Dino Flecha!!" << endl;
     return getMagia() * 2 + getAtaque() * 0.9 + getAgilidad() * 0.5;
   }
 
   double ataque_4() override
   {
-    cout << "Ataque Flecha Extinción" << endl;
+    cout << "Ataque Flecha Extinción!!" << endl;
     return getMagia() * 0.5 + getMagia() * 0.8 + getAgilidad() * 0.9;
   }
   // -----------------------------------

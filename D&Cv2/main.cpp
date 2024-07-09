@@ -38,8 +38,8 @@ int main(int argc, char const *argv[])
   map<int, string> menuOpciones;
   menuOpciones[1] = "  Atacar";
   menuOpciones[2] = "  Usar inventario";
-  
-  cout<<Interfaz::init_menu(menuOpciones);
+  string msj_opciones="OPCIONES";
+  cout<<Interfaz::init_menu(msj_opciones,menuOpciones);
 
   cout<<Auxiliares::init_menuInventario(jugador);
 
