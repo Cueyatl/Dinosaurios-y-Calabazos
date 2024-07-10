@@ -424,8 +424,19 @@ public:
   // TODO: Quiero agregar mas mensajes en forma de mapa, en vez de metodos, porque creo que hay muchos mensajes dispersos.
   void mensaje_hasMuerto()
   {
-    string mensaje_hasMuerto = jugador->getNombre() + " ha Muerto.\nFin del juego.";
-    cout << mensaje_hasMuerto << endl;
+    Imprimir_ASCII impiMuerte;
+    int selecMensajeFinDelJuego=Auxiliares::numeroAleatorio(1,3);
+    if (selecMensajeFinDelJuego==1)
+    {
+      impiMuerte.imprimirArchivo("ascii/alerta_muerte_1.txt");
+    }
+    else if (selecMensajeFinDelJuego==2)
+    {
+      impiMuerte.imprimirArchivo("ascii/alerta_muerte_2.txt");
+    }
+    else{
+      impiMuerte.imprimirArchivo("ascii/alerta_muerte_3.txt");
+    }
   }
 
   // Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
