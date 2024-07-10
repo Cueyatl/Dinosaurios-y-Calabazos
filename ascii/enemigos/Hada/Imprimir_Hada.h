@@ -1,7 +1,11 @@
+#ifndef iMPRIMIR_HADA_H
+#define iMPRIMIR_HADA_H
+
+
 #include "Imprimir_ASCII.h"
 class I_Hada{
     public:
-        LibreriaASCII* hada = new LibreriaASCII();
+        Imprimir_ASCII* hada = new Imprimir_ASCII();
         void imprimir_hada_arco(){
             hada->imprimirArchivo("hada_arco.txt");
         }
@@ -17,4 +21,5 @@ class I_Hada{
         void imprimir_hada_hacha(){
             hada->imprimirArchivo("hada_hacha.txt");
         }
-}
+};
+#endif //iMPRIMIR_HADA_H

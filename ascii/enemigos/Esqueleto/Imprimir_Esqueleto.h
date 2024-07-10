@@ -1,7 +1,11 @@
+#ifndef IMPRIMIR_ESQUELETO.H
+#define IMPRIMIR_ESQUELETO.H
+
+
 #include "Imprimir_ASCII.h"
 class I_Esqueleto{
     public:
-        LibreriaASCII* esqueleto = new LibreriaASCII();
+        Imprimir_ASCII* esqueleto = new Imprimir_ASCII();
         void imprimir_esqueleto_arco(){
             esqueleto->imprimirArchivo("esqueleto_arco.txt");
         }
@@ -17,4 +21,5 @@ class I_Esqueleto{
         void imprimir_esqueleto_hacha(){
             esqueleto->imprimirArchivo("esqueleto_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_ESQUELETO.H

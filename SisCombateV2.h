@@ -12,6 +12,8 @@
 #include <random>
 #include <ctime>
 #include <memory>
+#include "ascii/Imprimir_ASCII.h"
+
 using namespace std;
 
 // NOTA: metodos ordenados de manera alfabetica, excepto init_Combate(), está al inicio e iniciliza el combate.
@@ -24,15 +26,240 @@ public:
 
   unique_ptr<PersonajeV2> &jugador;
   unique_ptr<PersonajeV2> &enemigo;
-
+  int llaveInventarioGlobal;
   SisCombateV2(unique_ptr<PersonajeV2> &unique_jugador,
                unique_ptr<PersonajeV2> &unique_enemigo) : jugador(unique_jugador), enemigo(unique_enemigo) {}
   // Fin de valores inicializadores.
   /*Calcula la posible estamina usada por cada ataque.*/
   // Ejecuta el combate en un while jugador y enemigo siguen vivos.
+  void mostrar_ascii(string nombre)
+  {
+    Imprimir_ASCII imp;
+    vector<string> nombres = {"Peppa","Pedro el lobo", "Oso maloso", "Dino Dani", "Huesos", "Zombie?","Vincent", "Lucero", "Lorenzo el Grifo"};
+    int switchCase;
+    for (size_t i = 0; i < nombres.size(); i++)
+    {
+      if (nombre == nombres[i])
+      {
+        switchCase = i;
+        break;
+      }
+    }
+    switch (switchCase)
+    {
+    case 2:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/lobo/lobo_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/lobo/lobo_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/lobo/lobo_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/lobo/lobo_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/lobo/lobo_baston.txt");
+        break;
+      default:
+        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        break;
+      }
+      break;
+    case 3: // oso maloso
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo("ascii/oso/oso_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo("ascii/oso/oso_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo("ascii/oso/oso_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo("ascii/oso/oso_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo("ascii/oso/oso_baston.txt");
+
+        break;
+      default:
+        cout << "definitivamente " << jugador->getNombre() << "esta usando sus garras." << endl;
+        break;
+      }
+      break;
+    case 4:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        imp.imprimirArchivo("ascii/dinosaurio/dinosaurio_espada_1.txt");
+        break;
+      case 2:
+        imp.imprimirArchivo("ascii/dinosaurio/dinosaurio_espada_2.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo("ascii/dinosaurio/dinosaurio_arco.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo("ascii/dinosaurio/dinosaurio_hacha.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo("ascii/dinosaurio/dinosaurio_baston.txt");
+        break;
+      default:
+        cout << "Dani: Wow, okay, admiro que solo vengas con tus garras, pero yo no.";
+        break;
+      }
+      break;
+
+    case 5:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/esqueleto/esqueleto_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/esqueleto/esqueleto_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/esqueleto/esqueleto_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/esqueleto/esqueleto_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/esqueleto/esqueleto_baston.txt");
+        break;
+      default:
+        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        break;
+      }
+      break;
+    case 6:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/zombie/zombie_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/zombie/zombie_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/zombie/zombie_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/zombie/zombie_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/zombie/zombie_baston.txt");
+        break;
+      default:
+        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        break;
+      }
+      break;
+      case 7:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+          cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/fantasma/fantasma_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/fantasma/fantasma_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/fantasma/fantasma_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/fantasma/fantasma_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/fantasma/fantasma_baston.txt");
+        break;
+      default:
+        cout<<"Hada: Con que pelearas con tus garra eh."<<endl;
+        break;
+      }
+      break;
+    case 8:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/hada/hada_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/hada/hada_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/hada/hada_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/hada/hada_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/hada/hada_baston.txt");
+        break;
+      default:
+        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        break;
+      }
+      break;
+    case 9:
+      switch (llaveInventarioGlobal)
+      {
+      case 1:
+        cout << "Garra aplicada";
+        break;
+      case 2:
+        imp.imprimirArchivo(" ascii/grifo/grifo_espada_1.txt");
+        break;
+      case 3:
+        imp.imprimirArchivo(" ascii/grifo/grifo_espada_2.txt");
+        break;
+      case 4:
+        imp.imprimirArchivo(" ascii/grifo/grifo_arco.txt");
+        break;
+      case 5:
+        imp.imprimirArchivo(" ascii/grifo/grifo_hacha.txt");
+        break;
+      case 6:
+        imp.imprimirArchivo(" ascii/grifo/grifo_baston.txt");
+        break;
+      default:
+        cout << "Lorenzo: veo que solo traes tus garras" << endl;
+        break;
+      }
+      break;
+    default:
+      break;
+    }
+  }
   void init_Combate()
   {
-
     cout << "COMBATE!!" << endl;
     string mensaje_encuentro = enemigo->getNombre() + " quiere pelear!!";
     cout << mensaje_encuentro << endl;
@@ -54,9 +281,11 @@ public:
       // Ambos siguen vivos.
       if (jugador->getVida() >= 0 && enemigo->getVida() >= 0)
       {
-        cout<<"\n"<<endl;
+        cout << "\n"
+             << endl;
         turnoJugador(jugador, enemigo);
-        cout<<"\n"<<endl;
+        cout << "\n"
+             << endl;
         turnoEnemigo(vidaInit, stamInit);
       }
 
@@ -65,31 +294,31 @@ public:
       {
         break;
       }
-
-      // Imprime tu vida y estamina despues de cada golpe.
+      // Mostrar dibujos.
+      //  Imprime tu vida y estamina despues de cada golpe.
       mostrar_vida();
-      cout<<"----------------------"<<endl;
+      cout << "----------------------" << endl;
     }
     // Sistema de recompensa de evees, restaura valores.
     sisEvees(jugador, enemigo);
   }
 
-  int init_menu(map<int, string> comandos)
+  int init_menuCombate(map<int, string> comandos)
   {
-    //Prueba esto, tal vez lo quites.
+    // Prueba esto, tal vez lo quites.
     system("cls");
     int valorSeleccionado;
     valorSeleccionado = 0;
     char tecla;
     cout << "Presiona las teclas de flecha arriba o abajo (Esc para salir):" << endl;
-    string apuntado = "->";
+
     // Opcion es el valor elegido que es regresado.
     int opcion = 1;
     while (true)
     {
       system("cls");
       mostrar_vida();
-      cout<<"----------------------"<<endl;
+      cout << "----------------------" << endl;
 
       Interfaz::print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
@@ -202,6 +431,7 @@ public:
   // Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
   void mostrar_vida()
   {
+
     string mensaje_mostrarVida = "vida  -----  ";
     string mensaje_mostrarEstamina = "Estamina ----- ";
 
@@ -210,7 +440,8 @@ public:
     cout << enemigo->getVida() << endl;
     cout << mensaje_mostrarEstamina;
     cout << enemigo->getStamina() << endl;
-    cout<<"\n"<<endl;
+    cout << "\n"
+         << endl;
     cout << jugador->getNombre() << endl;
     cout << mensaje_mostrarVida;
     cout << jugador->getVida() << endl;
@@ -224,9 +455,9 @@ public:
     string mensaje_Usado = " ha usado ";
     if (turnoJugador)
     {
-      //Mensaje de has usado
+      // Mensaje de has usado
       cout << jugador->getNombre() << mensaje_Usado;
-       
+
       switch (tipoAtaque)
       {
       case 1:
@@ -248,11 +479,10 @@ public:
         cerr << "no no... en selectAtaque de enemigo (。_。)";
         break;
       }
-      
     }
     else
     {
-      //Mensja de enemigo al usar ataque.
+      // Mensja de enemigo al usar ataque.
       cout << enemigo->getNombre() << mensaje_Usado;
 
       switch (tipoAtaque)
@@ -276,10 +506,9 @@ public:
         cerr << "no no... pero en selectAtaque de enemigo (。_。)";
         break;
       }
-       // pausa para leer el pinshe mensaje
+      // pausa para leer el pinshe mensaje
       sleep_for(chrono::seconds(5));
     }
-    
   }
 
   /*SISTEMA DE EVEES, por temas de simplicidad, elije un atributo al azar
@@ -409,7 +638,7 @@ public:
         menuOpciones[2] = "  Usar inventario";
         // muestra menu de atacar o usar inventario.
         int opciones;
-        opciones = init_menu(menuOpciones);
+        opciones = init_menuCombate(menuOpciones);
         if (opciones == 1)
         {
           // Crea menu de opciones.
@@ -421,12 +650,13 @@ public:
           int tipoAtaque;
           // Menú para seleccionar el ataque
           string msj_eligeUnAtaque = "Elige un ataque: ";
-          tipoAtaque = Interfaz::init_menu(msj_eligeUnAtaque,menuOpciones);
+          tipoAtaque = Interfaz::init_menu(false, msj_eligeUnAtaque, menuOpciones);
           // Calcula la estamina usada por cada ataque
           jugador->getStamina() >= 0 ? jugador->setStamina(jugador->getStamina() - calcularEstamina(tipoAtaque))
                                      : jugador->setStamina(0);
           // Seleccionar ataque
-          cout<<"\n"<<endl;
+          cout << "\n"
+               << endl;
           selectAtaque(tipoAtaque, true);
         }
         else
@@ -441,7 +671,7 @@ public:
         cout << "Estamina insuficiente, No puedes atacar!";
         menuOpciones[1] = "  Regresar";
         menuOpciones[2] = "  Usar inventario";
-        opciones = init_menu(menuOpciones);
+        opciones = init_menuCombate(menuOpciones);
 
         if (opciones == 1)
         {
@@ -466,20 +696,20 @@ public:
 
   // Permite usar el inventario dentro de combate.
   void usarInventarioEnCombate()
-  {   
-      //NOTA: no se guarda en vector<int> porque me arroja una referencia.
-      //Se resta 1 porque queremos la posicion del vector<string> 
-      int posicionLLave=Auxiliares::init_menuInventario(jugador)-1;
-      
-    
-      string llaveActual=jugador->IDsOpcionesMenuInventario.at(posicionLLave);
-      int llave=stoi(llaveActual);
-      Auxiliares::utilizarInventario(jugador,llave, posicionLLave); //4
+  {
 
+    // NOTA: no se guarda en vector<int> porque me arroja una referencia.
+    // Se resta 1 porque queremos la posicion del vector<string>
+    int posicionLLave = Auxiliares::init_menuInventario(jugador) - 1;
+
+    string llaveActual = jugador->IDsOpcionesMenuInventario.at(posicionLLave);
+    int llave = stoi(llaveActual);
+    llaveInventarioGlobal = llave;
+    Auxiliares::utilizarInventario(jugador, llave, posicionLLave); // 4
 
     // casos:es garra, equipar, es potenciador,
     /*true true, true false,false false*/
-    
+
     // si solo hay un objeto y es garra. Equipar garra.
   }
 };

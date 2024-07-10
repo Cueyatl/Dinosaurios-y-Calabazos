@@ -321,7 +321,7 @@ public:
       }
       catch (const std::exception &e)
       {
-        cerr << "error en crear pointer Lobo, checa EnemigosV2.seleccionarTipoClase()" << e.what() << '\n';
+        cerr << "error en crear pointer Jabali, checa EnemigosV2.seleccionarTipoClase()" << e.what() << '\n';
       }
       break;
     case 2:

@@ -1,7 +1,9 @@
+#ifndef IMPRIMIR_ZOMBIE_H
+#define IMPRIMIR_ZOMBIE_H
 #include "Imprimir_ASCII.h"
 class I_Zombie{
     public:
-        LibreriaASCII* zombie = new LibreriaASCII();
+        Imprimir_ASCII* zombie = new Imprimir_ASCII();
         void imprimir_zombie_arco(){
             zombie->imprimirArchivo("zombie_arco.txt");
         }
@@ -17,4 +19,5 @@ class I_Zombie{
         void imprimir_zombie_hacha(){
             zombie->imprimirArchivo("zombie_hacha.txt");
         }
-}
+};
+#endif ///*define*/

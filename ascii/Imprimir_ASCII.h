@@ -1,26 +1,26 @@
-#ifndef LIBRERIAASCII
-#define LIBRERIAASCII
+#ifndef IMPRIMIR_ASCII_H
+#define IMPRIMIR_ASCII_H
 
 
-#include "alertas/Alertas.h"
-#include "armas/Armas.h"
-#include "Enemigos/Dinosaurio/Imprimir_Dinosaurio.h"
-#include "Enemigos/Esqueleto/Imprimir_Esqueleto.h"
-#include "Enemigos/Fantasma/Imprimir_Fantasma.h"
-#include "Enemigos/Grifo/Imprimir_Grifo.h"
-#include "Enemigos/Hada/Imprimir_Hada.h"
-#include "Enemigos/Lobo/Imprimir_Lobo.h"
-#include "Enemigos/Oso/Imprimir_Oso.h"
-#include "Enemigos/Peppa/Imprimir_Peppa.h"
-#include "Enemigos/Zombie/Imprimir_Zombie.h"
-#include "Objetos/Imprimir_Objetos.h"
-#include "Pasillo/Imprimir_Pasillo.h"
+// #include "alertas/Alertas.h"
+// #include "armas/Armas.h"
+// #include "enemigos/dinosaurio/Imprimir_Dinosaurio.h"
+// #include "enemigos/esqueleto/Imprimir_Esqueleto.h"
+// #include "enemigos/fantasma/Imprimir_Fantasma.h"
+// #include "enemigos/grifo/Imprimir_Grifo.h"
+// #include "enemigos/hada/Imprimir_Hada.h"
+// #include "enemigos/lobo/Imprimir_Lobo.h"
+// #include "enemigos/oso/Imprimir_Oso.h"
+// #include "enemigos/peppa/Imprimir_Peppa.h"
+// #include "enemigos/zombie/Imprimir_Zombie.h"
+// #include "objetos/Imprimir_Objetos.h"
+// #include "pasillo/Imprimir_Pasillo.h"
 #include <iostream>
 #include <fstream>
 #include <thread>
 #include <vector>
 using namespace std;
-class LibreriaASCII{
+class Imprimir_ASCII{
 	public:
 		void imprimirArchivo(string nombre){
 			string linea;
@@ -57,4 +57,4 @@ class LibreriaASCII{
 	return 0;
 }*/
 
-#endif //LIBRERIAASCII
+#endif //IMPRIMIR_ASCII_H

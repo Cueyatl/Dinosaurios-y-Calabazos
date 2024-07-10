@@ -1,11 +1,11 @@
-// archivo:LibreriaAscii
+// archivo:Imprimir_ASCII
 // autor: Daniel Emiliano Lopez Aguilar
 //  fecha: 5/27/2024
 /* descripción:
  * Libreria que contiene funciones y string[] para el manejo de dibujos ASCII.
  */
-#ifndef LIBRERIAASCII_H
-#define LIBRERIAASCII_H
+#ifndef Imprimir_ASCII_H
+#define Imprimir_ASCII_H
 
 
 #include <iostream>
@@ -240,5 +240,5 @@ const string glock22[11] = {
   
 // }
 
-#endif //LIBRERIAASCII_H
+#endif //Imprimir_ASCII_H
 

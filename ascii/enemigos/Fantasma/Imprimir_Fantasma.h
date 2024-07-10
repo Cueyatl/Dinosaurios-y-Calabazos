@@ -1,7 +1,9 @@
+#ifndef IMPRIMIR_FANTASMA_H
+#define IMPRIMIR_FANTASMA_H
 #include "Imprimir_ASCII.h"
 class I_Fantasma{
     public:
-        LibreriaASCII* fantasma = new LibreriaASCII();
+        Imprimir_ASCII* fantasma = new Imprimir_ASCII();
         void imprimir_fantasma_arco(){
             fantasma->imprimirArchivo("fantasma_arco.txt");
         }
@@ -17,4 +19,5 @@ class I_Fantasma{
         void imprimir_fantasma_hacha(){
             fantasma->imprimirArchivo("fantasma_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_FANTASMA_H

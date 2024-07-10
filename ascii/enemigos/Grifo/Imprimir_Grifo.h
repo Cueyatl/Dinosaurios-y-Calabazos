@@ -1,7 +1,11 @@
+#ifndef IMPRIMIR_GRIFO_H
+#define IMPRIMIR_GRIFO_H
+
+
 #include "Imprimir_ASCII.h"
 class I_Grifo{
     public:
-        LibreriaASCII* grifo = new LibreriaASCII();
+        Imprimir_ASCII* grifo = new Imprimir_ASCII();
         void imprimir_grifo_arco(){
             grifo->imprimirArchivo("grifo_arco.txt");
         }
@@ -17,4 +21,5 @@ class I_Grifo{
         void imprimir_grifo_hacha(){
             grifo->imprimirArchivo("grifo_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_GRIFO_H

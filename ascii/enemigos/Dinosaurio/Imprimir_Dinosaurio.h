@@ -1,7 +1,12 @@
+#ifndef IMPRIMIR_DINOSAURIO_H
+#define IMPRIMIR_DINOSAURIO_H
+
+
+
 #include "Imprimir_ASCII.h"
-class I_Dinosaurio{
+class Imprimir_Dinosaurio{
     public:
-        LibreriaASCII* dinosaurio = new LibreriaASCII();
+        Imprimir_ASCII* dinosaurio = new Imprimir_ASCII();
         void imprimir_dinosaurio_arco(){
             dinosaurio->imprimirArchivo("dinosaurio_arco.txt");
         }
@@ -17,4 +22,5 @@ class I_Dinosaurio{
         void imprimir_dinosaurio_hacha(){
             dinosaurio->imprimirArchivo("dinosaurio_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_DINOSAURIO_H

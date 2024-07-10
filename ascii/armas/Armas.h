@@ -5,7 +5,7 @@
 #include "Imprimir_ASCII.h"
 class Armas{
     public:
-        LibreriaASCII* armas = new LibreriaASCII();
+        Imprimir_ASCII* armas = new Imprimir_ASCII();
         void imprimir_arco(){
             armas->imprimirArchivo("arco.txt");
         }

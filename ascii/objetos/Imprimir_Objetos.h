@@ -1,7 +1,11 @@
+#ifndef IMPRIMIR_OBJETOS_H
+#define IMPRIMIR_OBJETOS_H
+
+
 #include "Imprimir_ASCII.h"
 class I_Objetos{
     public:
-        LibreriaASCII* objetos = new LibreriaASCII();
+        Imprimir_ASCII* objetos = new Imprimir_ASCII();
         void imprimir_amuleto(){
             objetos->imprimirArchivo("amuleto.txt");
         }
@@ -17,4 +21,5 @@ class I_Objetos{
         void imprimir_pocion_3(){
             objetos->imprimirArchivo("pocion_3.txt");
         }
-}
+};
+#endif //IMPRIMIR_OBJETOS_H

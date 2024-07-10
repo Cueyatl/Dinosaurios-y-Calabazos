@@ -1,7 +1,11 @@
+#ifndef IMPRIMIR_OSO_H
+#define IMPRIMIR_OSO_H
+
+
 #include "Imprimir_ASCII.h"
 class I_Oso{
     public:
-        LibreriaASCII* oso = new LibreriaASCII();
+        Imprimir_ASCII* oso = new Imprimir_ASCII();
         void imprimir_oso_arco(){
             oso->imprimirArchivo("oso_arco.txt");
         }
@@ -17,4 +21,5 @@ class I_Oso{
         void imprimir_oso_hacha(){
             oso->imprimirArchivo("oso_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_OSO_H

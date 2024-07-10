@@ -64,23 +64,42 @@ Magia: n
 #include <conio.h>
 #include <thread>
 #include <map>
+#include "ascii/Imprimir_ASCII.h"
 using namespace std;
 using namespace this_thread;
 
 class Interfaz
 {
 private:
+  void asistenteDibujitos(int opcion)
+  {
+    cout << opcion;
+    Imprimir_ASCII ascii;
+    if (opcion == 1)
+    {
+      ascii.imprimirArchivo("ascii/alertas/menu_juego_1.txt");
+    }
+    else if (opcion == 2)
+    {
+      ascii.imprimirArchivo("ascii/alertas/menu_juego_2.txt");
+    }
+    else
+    {
+      ascii.imprimirArchivo("ascii/alertas/menu_juego_3.txt");
+    }
+  };
+
 public:
-//TRABAJAR EN ESTO DESPUES.
+  // TRABAJAR EN ESTO DESPUES.
   void efecto_intermitente(vector<string> opciones, int opcion, float tiempoParpadeo, string mensaje)
   {
     for (size_t i = 0; i < 5; i++)
     {
       cout << "---------------------------------";
-      cout << "   "+mensaje;
+      cout << "   " + mensaje;
       // cout << opciones[opcion] << " seleccionado  ";
       cout << "---------------------------------";
-      //Espera el parpadeo.
+      // Espera el parpadeo.
       chrono::duration<double> wait_duration(tiempoParpadeo);
       sleep_for(wait_duration);
       system("cls");
@@ -92,50 +111,53 @@ public:
       system("cls");
     }
   }
-  
-  static void print_Menu(int seleccionado,map<int, string>  comandos)
+
+  // los mapas inician en uno.
+  static void print_Menu(int seleccionado, map<int, string> comandos)
   {
-    
+
     comandos[seleccionado].erase(0, 2);
     comandos[seleccionado] = "->" + comandos[seleccionado];
     for (auto i = comandos.begin(); i != comandos.end(); i++)
     {
-      cout << i->second<<endl;
+      cout << i->second << endl;
     }
   }
 
-  static int init_menu(string mensaje, map<int, string> comandos)
+  static int init_menu(bool dibujitos, string mensaje, map<int, string> comandos)
   {
     // Prueba, tal vez lo quitas despues.
-    system("cls");
     int valorSeleccionado;
-    valorSeleccionado=0;
+    valorSeleccionado = 0;
     char tecla;
     cout << "Presiona las teclas de flecha arriba o abajo (Esc para salir):" << endl;
-    string apuntado = "->";
-    //Opcion es el valor elegido que es regresado.
-    int opcion=1;
+
+    // Opcion es el valor elegido que es regresado.
+    int opcion = 1;
     while (true)
     {
-      
-      cout<<mensaje<<endl;
+      cout << mensaje << endl;
+      // modifica mensaje.
       print_Menu(opcion, comandos);
       tecla = _getch(); // Obtener la primera parte del código de la tecla
       if (tecla == 27)
       { // 27 es el código ASCII para Esc
-        valorSeleccionado=-1;
+        valorSeleccionado = -1;
         break;
       }
-      if (tecla == 13)
-      { // 13 es el código ASCII para Enter
-      //Activa la accion.
-      //Regresa el valor de la llave del mapa con i->first.
-      for (auto i =comandos.begin(); i !=comandos.end(); ++i) {
-      if (i->second==comandos.at( opcion))
+      if (tecla == 13) // 13 es el código ASCII para Enter
       {
-        valorSeleccionado=i->first;
-      }
-    }
+        system("cls");
+
+        // Activa la accion.
+        // Regresa el valor de la llave del mapa con i->first.
+        for (auto i = comandos.begin(); i != comandos.end(); ++i)
+        {
+          if (i->second == comandos.at(opcion))
+          {
+            valorSeleccionado = i->first;
+          }
+        }
         break;
       }
 
@@ -146,9 +168,23 @@ public:
         {
         case 72: // Flecha arriba
           opcion <= 1 ? opcion = comandos.size() : opcion -= 1;
+          // actualizacion
+          system("cls");
+          if (dibujitos)
+          {
+            Interfaz inter;
+            inter.asistenteDibujitos(opcion);
+          }
           break;
         case 80: // Flecha abajo
           opcion >= comandos.size() ? opcion = 1 : opcion += 1;
+          // actualizacion
+          system("cls");
+          if (dibujitos)
+          {
+            Interfaz inter;
+            inter.asistenteDibujitos(opcion);
+          }
           break;
         default:
 
@@ -160,12 +196,10 @@ public:
         // NO BORRAR HASTA QUE TERMINE EL DESARROLLO.
         cout << "Otra tecla presionada: " << static_cast<int>(tecla) << endl;
       }
-    system("cls");
-      
     }
     return valorSeleccionado;
   }
-  
+
   // Interfaz(/* args */);
   // ~Interfaz();
 };

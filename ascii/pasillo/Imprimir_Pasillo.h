@@ -1,7 +1,11 @@
+#ifndef IMPRIMIR_PASILLO_H
+#define IMPRIMIR_PASILLO_H
+
+
 #include "Imprimir_ASCII.h"
 class I_Pasillo{
     public:
-        LibreriaASCII* pasillo = new LibreriaASCII();
+        Imprimir_ASCII* pasillo = new Imprimir_ASCII();
         void imprimir_escena_1(){
             pasillo->imprimirArchivo("escena_1.txt");
         }
@@ -38,4 +42,5 @@ class I_Pasillo{
         void imprimir_escena_12(){
             pasillo->imprimirArchivo("escena_12.txt");
         }
-}
+};
+#endif //IMPRIMIR_PASILLO_H

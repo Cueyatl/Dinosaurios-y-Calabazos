@@ -10,6 +10,7 @@
 #include <thread>
 #include <vector>
 #include <algorithm>
+#include <map>
 using namespace std;
 using namespace this_thread;
 
@@ -18,6 +19,10 @@ class Auxiliares
 {
 private:
 public:
+
+// static map coutaMapa(){
+  
+// }
   // Metodo para equipar y desequipar armas y utilizar potenciadores (pociones y amuletos).
   static void utilizarInventario(unique_ptr<PersonajeV2> &jugador, int llave, int posicionLLave)
   {
@@ -128,7 +133,7 @@ public:
     else
     {
       string msj_SeleccionaInv="Selecciona un objeto de tu inventario";
-      valorSeleccionado = Interfaz::init_menu(msj_SeleccionaInv, menuInventario); // 1,2,3
+      valorSeleccionado = Interfaz::init_menu(false,msj_SeleccionaInv, menuInventario); // 1,2,3
       
       return valorSeleccionado;
     }

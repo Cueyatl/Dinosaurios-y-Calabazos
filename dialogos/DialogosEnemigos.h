@@ -1,20 +1,10 @@
 #include <iostream>
+
 using namespace std;
 class DialogosEnemigos{
 	public:
 		//Escoger clase
-		int Escoger_clase(){
-			cout<<"Escoje una clase: "<<endl;
-    		cout<<"1-. Espadachin."<<endl;
-    		cout<<"2-. Berserker."<<endl;
-    		cout<<"3-. Mago."<<endl;
-    		cout<<"4-. Sacerdote."<<endl;
-    		cout<<"5-. Ladron."<<endl;
-    		cout<<"6-. Arquero."<<endl;
-    		int clase;
-    		cin<<clase;
-			return clase;
-		}
+		
 		//Primera Narrativa
 		//cout string.
 		void Narrativa_1(){
@@ -280,10 +270,10 @@ class DialogosEnemigos{
 			cout<<"Dino agradecio y decidio proseguir su busqueda, aunque no tenia idea de a donde se dirigia"<<endl; 
 			cout<<"ni a quien se encontraria. Esta vez recorrio distintos pasadizos del calabozo que no tenia idea"<<endl;
 			cout<<"de donde estaban ni si estaba mas cerca o no de la salida. Hasta que, finalmente, se encontro"<<endl; 
-			cout<<"con Visent, el fantasma."<<endl;
+			cout<<"con Vincent, el fantasma."<<endl;
 		}
 		
-		//Visent
+		//Vincent
 		void Fantasma_1_1(){
 			cout<<"(con una voz eterea) Soy como un GPS para los errores. Solo dime donde te perdiste,"<<endl; 
 			cout<<"y te guiare hacia la solucion."<<endl;
@@ -308,7 +298,7 @@ class DialogosEnemigos{
 		
 		//Decima Narrativa
 		void Narrativa_17(){
-			cout<<"Y asi, con las palabras de Visent resonando en su mente, Dino continuo su busqueda. Dino avanzo"<<endl; 
+			cout<<"Y asi, con las palabras de Vincent resonando en su mente, Dino continuo su busqueda. Dino avanzo"<<endl; 
 			cout<<"con determinacion por los pasadizos oscuros del calabozo, sorteando trampas y enfrentando"<<endl;
 			cout<<"criaturas misteriosas. Cada paso lo acercaba al corazon de la fortaleza subterranea, donde"<<endl;
 			cout<<"aguardaba el enemigo final. "<<endl;

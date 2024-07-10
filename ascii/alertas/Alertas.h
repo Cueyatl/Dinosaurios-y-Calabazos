@@ -5,7 +5,7 @@
 #include "Imprimir_ASCII.h"
 class Alertas{
     public:
-        LibreriaASCII* alerta = new LibreriaASCII();
+        Imprimir_ASCII* alerta = new Imprimir_ASCII();
         void imprimir_menu_juego_1(){
             alerta->imprimirArchivo("menu_juego_1.txt");
         }
@@ -21,5 +21,5 @@ class Alertas{
         void imprimir_alerta_subirnivel(){
             alerta->imprimirArchivo("alerta_subirnivel.txt");
         }
-}
+};
 #endif //ALERTAS_H

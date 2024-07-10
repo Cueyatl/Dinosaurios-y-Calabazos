@@ -1,7 +1,13 @@
+#ifndef IMPRIMIR_LOBO_H
+#define IMPRIMIR_LOBO_H
+
+
+
+
 #include "Imprimir_ASCII.h"
 class I_Lobo{
     public:
-        LibreriaASCII* lobo = new LibreriaASCII();
+        Imprimir_ASCII* lobo = new Imprimir_ASCII();
         void imprimir_lobo_arco(){
             lobo->imprimirArchivo("lobo_arco.txt");
         }
@@ -17,4 +23,5 @@ class I_Lobo{
         void imprimir_lobo_hacha(){
             lobo->imprimirArchivo("lobo_hacha.txt");
         }
-}
+};
+#endif //IMPRIMIR_LOBO_H

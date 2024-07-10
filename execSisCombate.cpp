@@ -39,13 +39,7 @@ int main()
     try
     {   
         
-        // Guardando los valores iniciales de jugador par equipar/desequipar y usar pociones.
-        jugador->setTempAtaque(jugador->getAtaque());
-        jugador->setTempAgilidad(jugador->getAgilidad());
-        jugador->setTempDefensa(jugador->getDefensa());
-        jugador->setTempMagia(jugador->getMagia());
-        jugador->setTempStamina(jugador->getStamina());
-        jugador->setTempVida(jugador->getVida());
+
 
         // Instancia de sistema de combate v2. params: unique_ptr<PersonajeV2> jugador,unique_ptr<PersonajeV2> enemigo.
         SisCombateV2 combate(jugador, enemigo);
