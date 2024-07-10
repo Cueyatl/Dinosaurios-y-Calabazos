@@ -73,7 +73,7 @@ class Interfaz
 private:
   void asistenteDibujitos(int opcion)
   {
-    cout << opcion;
+    cout<<"Creado por Josseline Abundiz, Alberto Gonzalez y Emiliano Lopez."<<endl;
     Imprimir_ASCII ascii;
     if (opcion == 1)
     {

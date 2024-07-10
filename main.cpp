@@ -4,6 +4,7 @@ class Main
 {
 
 public:
+
     void ejecutarCombate(unique_ptr<PersonajeV2> &jugador, int claseEnemigo, string nombre)
     {
         EnemigosV2 objEnemigo;
@@ -80,9 +81,21 @@ public:
         cout << "Ingresa tu nombre:" << endl;
         string nombre;
         cin >> nombre;
-
+        //instancia de jugador uwu
         unique_ptr<PersonajeV2> jugador = objJugador.seleccionarTipoClase(opcionTipoClase, nombre);
-
+            jugador->agregarItem(2);
+            jugador->agregarItem(3);
+            jugador->agregarItem(4);
+            jugador->agregarItem(5);
+            jugador->agregarItem(6);
+            jugador->agregarItem(10);
+            jugador->agregarItem(11);
+            jugador->agregarItem(11);
+            jugador->agregarItem(12);
+            jugador->agregarItem(12);
+            jugador->agregarItem(13);
+            jugador->agregarItem(13);
+            
         // Guardando los valores iniciales de jugador par equipar armas y pociones.
         jugador->setTempAtaque(jugador->getAtaque());
         jugador->setTempAgilidad(jugador->getAgilidad());
@@ -106,6 +119,8 @@ public:
         conversarAtacar[2] = "  Atacar";
 
         // interfaz elige clases
+        system("cls");
+
         int opcionConversarAtacar = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
         if (opcionConversarAtacar == 1)
@@ -361,27 +376,33 @@ int main()
     string espadas = "                                   @xxxx[{::::::::::::::::::::::::::::::::::::::::::::::::>\n";
     cout << mensajito_cutre;
 
-    this_thread::sleep_for(chrono::seconds(1));
+    // this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre2;
-    this_thread::sleep_for(chrono::seconds(1));
+    // this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre3;
-    this_thread::sleep_for(chrono::seconds(1));
+    // this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre4 << endl;
-    this_thread::sleep_for(chrono::seconds(1));
+    // this_thread::sleep_for(chrono::seconds(1));
     cout << espadas;
     cout << mensajito_cutre5;
     cout << espadas;
-    this_thread::sleep_for(chrono::seconds(10));
+    // this_thread::sleep_for(chrono::seconds(10));
 
     system("cls");
+    cout<<"Creado por Josseline Abundiz, Alberto Gonzalez y Emiliano Lopez."<<endl;
+    string mensaje = "Usa las flechas para navegar, y enter para seleccionar";
 
-    string mensaje = "Creado por Josseline Abundiz, Alberto .. y Emiliano Lopez.";
+    
+    Imprimir_ASCII ascii;
+    ascii.imprimirArchivo("ascii/alertas/menu_juego_1.txt");
+
     int initPrograma;
     comandosMenuInit[1] = "i";
     comandosMenuInit[2] = "c";
     comandosMenuInit[3] = "s";
     cout << initPrograma;
     // while loop para el menu principal
+
     while (initPrograma != 3)
     {
         initPrograma = Interfaz::init_menu(true, mensaje, comandosMenuInit);
@@ -403,6 +424,7 @@ int main()
             Imprimir_ASCII ascii;
             ascii.imprimirArchivo("ascii/alertas/creditos.txt");
             initPrograma = Interfaz::init_menu(true, mensaje, comandosCreditos);
+            ascii.imprimirArchivo("ascii/alertas/menu_juego_1.txt");
         }
         else
         {

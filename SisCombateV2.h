@@ -36,7 +36,7 @@ public:
   {
     Imprimir_ASCII imp;
     vector<string> nombres = {"Peppa","Pedro el lobo", "Oso maloso", "Dino Dani", "Huesos", "Zombie?","Vincent", "Lucero", "Lorenzo el Grifo"};
-    int switchCase;
+    int switchCase; //7.
     for (size_t i = 0; i < nombres.size(); i++)
     {
       if (nombre == nombres[i])
@@ -69,7 +69,7 @@ public:
         imp.imprimirArchivo(" ascii/lobo/lobo_baston.txt");
         break;
       default:
-        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        cout << "Jajaja solo con tus garras?" << endl;
         break;
       }
       break;
@@ -146,7 +146,7 @@ public:
         imp.imprimirArchivo(" ascii/esqueleto/esqueleto_baston.txt");
         break;
       default:
-        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        cout << "Que esperas que te de un abrazo?" << endl;
         break;
       }
       break;
@@ -172,7 +172,7 @@ public:
         imp.imprimirArchivo(" ascii/zombie/zombie_baston.txt");
         break;
       default:
-        cout << "Hada: Con que pelearas con tus garra eh." << endl;
+        cout << "... (te mira en silencio.)" << endl;
         break;
       }
       break;
@@ -198,7 +198,7 @@ public:
         imp.imprimirArchivo(" ascii/fantasma/fantasma_baston.txt");
         break;
       default:
-        cout<<"Hada: Con que pelearas con tus garra eh."<<endl;
+        cout<<"Perdiste tus armas acaso?"<<llaveInventarioGlobal<<endl;
         break;
       }
       break;
@@ -263,6 +263,7 @@ public:
     cout << "COMBATE!!" << endl;
     string mensaje_encuentro = enemigo->getNombre() + " quiere pelear!!";
     cout << mensaje_encuentro << endl;
+    sleep_for(3s);
 
     // Guarda los valores  inicales de enemigo. (sisEvees)
 
@@ -287,6 +288,7 @@ public:
         cout << "\n"
              << endl;
         turnoEnemigo(vidaInit, stamInit);
+        
       }
 
       // Alguno de los dos está muerto, no tiene caso volver a atacar.
@@ -296,6 +298,7 @@ public:
       }
       // Mostrar dibujos.
       //  Imprime tu vida y estamina despues de cada golpe.
+      
       mostrar_vida();
       cout << "----------------------" << endl;
     }
@@ -317,7 +320,9 @@ public:
     while (true)
     {
       system("cls");
-      mostrar_vida();
+      mostrar_ascii(jugador->getNombre());
+      mostrar_vida(); //en while
+
       cout << "----------------------" << endl;
 
       Interfaz::print_Menu(opcion, comandos);
@@ -442,7 +447,7 @@ public:
   // Muestra la vida y la estamina de jugador y enemigo despues de darse de madrasos.
   void mostrar_vida()
   {
-
+    mostrar_ascii(enemigo->getNombre());  
     string mensaje_mostrarVida = "vida  -----  ";
     string mensaje_mostrarEstamina = "Estamina ----- ";
 
@@ -463,6 +468,7 @@ public:
   // Selecciona ataque con un switch, funciona en turnoJugador y turnoEnemigo.
   void selectAtaque(int tipoAtaque, bool turnoJugador)
   {
+
     string mensaje_Usado = " ha usado ";
     if (turnoJugador)
     {
@@ -517,8 +523,8 @@ public:
         cerr << "no no... pero en selectAtaque de enemigo (。_。)";
         break;
       }
-      // pausa para leer el pinshe mensaje
-      sleep_for(chrono::seconds(5));
+      // modificacion.
+      // sleep_for(chrono::seconds(5));
     }
   }
 
