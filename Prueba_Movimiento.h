@@ -1,3 +1,7 @@
+#ifndef PRUEBA_MOVIMIENTO_H
+#define PRUEBA_MOVIMIENTO_H
+
+
 #include <iostream>
 #include <vector>
 #include <thread>
@@ -307,4 +311,5 @@ int main(){
 		user->transicion();
 	}
 	return 0;
-}
+};
+#endif //PRUEBA_MOVIMIENTO_H

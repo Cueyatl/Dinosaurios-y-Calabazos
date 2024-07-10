@@ -1,0 +1,14 @@
+//OBLIGATORIOS PARA QUE JALE ESTE BISNE
+  srand(time(NULL)); // Semilla para generar numero aleatorio.
+   JugadorV2 jugadorId; //Crea jugador
+   EnemigosV2 enemigoId; //Crea enemigo
+    unique_ptr<PersonajeV2> jugador = jugadorId.seleccionarTipoClase(1, "Jugador");  //Selecciona la clase de jugador.
+    unique_ptr<PersonajeV2> enemigo = jugadorId.seleccionarTipoClase(1, "enemigo");  //Selecciona la clase de enemigo.
+
+//FIN DE OBLIGATORIOS PARA QUE JALE ESTE BISNE
+
+
+TEMPORALMENTE 
+
+  por ahora solo ejecuta execSisCombate.
+
