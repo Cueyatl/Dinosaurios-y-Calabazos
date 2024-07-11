@@ -1,7 +1,7 @@
 // archivo:Interfaz.h
 // autor: Daniel Emiliano Lopez Aguilar
 //  fecha: julio 2024.
-/* descripción: Clase para ejecutar la interfaz de usuario,
+/* descripcion: Clase para ejecutar la interfaz de usuario,
   ESTRUCTURA DE MENU:
 
 Nombre
@@ -139,13 +139,13 @@ public:
       cout << mensaje << endl;
       // modifica mensaje.
       print_Menu(opcion, comandos);
-      tecla = _getch(); // Obtener la primera parte del código de la tecla
+      tecla = _getch(); // Obtener la primera parte del codigo de la tecla
       if (tecla == 27)
-      { // 27 es el código ASCII para Esc
+      { // 27 es el codigo ASCII para Esc
         valorSeleccionado = -1;
         break;
       }
-      if (tecla == 13) // 13 es el código ASCII para Enter
+      if (tecla == 13) // 13 es el codigo ASCII para Enter
       {
         system("cls");
 
@@ -163,7 +163,7 @@ public:
 
       if (tecla == -32)
       {                   // -32 indica una tecla especial
-        tecla = _getch(); // Obtener la segunda parte del código de la tecla
+        tecla = _getch(); // Obtener la segunda parte del codigo de la tecla
         switch (tecla)
         {
         case 72: // Flecha arriba

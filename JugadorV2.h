@@ -108,7 +108,7 @@ public:
   }
   double ataque_3() override
   { // Renombrado de ataqueRugidoMagico
-    cout << "Ataque Rugido Mágico!!" << endl;
+    cout << "Ataque Rugido Magico!!" << endl;
     return getMagia() * 1 + getAtaque() * 0.5 + getDefensa() * 0.3;
   }
   double ataque_4() override
@@ -123,7 +123,7 @@ public:
 
   string a_2_ataque() override { return "Ataque Bola Oscura"; }
 
-  string a_3_ataque() override { return "Ataque Rugido Mágico"; }
+  string a_3_ataque() override { return "Ataque Rugido Magico"; }
   
   string a_4_ataque() override { return "Ataque Meteoro Cataclismico"; }
 };
@@ -222,7 +222,7 @@ public:
 
   double ataque_2() override
   {
-    cout << "Ataque Flecha Rápida!!" << endl;
+    cout << "Ataque Flecha Rapida!!" << endl;
     return getMagia() * 2 + getAtaque() * 1.7 + getDefensa() * 1.5;
   }
 
@@ -234,18 +234,18 @@ public:
 
   double ataque_4() override
   {
-    cout << "Ataque Flecha Extinción!!" << endl;
+    cout << "Ataque Flecha Extincion!!" << endl;
     return getMagia() * 0.5 + getMagia() * 0.8 + getAgilidad() * 0.9;
   }
   // -----------------------------------
   // Nombres de los ataques para mostrarlos en el menu de ataque.
   string a_1_ataque() override { return "Ataque Disparo"; }
 
-  string a_2_ataque() override { return "Ataque Flecha Rápida"; }
+  string a_2_ataque() override { return "Ataque Flecha Rapida"; }
 
   string a_3_ataque() override { return "Ataque Dino Flecha"; }
 
-  string a_4_ataque() override { return "Ataque Flecha Extinción"; }
+  string a_4_ataque() override { return "Ataque Flecha Extincion"; }
 };
 
 class JugadorV2

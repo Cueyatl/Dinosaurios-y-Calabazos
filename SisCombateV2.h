@@ -16,7 +16,7 @@
 
 using namespace std;
 
-// NOTA: metodos ordenados de manera alfabetica, excepto init_Combate(), está al inicio e iniciliza el combate.
+// NOTA: metodos ordenados de manera alfabetica, excepto init_Combate(), esta al inicio e iniciliza el combate.
 class SisCombateV2
 {
 public:
@@ -291,7 +291,7 @@ public:
         
       }
 
-      // Alguno de los dos está muerto, no tiene caso volver a atacar.
+      // Alguno de los dos esta muerto, no tiene caso volver a atacar.
       else if (jugador->getVida() <= 0 || enemigo->getVida() <= 0)
       {
         break;
@@ -326,14 +326,14 @@ public:
       cout << "----------------------" << endl;
 
       Interfaz::print_Menu(opcion, comandos);
-      tecla = _getch(); // Obtener la primera parte del código de la tecla
+      tecla = _getch(); // Obtener la primera parte del codigo de la tecla
       if (tecla == 27)
-      { // 27 es el código ASCII para Esc
+      { // 27 es el codigo ASCII para Esc
         valorSeleccionado = -1;
         break;
       }
       if (tecla == 13)
-      { // 13 es el código ASCII para Enter
+      { // 13 es el codigo ASCII para Enter
         // Activa la accion.
         // Regresa el valor de la llave del mapa con i->first.
         for (auto i = comandos.begin(); i != comandos.end(); ++i)
@@ -348,7 +348,7 @@ public:
 
       if (tecla == -32) // -32 indica una tecla especial
       {
-        tecla = _getch(); // Obtener la segunda parte del código de la tecla
+        tecla = _getch(); // Obtener la segunda parte del codigo de la tecla
         switch (tecla)
         {
         case 72: // Flecha arriba
@@ -665,7 +665,7 @@ public:
           menuOpciones[3] = "  " + jugador->a_3_ataque();
           menuOpciones[4] = "  " + jugador->a_4_ataque();
           int tipoAtaque;
-          // Menú para seleccionar el ataque
+          // Menu para seleccionar el ataque
           string msj_eligeUnAtaque = "Elige un ataque: ";
           tipoAtaque = Interfaz::init_menu(false, msj_eligeUnAtaque, menuOpciones);
           // Calcula la estamina usada por cada ataque

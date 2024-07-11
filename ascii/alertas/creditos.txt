@@ -25,7 +25,7 @@
 |                                Arte ASCII                                                       |
 |                                                                                                 |
 |                                Desarrollador                     Alberto                        |
-|                                Sistema de Impresión                                             |
+|                                Sistema de Impresion                                             |
 |                                Insercion de Dialogos                                            |
 |                                                                                                 |
 |                                Colaborador en Desarrollo         Alberto                        |

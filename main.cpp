@@ -4,7 +4,7 @@ class Main
 {
 
 public:
-
+    
     void ejecutarCombate(unique_ptr<PersonajeV2> &jugador, int claseEnemigo, string nombre)
     {
         EnemigosV2 objEnemigo;
@@ -111,6 +111,8 @@ public:
         ascii->transicion(7);
         dialogo->Narrativa_5();
         ascii->transicion(5);
+        system("cls");
+
         // opcion de interfaz
         string mensaje_eligeOpcion = "Selecciona una opcion: ";
 
@@ -142,6 +144,8 @@ public:
             ascii->transicion(6);
             dialogo->Oso_1_4();
             ascii->transicion(7);
+
+            system("cls");
         }
         else if (opcionConversarAtacar == 2)
         {
@@ -153,6 +157,8 @@ public:
         ascii->transicion(7);
         dialogo->Narrativa_7();
         ascii->transicion(10);
+        system("cls");
+
         int encuentro2 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
         if (encuentro2 == 1)
@@ -179,6 +185,7 @@ public:
         // Narrativa parte 4
         dialogo->Narrativa_8();
         ascii->transicion(7);
+        system("cls");
 
         int encuentro3 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
@@ -201,6 +208,8 @@ public:
             ascii->transicion(4);
             dialogo->Dinosaurio_1_4();
             ascii->transicion(6);
+            system("cls");
+
         }
         else if (encuentro3 == 2)
         {
@@ -210,6 +219,7 @@ public:
         // Narrativa parte 5
         dialogo->Narrativa_9();
         ascii->transicion(4);
+        system("cls");
 
         int encuentro4 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
@@ -226,6 +236,8 @@ public:
             ascii->transicion(3);
             dialogo->Hada_1_3();
             ascii->transicion(9);
+            system("cls");
+
         }
         else if (encuentro4 == 2)
         {
@@ -237,6 +249,8 @@ public:
         ascii->transicion(12);
         dialogo->Narrativa_11();
         ascii->transicion(3);
+        system("cls");
+
         int encuentro5 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
         if (encuentro5 == 1)
@@ -254,6 +268,8 @@ public:
             ascii->transicion(6);
             dialogo->Jugador_6_3();
             ascii->transicion(3);
+            system("cls");
+
         }
         else if (encuentro5 == 2)
         {
@@ -265,6 +281,7 @@ public:
         ascii->transicion(9);
         dialogo->Narrativa_13();
         ascii->transicion(4);
+        system("cls");
         int encuentro6 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
         if (encuentro6 == 1)
@@ -278,6 +295,7 @@ public:
             ascii->transicion(4);
             dialogo->Jugador_7_2();
             ascii->transicion(4);
+            system("cls");
         }
         else if (encuentro6 == 1)
         {
@@ -289,6 +307,7 @@ public:
         ascii->transicion(12);
         dialogo->Narrativa_15();
         ascii->transicion(9);
+        system("cls");
 
         int encuentro7 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
         if (encuentro7 == 1)
@@ -304,6 +323,7 @@ public:
             ascii->transicion(3);
             dialogo->Esqueleto_1_3();
             ascii->transicion(4);
+            system("cls");
         }
         else if (encuentro7== 2)
         {
@@ -313,6 +333,7 @@ public:
         // Narrativa parte 9
         dialogo->Narrativa_16();
         ascii->transicion(15);
+        system("cls");
         int encuentro8 = Interfaz::init_menu(false, mensaje_eligeOpcion, conversarAtacar);
 
         if (encuentro8 == 1)
@@ -328,6 +349,7 @@ public:
             ascii->transicion(4);
             dialogo->Fantasma_1_3();
             ascii->transicion(12);
+            system("cls");
         }
         else if (encuentro8 == 2)
         {
@@ -339,12 +361,14 @@ public:
         ascii->transicion(14);
         dialogo->Narrativa_18();
         ascii->transicion(11);
+        system("cls");
 
         // Peppa Forma Final y Dino
         dialogo->Jugador_10_1();
         ascii->transicion(4);
         dialogo->Peppa_2_1();
         ascii->transicion(5);
+        system("cls");
 
         // Inicia Combate con Peppa
         ejecutarCombate(jugador, 1, "Peppa");
@@ -360,6 +384,7 @@ public:
         ascii->transicion(9);
         dialogo->Narrativa_23();
         ascii->transicion(12);
+        system("cls");
     }
 };
 
@@ -373,20 +398,25 @@ int main()
     string mensajito_cutre3 = "                   una palabra sin acento puede tener otro significado, pero aqui estamos en el negocio\n";
     string mensajito_cutre4 = "                   de hacer juegos, no de jugar con palabras. Apreciamos su comprension. \n";
     string mensajito_cutre5 = "                               Atte. El equipo de Dinosaurios y calabozos  \n";
-    string espadas = "                                   @xxxx[{::::::::::::::::::::::::::::::::::::::::::::::::>\n";
+    string espadas = "                              @xxxx[{::::::::::::::::::::::::::::::::::::::::::::::::>\n";
+    system("cls");
+    cout<<"\n"<<endl;
+    cout<<"\n"<<endl;
+    cout<<"\n"<<endl;
+    cout<<"\n"<<endl;
     cout << mensajito_cutre;
 
-    // this_thread::sleep_for(chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre2;
-    // this_thread::sleep_for(chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre3;
-    // this_thread::sleep_for(chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     cout << mensajito_cutre4 << endl;
-    // this_thread::sleep_for(chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     cout << espadas;
     cout << mensajito_cutre5;
     cout << espadas;
-    // this_thread::sleep_for(chrono::seconds(10));
+    this_thread::sleep_for(chrono::seconds(10));
 
     system("cls");
     cout<<"Creado por Josseline Abundiz, Alberto Gonzalez y Emiliano Lopez."<<endl;

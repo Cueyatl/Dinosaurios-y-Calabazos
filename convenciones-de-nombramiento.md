@@ -5,7 +5,7 @@ Todas las entidades nombradas deben de tener un estilo de ***camelCase*** y esta
 int alcanceDeAtaque;
 string itemDeInventario;
 ```
-Existen exepciones para palabras en inglés como para ***getters*** y ***setters***
+Existen exepciones para palabras en ingles como para ***getters*** y ***setters***
 ```cpp
 getNombre();
 SetAlcanceDeAtaque();

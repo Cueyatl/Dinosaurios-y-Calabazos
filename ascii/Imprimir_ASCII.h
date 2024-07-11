@@ -41,7 +41,7 @@ class Imprimir_ASCII{
 		}
 		void transicion(int segundos){
 			this_thread::sleep_for(chrono::seconds(segundos));
-			system("cls");
+			// system("cls");
 		}
 };
 /*int main(){

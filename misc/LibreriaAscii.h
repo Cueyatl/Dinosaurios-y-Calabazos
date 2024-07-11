@@ -1,7 +1,7 @@
 // archivo:Imprimir_ASCII
 // autor: Daniel Emiliano Lopez Aguilar
 //  fecha: 5/27/2024
-/* descripción:
+/* descripcion:
  * Libreria que contiene funciones y string[] para el manejo de dibujos ASCII.
  */
 #ifndef Imprimir_ASCII_H

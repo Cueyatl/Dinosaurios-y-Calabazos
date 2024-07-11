@@ -6,7 +6,7 @@ Proyecto de tercer parcial, segundo semestre de clase de programación orientada
 ## **Índice**   
 1.- [Convenciones de nombramiento](#Convenciones-de-nombramiento)  
 2.- [Comandos de Git](#Comandos-de-Git)  
-3.- [¿Qué es un RPG?](#Qué-es-un-RPG)  
+3.- [¿Que es un RPG?](#Que-es-un-RPG)  
 4.- [Recursos para dibujos ASCII](#Recursos-para-dibujos-ASCII)  
 5.- [Utilizar Cpp en VsCode](#Utilizar-Cpp-en-VsCode)  
 
@@ -18,7 +18,7 @@ Todas las entidades nombradas deben de tener un estilo de ***camelCase*** y esta
 int alcanceDeAtaque;
 string itemDeInventario;
 ```
-Existen exepciones para palabras en inglés como para ***getters*** y ***setters***
+Existen exepciones para palabras en ingles como para ***getters*** y ***setters***
 ```cpp
 getNombre();
 SetAlcanceDeAtaque();
@@ -62,7 +62,7 @@ class Persona{
 |--------------|------------------------------------------------------------------------------|
 | `git init`   | Crea un nuevo repositorio local en tu computadora para tu proyecto.         |
 | `git clone`  | Clona un repositorio existente desde GitHub a tu computadora.               |
-| `git add`    | Agrega archivos modificados al área de preparación para su posterior envío. |
+| `git add`    | Agrega archivos modificados al area de preparación para su posterior envío. |
 | `git commit` | Guarda los cambios preparados con un mensaje descriptivo.                   |
 | `git branch` | Te permite crear, cambiar y eliminar ramas dentro de tu proyecto.           |
 | `git checkout` | Cambia entre diferentes ramas de tu proyecto.                            |
@@ -72,10 +72,10 @@ class Persona{
 | `git status`   | Nos muestra información sobre la rama actual.                               |
 
 ---------------
-**Para más información sobre el uso de los comandos de Git visita:**  
+**Para mas información sobre el uso de los comandos de Git visita:**  
 https://www.freecodecamp.org/espanol/news/10-comandos-de-git-que-todo-desarrollador-deberia-saber/
 
-## ¿Qué es un RPG?
+## ¿Que es un RPG?
 
 Un juego RPG es un tipo de videojuego en el que los jugadores asumen los roles de personajes en un mundo ficticio. Los jugadores actúan y toman decisiones que afectan la historia y el desarrollo de sus personajes. Estos juegos a menudo se centran en la narrativa y el desarrollo del personaje, con una gran cantidad de opciones y libertades para el jugador.
 
@@ -85,11 +85,11 @@ Un juego RPG es un tipo de videojuego en el que los jugadores asumen los roles d
 
 * **Desarrollo de Personajes:** A medida que avanzan en el juego, los personajes ganan experiencia, suben de nivel y mejoran sus habilidades y estadísticas.
 
-* **Exploración:** Los jugadores exploran mundos extensos y detallados, que pueden ser mundos abiertos o más lineales, llenos de misiones, secretos y lugares por descubrir.
+* **Exploración:** Los jugadores exploran mundos extensos y detallados, que pueden ser mundos abiertos o mas lineales, llenos de misiones, secretos y lugares por descubrir.
 
 * **Historia y Toma de Decisiones:** Los RPGs suelen tener historias profundas con múltiples ramificaciones. Las decisiones del jugador pueden afectar el curso de la historia, los personajes que encuentran y el final del juego.
 
-* **Combate:** El combate puede variar desde turnos tradicionales hasta combates en tiempo real. Los jugadores utilizan una variedad de tácticas, habilidades y equipos para derrotar enemigos.
+* **Combate:** El combate puede variar desde turnos tradicionales hasta combates en tiempo real. Los jugadores utilizan una variedad de tacticas, habilidades y equipos para derrotar enemigos.
 
 * **Misión y Objetivos:** Los jugadores completan misiones y objetivos dados por NPCs (Personajes No Jugadores), que ayudan a avanzar en la trama y proporcionar recompensas.
 
@@ -100,18 +100,18 @@ Un juego RPG es un tipo de videojuego en el que los jugadores asumen los roles d
 
 * **Mundo Rico y Detallado:** Los mundos en los RPGs son inmersivos, con una rica historia y contexto que los jugadores pueden explorar.
 
-* **Sistema de Progresión:** Los personajes evolucionan a lo largo del juego, volviéndose más fuertes y adquiriendo nuevas habilidades.
+* **Sistema de Progresión:** Los personajes evolucionan a lo largo del juego, volviendose mas fuertes y adquiriendo nuevas habilidades.
 
 * **Interacción y Elección:** La interacción con otros personajes y las decisiones del jugador son fundamentales, afectando el desarrollo del juego.
 
-### **¿Por qué son exitosos los RPG?**
+### **¿Por que son exitosos los RPG?**
 **Inmersión:** La capacidad de perderse en un mundo detallado y vivir una historia hace que los RPGs sean extremadamente atractivos.
 
 **Rejugabilidad:** Las diferentes elecciones y caminos en la historia aumentan el valor de rejugabilidad.
 
 **Desarrollo de Personajes:** La satisfacción de ver cómo los personajes crecen y se desarrollan es muy gratificante.
 
-**Narrativa Enganchadora:** Las historias bien escritas capturan y mantienen el interés de los jugadores.
+**Narrativa Enganchadora:** Las historias bien escritas capturan y mantienen el interes de los jugadores.
 
 **Comunidad y Cultura:** Muchos RPGs tienen comunidades fuertes que crean contenido adicional, mods, y fanfics, extendiendo la vida útil del juego.
 
@@ -123,7 +123,7 @@ Un juego RPG es un tipo de videojuego en el que los jugadores asumen los roles d
 
  **Ejemplo:**
 
-En juegos como Final Fantasy y The Elder Scrolls, los personajes suben de nivel y mejoran sus estadísticas básicas como salud, magia, fuerza y agilidad.
+En juegos como Final Fantasy y The Elder Scrolls, los personajes suben de nivel y mejoran sus estadísticas basicas como salud, magia, fuerza y agilidad.
 
 
 #### Equipamiento y Objetos
@@ -133,7 +133,7 @@ Ejemplo: En Diablo, los personajes obtienen botines de enemigos y cofres, y el e
 
 #### Perfeccionamiento de Habilidades
 
-En algunos juegos, los personajes mejoran sus habilidades individuales mediante el uso continuo. Cuanto más usas una habilidad, mejor te vuelves en ella.  
+En algunos juegos, los personajes mejoran sus habilidades individuales mediante el uso continuo. Cuanto mas usas una habilidad, mejor te vuelves en ella.  
 
 **Ejemplo:**
 
@@ -141,45 +141,45 @@ En The Elder Scrolls V: Skyrim, si usas mucho la magia de destrucción, tu habil
 
 #### Reputación y Relaciones
 
-El progreso también puede venir a través de la mejora de la reputación del personaje con diferentes facciones o mediante el desarrollo de relaciones con otros personajes.  
+El progreso tambien puede venir a traves de la mejora de la reputación del personaje con diferentes facciones o mediante el desarrollo de relaciones con otros personajes.  
 
 **Ejemplo:**
 
 En Dragon Age, tus acciones y decisiones afectan cómo los diferentes personajes y facciones te ven, lo cual puede desbloquear nuevas misiones y oportunidades.
 #
 *Cómo la Toma de Decisiones Afecta la Historia del Juego
-Uno de los aspectos más fascinantes de los RPGs es **cómo las decisiones del jugador pueden influir en la narrativa del juego.*** Aquí te explico algunas maneras en que esto ocurre:
+Uno de los aspectos mas fascinantes de los RPGs es **cómo las decisiones del jugador pueden influir en la narrativa del juego.*** Aquí te explico algunas maneras en que esto ocurre:
 
 ### **Ramas Narrativas**
 
 #### Las decisiones clave pueden llevar la historia en direcciones completamente diferentes.
  Estas decisiones a menudo ocurren en momentos críticos y pueden cambiar el curso de la historia.
 
-**Ejemplo:** En Mass Effect, tus decisiones a lo largo de la trilogía afectan quién vive, quién muere, y el destino de la galaxia.
+**Ejemplo:** En Mass Effect, tus decisiones a lo largo de la trilogía afectan quien vive, quien muere, y el destino de la galaxia.
 
 #### Relaciones y Lealtades
 
 Las interacciones con otros personajes pueden cambiar dependiendo de tus decisiones, afectando tus relaciones y las alianzas que puedes formar.
 
-**Ejemplo:** En The Witcher 3: Wild Hunt, tus elecciones afectan tus relaciones con personajes como Triss y Yennefer, y pueden llevar a diferentes desenlaces románticos y alianzas.
+**Ejemplo:** En The Witcher 3: Wild Hunt, tus elecciones afectan tus relaciones con personajes como Triss y Yennefer, y pueden llevar a diferentes desenlaces romanticos y alianzas.
 
 #### Consecuencias Morales
 
 Las decisiones pueden tener consecuencias morales que afectan cómo los personajes y el mundo reaccionan ante ti.
 
-**Ejemplo:** En Fable, si decides ser un héroe o un villano, el mundo cambiará para reflejar tus acciones, afectando la apariencia del personaje y cómo reaccionan los NPCs.
+**Ejemplo:** En Fable, si decides ser un heroe o un villano, el mundo cambiara para reflejar tus acciones, afectando la apariencia del personaje y cómo reaccionan los NPCs.
 
 #### Desbloqueo de Contenido
 
-Algunas decisiones pueden desbloquear o bloquear contenido, como misiones, áreas, y finales específicos.
+Algunas decisiones pueden desbloquear o bloquear contenido, como misiones, areas, y finales específicos.
 
-**Ejemplo:** En Undertale, la manera en que tratas a los monstruos (luchando o perdonándolos) determina qué finales puedes ver.
+**Ejemplo:** En Undertale, la manera en que tratas a los monstruos (luchando o perdonandolos) determina que finales puedes ver.
 
 #### Impacto en el Mundo del Juego
 
 Tus decisiones pueden tener un impacto visible en el mundo del juego, alterando el entorno, la política, y la vida cotidiana de los NPCs.
 
-**Ejemplo:** En Fallout: New Vegas, tus decisiones afectan el control de diferentes facciones sobre el desierto de Mojave, cambiando el estado político del área y el comportamiento de los habitantes.
+**Ejemplo:** En Fallout: New Vegas, tus decisiones afectan el control de diferentes facciones sobre el desierto de Mojave, cambiando el estado político del area y el comportamiento de los habitantes.
 
 ## Recursos para dibujos ASCII
 #### Texto ASCII
@@ -202,7 +202,7 @@ Para configurar Visual Studio Code (VS Code) para programar en C++ desde cero, s
 
 ### 1. Instalar Visual Studio Code
 
-1. Ve a la [página de descargas de VS Code](https://code.visualstudio.com/Download).
+1. Ve a la [pagina de descargas de VS Code](https://code.visualstudio.com/Download).
 2. Descarga la versión adecuada para tu sistema operativo (Windows, macOS, Linux).
 3. Instala VS Code siguiendo las instrucciones del instalador.
 
@@ -333,8 +333,8 @@ int main() {
 
 ### 6. Verificar la salida
 
-1. Si la compilación es exitosa, verás el ejecutable en la carpeta del proyecto.
-2. La salida del programa se mostrará en el panel de depuración.
+1. Si la compilación es exitosa, veras el ejecutable en la carpeta del proyecto.
+2. La salida del programa se mostrara en el panel de depuración.
 
 Con estos pasos, deberías tener tu entorno de desarrollo en VS Code configurado y listo para programar en C++.           
                                         

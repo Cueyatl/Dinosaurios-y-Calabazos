@@ -23,7 +23,7 @@ struct datosItem
   int cantidad; // Agregado para contar la cantidad de cada objeto
 };
 
-// Definir los objetos de inventario con un identificador único
+// Definir los objetos de inventario con un identificador unico
 //id, nombre, descipcion, peso, ataque, magia, defensa, agilidad,vida, bool reutilizable, cantidad.
 map<int, datosItem> objetosInventario = {
     {1, {"A garra limpia", "Sin armas! Ahora SI es una pelea justa", 0, 0, 0, 0, 0, 0, true, 1}},
@@ -111,11 +111,11 @@ public:
     try
     {
       auto item = items.find(llave);
-      // Caso éxito me da los parámetros de la struct "datosItem",
+      // Caso exito me da los parametros de la struct "datosItem",
       // como es un map(), se encuentran en item->second
       return item != items.end() ? &item->second : nullptr;
     }
-    // Se agregó un catch, si existe un error es muy probable que sea aquí,
+    // Se agrego un catch, si existe un error es muy probable que sea aqui,
     // SisInventario.agregarItem() funciona como un primer filtro para posibles problemas.
     catch (const exception &e)
     {
@@ -124,7 +124,7 @@ public:
     }
   }
 
-  // Imprimir atributos de objeto. No mostrar elementos si están en 0.
+  // Imprimir atributos de objeto. No mostrar elementos si estan en 0.
   void mostrarItem(const int &llave) const
   {
     try
@@ -170,7 +170,7 @@ public:
 
   void eliminarItem(const int &llave, int posicionLLave)
   {
-    // Throw error no se encontró, otro error desconocido catch{}
+    // Throw error no se encontro, otro error desconocido catch{}
     try
     {
       auto item = items.find(llave);

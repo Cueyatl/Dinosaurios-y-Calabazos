@@ -9,7 +9,7 @@ class DialogosEnemigos{
 		//cout string.
 		void Narrativa_1(){
 			cout<<"Habia una vez un pequeno dinosaurio llamado Dino, quien vivia en un videojuego el cual era"<<endl;
-	 		cout<<"su mundo principal, no imaginaba que más podia haber fuera de su mundo hasta que un dia"<<endl;
+	 		cout<<"su mundo principal, no imaginaba que mas podia haber fuera de su mundo hasta que un dia"<<endl;
 			cout<<"cayo en otro mundo, un mundo subterraneo. Este mundo estaba lleno de oscuros pasadizos,"<<endl; 
 			cout<<"antorchas parpadeantes y extranas criaturas. Dino era un velociraptor curioso y valiente,"<<endl; 
 			cout<<"siempre en busca de emocionantes desafios."<<endl;
@@ -30,7 +30,7 @@ class DialogosEnemigos{
 			cout<<"Claro confia en mi, he estado aqui por mucho tiempo y conozco el calabozo mejor que nadie."<<endl;
 		}
 		void Jugador_1_2(){
-			cout<<"Que alegría!!!.... por supuesto confio en ti."<<endl;
+			cout<<"Que alegria!!!.... por supuesto confio en ti."<<endl;
 		}
 		
 		//Segunda Narrativa
@@ -72,7 +72,7 @@ class DialogosEnemigos{
 		}
 		void Oso_1_4(){
 			cout<<"(pensativo) Tal vez pueda ayudarte a salir de esta parte del calabozo. Veras, tengo conmigo una llave"<<endl;
-			cout<<"mágica que abre todas las puertas del castillo. Pero hay un precio: necesito que me ayudes a encontrar"<<endl;
+			cout<<"magica que abre todas las puertas del castillo. Pero hay un precio: necesito que me ayudes a encontrar"<<endl;
 			cout<<"algo muy valioso en lo mas profundo de este lugar."<<endl;
 		}
 		
@@ -157,7 +157,7 @@ class DialogosEnemigos{
 		//Lucero
 		void Hada_1_1(){
 			cout<<"(con una risa plateada) ¡Saludos, querido viajero! Soy Lucero, el hada de la luz y los"<<endl; 
-			cout<<"secretos. ¿Ves cómo brillan mis alas? Son como diminutas estrellas en la noche."<<endl;
+			cout<<"secretos. ¿Ves como brillan mis alas? Son como diminutas estrellas en la noche."<<endl;
 		}
 		void Jugador_5_1(){
 			cout<<"(asombrado) Wow, tus alas son hermosas. Eres un hada magica?"<<endl;
@@ -181,7 +181,7 @@ class DialogosEnemigos{
 			cout<<"Dino avanzo por el calabozo, sus patas temblando en la penumbra. Las paredes estaban"<<endl; 
 			cout<<"cubiertas de musgo y las raices se retorcian como dedos huesudos. Dino continuo su camino."<<endl;
 			cout<<"Las sombras se cerraban a su alrededor, pero algo en su corazon le decia que la respuesta"<<endl;
-			cout<<"estaba cerca. Solo tenía que seguir adelante, confiar en la magia y, tal vez, reir un poco en el camino."<<endl;
+			cout<<"estaba cerca. Solo tenia que seguir adelante, confiar en la magia y, tal vez, reir un poco en el camino."<<endl;
 		}
 		void Narrativa_11(){
 			cout<<"Cuando de pronto escucho a alguien decir:"<<endl;
@@ -196,7 +196,7 @@ class DialogosEnemigos{
 		}
 		void Zombie_1_2(){
 			cout<<"(ignorando la pregunta) Eso no importa. Lo que realmente importa es…"<<endl; 
-			cout<<"sabes cómo metes a un elefante en la nevera?"<<endl;
+			cout<<"sabes como metes a un elefante en la nevera?"<<endl;
 		}
 		void Jugador_6_2(){
 			cout<<"(confundido) Que tiene que ver un elefante y una nevera en todo esto?"<<endl;
@@ -230,7 +230,7 @@ class DialogosEnemigos{
 			cout<<"Recuerda, las pociones regeneran tu vida y te dan poderes. No subestimes su valor en este lugar oscuro."<<endl;
 		}
 		void Jugador_7_2(){
-			cout<<"Buena tactica, venid, sigamos. La salida está cerca, lo se."<<endl;
+			cout<<"Buena tactica, venid, sigamos. La salida esta cerca, lo se."<<endl;
 		}
 		
 		//Octava Narrativa
@@ -292,8 +292,8 @@ class DialogosEnemigos{
 		void Fantasma_1_3(){
 			cout<<"(con una risa melancolica) Imagina que eres un explorador en busca del Santo Grial."<<endl; 
 			cout<<"Explora, ajusta y sigue adelante! No temas a los callejones sin salida ni a las puertas cerradas."<<endl;
-			cout<<"A veces, la solución está justo detrás de la siguiente esquina. Y recuerda, Dino, la verdadera"<<endl; 
-			cout<<"magia está en la perseverancia y la curiosidad. "<<endl;
+			cout<<"A veces, la solucion esta justo detras de la siguiente esquina. Y recuerda, Dino, la verdadera"<<endl; 
+			cout<<"magia esta en la perseverancia y la curiosidad. "<<endl;
 		}
 		
 		//Decima Narrativa
@@ -311,7 +311,7 @@ class DialogosEnemigos{
 		
 		//Peppa Boss Final
 		void Jugador_10_1(){
-			cout<<"Tu… fuiste el primero con el que interactue al llegar aqui. Por qué?"<<endl;
+			cout<<"Tu… fuiste el primero con el que interactue al llegar aqui. Por que?"<<endl;
 		}
 		void Peppa_2_1(){
 			cout<<"Soy la guardiana de este calabozo, y tu eres el ultimo eslabon en mi cadena de prisioneros."<<endl;
@@ -330,12 +330,12 @@ class DialogosEnemigos{
 			cout<<"Las cadenas de los prisioneros se rompieron, y sus almas se elevaron hacia la luz."<<endl;
 		}
 		void Narrativa_22(){
-			cout<<"Dino sabia que habia cumplido su misión. Ahora, con la salida al alcance, miro atras una última"<<endl; 
+			cout<<"Dino sabia que habia cumplido su mision. Ahora, con la salida al alcance, miro atras una ultima"<<endl; 
 			cout<<"vez. Gracias!! susurro a las almas liberadas. Vuelvan a casa!."<<endl;
 		}
 		void Narrativa_23(){
-			cout<<"Y asi, Dino emergio del calabozo, la luz del día cegandolo. Habia vencido a Peppa, pero tambien"<<endl; 
-			cout<<"había liberado a todos los cautivos. La aventura habia terminado, pero Dino sabia que su historia"<<endl; 
+			cout<<"Y asi, Dino emergio del calabozo, la luz del dia cegandolo. Habia vencido a Peppa, pero tambien"<<endl; 
+			cout<<"habia liberado a todos los cautivos. La aventura habia terminado, pero Dino sabia que su historia"<<endl; 
 			cout<<"viviria en las leyendas de este lugar."<<endl;
 		}
 };

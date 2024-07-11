@@ -9,7 +9,7 @@ class Jabali : public PersonajeV2
 {
 public:
   Jabali(string nombre)
-      : PersonajeV2(nombre, 75, 75, 15, 2, 9, 9) {}
+      : PersonajeV2(nombre, 150, 125, 16, 4, 8, 6) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -42,7 +42,7 @@ class Lobo : public PersonajeV2
 {
 public:
   Lobo(string nombre)
-      : PersonajeV2(nombre, 125, 85, 13, 2, 9, 11) {}
+      : PersonajeV2(nombre, 110, 85, 13, 3, 9, 11) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -75,7 +75,7 @@ class Oso : public PersonajeV2
 {
 public:
   Oso(string nombre)
-      : PersonajeV2(nombre, 140, 100, 18, 0, 12, 5) {}
+      : PersonajeV2(nombre, 60, 100, 10, 0, 10, 5) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -108,7 +108,7 @@ class Dinosaurio : public PersonajeV2
 {
 public:
   Dinosaurio(string nombre)
-      : PersonajeV2(nombre, 150, 150, 20, 0, 10, 5) {}
+      : PersonajeV2(nombre, 80, 150, 12, 0, 9, 4) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -141,7 +141,7 @@ class Esqueleto : public PersonajeV2
 {
 public:
   Esqueleto(string nombre)
-      : PersonajeV2(nombre, 100, 75, 16, 0, 8, 11) {}
+      : PersonajeV2(nombre, 100, 75, 14, 0, 8, 10) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -174,7 +174,7 @@ class Zombie : public PersonajeV2
 {
 public:
   Zombie(string nombre)
-      : PersonajeV2(nombre, 125, 100, 14, 8, 7, 6) {}
+      : PersonajeV2(nombre, 100, 100, 14, 8, 6, 6) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -207,7 +207,7 @@ class Fantasma : public PersonajeV2
 {
 public:
   Fantasma(string nombre)
-      : PersonajeV2(nombre, 125, 100, 7, 12, 8, 8) {}
+      : PersonajeV2(nombre, 110, 100, 6, 13, 9, 8) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -226,7 +226,7 @@ public:
 
   double ataque_3() override
   {
-    cout << "Ataque Posesión Demoníaca" << endl;
+    cout << "Ataque Posesion Demoniaca" << endl;
     return getMagia() * 0.7 + getAgilidad() * 1.8 + getAtaque() * 0.5;
   }
 
@@ -240,7 +240,7 @@ class Hada : public PersonajeV2
 {
 public:
   Hada(string nombre)
-      : PersonajeV2(nombre, 80, 100, 4, 13, 10, 8) {}
+      : PersonajeV2(nombre, 90, 100, 4, 12, 8, 10) {}
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
   string a_3_ataque() override {return "";};
@@ -253,7 +253,7 @@ public:
 
   double ataque_2() override
   {
-    cout << "Ataque Polvos Mágicos" << endl;
+    cout << "Ataque Polvos Magicos" << endl;
     return getMagia() * 0.6 + getMagia() * 1.2 + getAtaque() * 1.5;
   }
 
@@ -273,7 +273,7 @@ class Grifo : public PersonajeV2
 {
 public:
   Grifo(string nombre)
-      : PersonajeV2(nombre, 150, 120, 14, 7, 10, 4) {}
+      : PersonajeV2(nombre, 70, 120, 10, 6, 9, 4) {}
 
   string a_1_ataque() override {return "";};
   string a_2_ataque() override {return "";};
